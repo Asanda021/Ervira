@@ -40,6 +40,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P33 — StructuralPro flagship status:** clear product positioning.
 - **P34 — Pricing principles:** scalable and transparent commercial structure.
 - **P35 — Support center:** FAQ, issue and feature-request readiness.
+- **P36 — Trust layer:** public trust and product-quality signals.
+- **P37 — Product model:** independent products with shared ecosystem principles.
+- **P38 — StructuralPro workflow:** public flagship workflow.
+- **P39 — Commercial readiness:** checkout, payment and entitlement boundaries.
+- **P40 — Identity/workspace mapping:** unified user, license and project model.
 
 ## Site architecture
 - Home / product-led landing

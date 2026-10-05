@@ -107,3 +107,6 @@ A version tag must pass repository metadata validation before production release
 
 ## P179 — Production hardening checklist
 Security and production checks: RLS enabled on private commerce data; payment verification server-side; license issuance server-side; frontend never sets paid status; secrets remain server-side; missing gateway/release artifacts fail closed; mobile and reduced-motion behavior must remain usable.
+
+## P183–P189 Production gate
+Payment provider activation requires a real merchant account and server-side secret configuration. The browser may only receive public configuration. Production activation requires create-payment, callback, server-side verification, paid transition, and license issuance smoke tests.

@@ -16,6 +16,10 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P9 — Commercial platform:** pricing models, licensing paths and secure payment/activation architecture.
 - **P10 — Documentation:** product guide, quick-start flow, outputs and FAQ center.
 - **P11 — Trust center:** privacy, terms, security and intellectual-property foundation.
+- **P12 — Platform status:** public operational/status layer for website and product ecosystem.
+- **P13 — Navigation integration:** connect store, docs, dashboard and account journeys.
+- **P14 — Product UX polish:** improve StructuralPro and store conversion paths.
+- **P15 — Pre-backend readiness:** prepare the public frontend for backend/API integration.
 
 ## Site architecture
 - Home / product-led landing

@@ -104,3 +104,6 @@ A customer entitlement maps a license to a product plan. Customer downloads must
 
 ## P166 — Release readiness gate
 A version tag must pass repository metadata validation before production release. This gate does not publish binaries automatically; it only validates release prerequisites until official product artifacts are available.
+
+## P179 — Production hardening checklist
+Security and production checks: RLS enabled on private commerce data; payment verification server-side; license issuance server-side; frontend never sets paid status; secrets remain server-side; missing gateway/release artifacts fail closed; mobile and reduced-motion behavior must remain usable.

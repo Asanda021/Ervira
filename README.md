@@ -65,6 +65,12 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P58 — StructuralPro flagship readiness:** flagship quality baseline.
 - **P59 — Support escalation:** structured issue resolution path.
 - **P60 — Platform release baseline:** shared readiness standard for ERVIRA products.
+- **P61 — Platform observability:** public service and release health foundation.
+- **P62 — Product versioning:** independent version and compatibility model.
+- **P63 — StructuralPro release flow:** controlled build-to-release pipeline.
+- **P64 — Commercial controls:** checkout, payment, license and entitlement chain.
+- **P65 — Identity controls:** user, role, license and access boundaries.
+- **P66 — Workspace controls:** project, report, license and activity state.
 
 ## Site architecture
 - Home / product-led landing

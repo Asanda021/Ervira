@@ -85,3 +85,7 @@ These should be connected at the final integration stage when the corresponding 
 ## P133 — secure pending-order backend
 
 The first production backend boundary is now active as Supabase Edge Function `create-pending-order` with JWT verification enabled. The public checkout sends only product/plan identifiers; the function authenticates the user, resolves the active product and plan from the database, reads the authoritative price server-side, reuses an existing pending order when available, and creates a new pending order otherwise. Payment secrets are not exposed to the browser.
+
+
+## Payment Adapter Contract
+Production payment integration is provider-neutral: create a payment attempt from the server-side order amount, store provider/reference, redirect to the gateway, and verify the callback on the server before marking an order paid. The frontend never marks an order paid. The callback endpoint currently fails closed until a real gateway is configured.

@@ -145,3 +145,6 @@ Release gate: production payment and software downloads remain disabled until re
 
 ## P160 — Release Channels
 ERVIRA releases use stable/beta/alpha channels. Production customer delivery must use stable releases only; pre-release channels are not customer downloads unless explicitly enabled for testing.
+
+## P168 — Release checklist
+Before customer release: verify product artifact, version, channel=stable, release notes, download entitlement, license mapping, payment verification, and post-release smoke test. If any item is missing, do not expose a customer download.

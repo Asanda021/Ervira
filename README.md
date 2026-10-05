@@ -91,6 +91,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P88 — Static asset audit:** missing-file and path consistency baseline.
 - **P89 — Responsive regression:** desktop/tablet/mobile consistency baseline.
 - **P90 — Launch gate:** consolidated release checklist before custom-domain activation.
+- **P91 — Browser security baseline:** MIME and permissions policy.
+- **P92 — Domain readiness:** custom-domain configuration checklist.
+- **P93 — HTTPS readiness:** certificate and secure-transport verification checklist.
+- **P94 — Cache/release hygiene:** deployment freshness and cache-control review.
+- **P95 — Final sign-off:** ERVIRA website release candidate sign-off before domain cutover.
 
 ## Site architecture
 - Home / product-led landing

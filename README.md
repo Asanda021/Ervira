@@ -45,6 +45,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P38 — StructuralPro workflow:** public flagship workflow.
 - **P39 — Commercial readiness:** checkout, payment and entitlement boundaries.
 - **P40 — Identity/workspace mapping:** unified user, license and project model.
+- **P41 — Product governance:** scope, versioning and release gates.
+- **P42 — Product lifecycle:** idea-to-improvement flow.
+- **P43 — StructuralPro quality gate:** review, regression and sign-off readiness.
+- **P44 — Entitlement model:** user, plan, license and access boundaries.
+- **P45 — Release process:** change, review, verify and publish workflow.
 
 ## Site architecture
 - Home / product-led landing

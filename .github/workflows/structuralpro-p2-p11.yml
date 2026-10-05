@@ -1,0 +1,15 @@
+name: StructuralPro ERVIRA P2-P11 parity
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/validate-structuralpro-p2-p11.mjs

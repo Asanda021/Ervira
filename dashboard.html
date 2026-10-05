@@ -24,7 +24,7 @@
 <div class="dashboard-note"><b>لایسنس</b><span data-license-detail>هنوز لایسنس فعالی برای این حساب ثبت نشده است.</span></div>
 <section class="section workspace-orders"><div class="section-head"><div><span class="kicker">ORDER HISTORY</span><h2>سوابق خرید</h2></div><p>وضعیت سفارش‌های این حساب از دیتابیس نمایش داده می‌شود.</p></div><div class="docs-grid" data-order-history><span>در حال بارگذاری…</span></div></section></section>
 <section class="section workspace-ready"><div class="section-head"><div><span class="kicker">WORKSPACE</span><h2>یک مرکز برای پروژه‌ها و محصولات.</h2></div><p>حساب کاربری به‌عنوان هویت مشترک ERVIRA استفاده می‌شود.</p></div><div class="docs-grid"><span>Projects</span><span>Products</span><span>Licenses</span><span>Reports</span></div></section>
-<section class="workspace-card" style="margin-top:24px"><div class="section-kicker">LICENSE CENTER</div><h2>مرکز لایسنس</h2><p class="workspace-muted">لایسنس‌های خریداری‌شده و وضعیت فعال‌سازی شما.</p><div id="licenseCenter" class="dashboard-note">در حال بارگذاری…</div></section></main>
+<section class="workspace-card" style="margin-top:24px"><div class="section-kicker">LICENSE CENTER</div><h2>مرکز لایسنس</h2><p class="workspace-muted">لایسنس‌های خریداری‌شده و وضعیت فعال‌سازی شما.</p><div id="licenseCenter" class="dashboard-note">در حال بارگذاری…</div><div id="licenseActions" style="margin-top:12px"></div></section></main>
 <footer><div class="footer-brand"><b>ERVIRA</b><span>Engineering Software House</span></div><span>© 2026 ERVIRA</span><a href="index.html">خانه</a></footer>
 <script src="js/app.js"></script><script src="js/auth-config.js"></script>
 <script>
@@ -70,7 +70,7 @@ else{
    q('[data-license-summary]').textContent=active.length?'لایسنس فعال دارید.':'لایسنس فعالی ثبت نشده است.';
    if(active[0]){
     const p=planMap.get(active[0].product_plan_id), prod=p?productMap.get(p.product_id):null;
-    q('[data-license-detail]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):'');
+    q('[data-license-detail]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):''); const center=q('#licenseCenter'); if(center){center.innerHTML='<strong>License Key</strong><br><code>'+String(active[0].license_key||'—')+'</code>';} const act=q('#licenseActions'); if(act)act.innerHTML='<a class="btn ghost" href="downloads.html">مرکز دریافت نرم‌افزار ←</a>';
    }
   }
   q('[data-profile-summary]').textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');

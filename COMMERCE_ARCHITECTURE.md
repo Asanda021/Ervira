@@ -101,3 +101,6 @@ Release artifacts must be published from a verified release pipeline and referen
 
 ## P161 — Version entitlement
 A customer entitlement maps a license to a product plan. Customer downloads must match the licensed product/plan and an explicitly published stable release. Never substitute another product or release.
+
+## P166 — Release readiness gate
+A version tag must pass repository metadata validation before production release. This gate does not publish binaries automatically; it only validates release prerequisites until official product artifacts are available.

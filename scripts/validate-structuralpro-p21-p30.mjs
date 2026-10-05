@@ -1,0 +1,5 @@
+const fs=require("fs"),path=require("path"),https=require("https");
+const root=process.cwd(),ids=Array.from({length:10},(_,i)=>"p"+String(i+21).padStart(2,"0"));
+function read(p){return JSON.parse(fs.readFileSync(path.join(root,p),"utf8"))}
+function fetchJson(url){return new Promise((ok,no)=>https.get(url,r=>{let d="";r.on("data",c=>d+=c);r.on("end",()=>r.statusCode===200?ok(JSON.parse(d)):no(Error("HTTP "+r.statusCode)))}).on("error",no))}
+(async()=>{const c=await fetchJson("https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json");for(const id of ids){const d=read("website/data/structuralpro-"+id+".json");if(d.product_id!==c.product_id||d.parent_platform!=="ERVIRA"||d.version!==c.product.current_version||d.phase!==id.toUpperCase())throw Error("Parity mismatch "+id)}const p26=read("website/data/structuralpro-p26.json");if(p26.integrity.download_enabled!==false)throw Error("Download gate violated");const p30=read("website/data/structuralpro-p30.json");if(p30.governance.release_ready)throw Error("Governance gate violated");console.log("P21-P30 parity PASS")})().catch(e=>{console.error(e);process.exit(1)})

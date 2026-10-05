@@ -1,0 +1,5 @@
+const fs=require("fs"),path=require("path"),https=require("https");
+const root=process.cwd(), ids=Array.from({length:9},(_,i)=>"p"+String(i+12).padStart(2,"0"));
+function read(p){return JSON.parse(fs.readFileSync(path.join(root,p),"utf8"))}
+function fetchJson(url){return new Promise((ok,no)=>https.get(url,r=>{let d="";r.on("data",c=>d+=c);r.on("end",()=>r.statusCode===200?ok(JSON.parse(d)):no(new Error("HTTP "+r.statusCode)))}).on("error",no))}
+(async()=>{const c=await fetchJson("https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json");for(const id of ids){const d=read("website/data/structuralpro-"+id+".json");if(d.product_id!==c.product_id||d.parent_platform!=="ERVIRA"||d.version!==c.product.current_version||d.phase!==id.toUpperCase())throw Error("Parity mismatch "+id)}const d=read("website/data/structuralpro-p20.json");if(d.release_ready||Object.values(d.gates).some(Boolean))throw Error("E2E gate violated");console.log("P12-P20 parity PASS")})().catch(e=>{console.error(e);process.exit(1)})

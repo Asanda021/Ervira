@@ -22,7 +22,7 @@
 <div class="dashboard-note"><b>حساب فعال</b><span data-dashboard-status>در حال بررسی نشست امن کاربر…</span></div>
 <div class="dashboard-note"><b>آخرین سفارش</b><span data-last-order>هنوز سفارشی ثبت نشده است.</span></div>
 <div class="dashboard-note"><b>لایسنس</b><span data-license-detail>هنوز لایسنس فعالی برای این حساب ثبت نشده است.</span></div>
-</section>
+<section class="section workspace-orders"><div class="section-head"><div><span class="kicker">ORDER HISTORY</span><h2>سوابق خرید</h2></div><p>وضعیت سفارش‌های این حساب از دیتابیس نمایش داده می‌شود.</p></div><div class="docs-grid" data-order-history><span>در حال بارگذاری…</span></div></section></section>
 <section class="section workspace-ready"><div class="section-head"><div><span class="kicker">WORKSPACE</span><h2>یک مرکز برای پروژه‌ها و محصولات.</h2></div><p>حساب کاربری به‌عنوان هویت مشترک ERVIRA استفاده می‌شود.</p></div><div class="docs-grid"><span>Projects</span><span>Products</span><span>Licenses</span><span>Reports</span></div></section>
 </main>
 <footer><div class="footer-brand"><b>ERVIRA</b><span>Engineering Software House</span></div><span>© 2026 ERVIRA</span><a href="index.html">خانه</a></footer>
@@ -72,6 +72,7 @@ else{
    }
   }
   q('[data-profile-summary]').textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');
+  const history=q('[data-order-history]'); if(history){history.innerHTML=''; (orders.data||[]).slice(0,10).forEach(o=>{const p=planMap.get(o.product_plan_id),prod=p?productMap.get(p.product_id):null;const item=document.createElement('article');item.className='workspace-card';item.innerHTML='<span>'+new Date(o.created_at).toLocaleDateString('fa-IR')+'</span><h3>'+ (prod?.name||'محصول') +'</h3><p>'+ (p?.name||'نسخه') +' — '+o.status+'</p><strong>'+Number(o.amount_toman).toLocaleString('fa-IR')+' تومان</strong>';history.appendChild(item);});if(!history.children.length)history.innerHTML='<span>هنوز سفارشی ثبت نشده است.</span>';}
  }
 }
 </script>

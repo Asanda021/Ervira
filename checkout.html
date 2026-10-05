@@ -2,9 +2,35 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const cfg=window.ERVIRA_AUTH_CONFIG||{};
 const configured=cfg.supabaseUrl&&!cfg.supabaseUrl.includes('YOUR-PROJECT')&&cfg.supabaseAnonKey&&!cfg.supabaseAnonKey.includes('YOUR_SUPABASE');
-const q=new URLSearchParams(location.search),p=q.get("product"),plan=q.get("plan");
-const status=document.getElementById("checkoutStatus");
-const plans={StructuralPro:{name:"StructuralPro",desc:"متره و برآورد کل ابنیه",prices:{starter:"۲٫۹ میلیون تومان",professional:"۶٫۹ میلیون تومان",team:"۱۲٫۹ میلیون تومان"}},StructureCalc:{name:"StructureCalc",desc:"محاسبات سازه",prices:{starter:"۲٫۹ میلیون تومان",professional:"۶٫۹ میلیون تومان",team:"۱۲٫۹ میلیون تومان"}},EstimatePro:{name:"EstimatePro",desc:"برآورد هزینه پروژه",prices:{starter:"۲٫۴ میلیون تومان",professional:"۵٫۹ میلیون تومان",team:"۱۰٫۹ میلیون تومان"}},OfficePro:{name:"OfficePro",desc:"دفتر فنی و مستندسازی",prices:{starter:"۲٫۴ میلیون تومان",professional:"۵٫۹ میلیون تومان",team:"۱۰٫۹ میلیون تومان"}},SitePro:{name:"SitePro",desc:"مدیریت کارگاه و پیشرفت",prices:{starter:"۲٫۴ میلیون تومان",professional:"۵٫۹ میلیون تومان",team:"۱۰٫۹ میلیون تومان"}},EngineerAI:{name:"EngineerAI",desc:"دستیار هوشمند مهندسی",prices:{starter:"۱٫۹ میلیون تومان",professional:"۴٫۹ میلیون تومان",team:"۸٫۹ میلیون تومان"}}};const labels={starter:"Starter",professional:"Professional",team:"Team"};const q=new URLSearchParams(location.search),p=q.get("product"),plan=q.get("plan"),x=plans[p];if(x&&labels[plan]){productName.textContent=x.name;productDesc.textContent=x.desc;planName.textContent=labels[plan];planPrice.textContent=x.prices[plan];checkoutStatus.textContent="انتخاب شما آماده ثبت سفارش است."}else{productName.textContent="انتخاب نامعتبر";productDesc.textContent="از صفحه قیمت‌ها یک نسخه معتبر انتخاب کنید.";planName.textContent="—";planPrice.textContent="—";checkoutStatus.textContent="لینک انتخاب کامل نیست."}</script>
+const q=new URLSearchParams(location.search),p=q.get('product'),plan=q.get('plan');
+const status=document.getElementById('checkoutStatus');
+const plans={StructuralPro:{name:'StructuralPro',desc:'متره و برآورد کل ابنیه'},StructureCalc:{name:'StructureCalc',desc:'محاسبات سازه'},EstimatePro:{name:'EstimatePro',desc:'برآورد هزینه پروژه'},OfficePro:{name:'OfficePro',desc:'دفتر فنی و مستندسازی'},SitePro:{name:'SitePro',desc:'مدیریت کارگاه و پیشرفت'},EngineerAI:{name:'EngineerAI',desc:'دستیار هوشمند مهندسی'}};
+const labels={starter:'Starter',professional:'Professional',team:'Team'};
+const x=plans[p];
+if(x&&labels[plan]){
+ productName.textContent=x.name; productDesc.textContent=x.desc; planName.textContent=labels[plan]; status.textContent='در حال بررسی حساب…';
+ if(configured){
+  const supabase=createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const {data}=await supabase.auth.getSession();
+  if(data.session){
+   const {data:planRow,error:planError}=await supabase.from('product_plans').select('id,name,price_toman').eq('slug',plan).eq('active',true).eq('products.slug',p).maybeSingle();
+   if(planError||!planRow){status.textContent='نسخه انتخاب‌شده در فروشگاه پیدا نشد.';}
+   else{
+    planPrice.textContent=Number(planRow.price_toman).toLocaleString('fa-IR')+' تومان';
+    const b=document.querySelector('.checkout-next');
+    if(b&&!b.querySelector('[data-create-order]')) b.insertAdjacentHTML('beforeend','<button class="btn primary" type="button" data-create-order>ایجاد سفارش ←</button>');
+    const create=document.querySelector('[data-create-order]');
+    create?.addEventListener('click',async()=>{
+      create.disabled=true; status.textContent='در حال ثبت سفارش…';
+      const {data:order,error}=await supabase.from('orders').insert({user_id:data.session.user.id,product_plan_id:planRow.id,amount_toman:planRow.price_toman,status:'pending'}).select('id').single();
+      if(error){status.textContent='ثبت سفارش انجام نشد. دوباره تلاش کن.';create.disabled=false;}
+      else{status.textContent='سفارش با موفقیت ثبت شد. پرداخت بعداً از طریق درگاه امن انجام می‌شود.';create.textContent='سفارش ثبت شد ✓';create.disabled=true;console.log('ERVIRA pending order',order.id);}
+    });
+   }
+  }else status.textContent='برای ثبت سفارش، ابتدا وارد حساب ERVIRA شو.';
+ }else status.textContent='اتصال حساب تنظیم نشده است.';
+}else{productName.textContent='انتخاب نامعتبر';productDesc.textContent='از صفحه قیمت‌ها یک نسخه معتبر انتخاب کنید.';planName.textContent='—';planPrice.textContent='—';status.textContent='لینک انتخاب کامل نیست.';}
+</script>
 <script type="module">
 const params=new URLSearchParams(location.search); const selectedProduct=params.get('product'); const selectedPlan=params.get('plan');
 if(selectedProduct && selectedPlan){

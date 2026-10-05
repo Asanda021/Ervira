@@ -142,3 +142,6 @@ Payment secrets, private API keys and licensing secrets must never be stored in 
 
 
 Release gate: production payment and software downloads remain disabled until real gateway verification and official release artifacts are available.
+
+## P160 — Release Channels
+ERVIRA releases use stable/beta/alpha channels. Production customer delivery must use stable releases only; pre-release channels are not customer downloads unless explicitly enabled for testing.

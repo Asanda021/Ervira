@@ -1,39 +1,35 @@
 (() => {
-  const saved = localStorage.getItem('ervira-theme');
-  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = saved || (systemDark ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', initial);
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ervira-theme');
+  const systemDark=window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  root.setAttribute('data-theme',saved||(systemDark?'dark':'light'));
+
+  const toggle=document.querySelector('.theme-toggle');
+  const paint=()=>{if(toggle) toggle.textContent=root.getAttribute('data-theme')==='dark'?'☀️':'◐';};
+  toggle?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('ervira-theme',next);paint();});
+  paint();
 
   const menuBtn=document.getElementById('menuBtn');
   const nav=document.querySelector('.nav');
-  const langBtn=document.getElementById('langBtn');
   menuBtn?.addEventListener('click',()=>{
-    nav?.classList.toggle('open');
-    if(nav){
-      nav.style.display=nav.classList.contains('open')?'flex':'';
-      nav.style.position='absolute'; nav.style.top='68px'; nav.style.left='18px'; nav.style.right='18px';
-      nav.style.padding='18px'; nav.style.background='var(--theme-header)';
-      nav.style.border='1px solid var(--theme-border)'; nav.style.borderRadius='16px'; nav.style.flexDirection='column';
-    }
+    if(!nav)return;
+    const open=nav.classList.toggle('open');
+    nav.style.display=open?'flex':'';
+    nav.style.position=open?'absolute':'';
+    nav.style.top=open?'66px':'';
+    nav.style.left=open?'16px':'';
+    nav.style.right=open?'16px':'';
+    nav.style.padding=open?'16px':'';
+    nav.style.background=open?'var(--theme-header,rgba(255,255,255,.95))':'';
+    nav.style.border=open?'1px solid var(--theme-border,#dfe7ef)':'';
+    nav.style.borderRadius=open?'16px':'';
+    nav.style.flexDirection=open?'column':'';
+    nav.style.gap=open?'14px':'';
   });
-  langBtn?.addEventListener('click',()=>alert('نسخه انگلیسی در فاز محتوایی تکمیل می‌شود.'));
+  nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');if(innerWidth<701)nav.style.display='';}));
 
-  const header=document.querySelector('.site-header');
-  if(header && !document.querySelector('.theme-toggle')){
-    const b=document.createElement('button');
-    b.className='theme-toggle';
-    b.type='button';
-    b.setAttribute('aria-label','تغییر حالت نمایش');
-    b.setAttribute('title','تغییر حالت روشن / تیره');
-    const paint=()=>{ const dark=document.documentElement.getAttribute('data-theme')==='dark'; b.textContent=dark?'☀️':'🌙'; };
-    b.addEventListener('click',()=>{
-      const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',next);
-      localStorage.setItem('ervira-theme',next);
-      paint();
-    });
-    const anchor=header.querySelector('.lang');
-    header.insertBefore(b,anchor||header.firstChild);
-    paint();
-  }
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
 })();

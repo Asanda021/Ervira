@@ -35,6 +35,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P28 — Licensing flow:** purchase-to-activation UX.
 - **P29 — Documentation map:** task-oriented documentation structure.
 - **P30 — Account/workspace readiness:** prepare unified identity and workspace surfaces.
+- **P31 — Quick start:** primary entry paths from the homepage.
+- **P32 — Product status:** public product development visibility.
+- **P33 — StructuralPro flagship status:** clear product positioning.
+- **P34 — Pricing principles:** scalable and transparent commercial structure.
+- **P35 — Support center:** FAQ, issue and feature-request readiness.
 
 ## Site architecture
 - Home / product-led landing

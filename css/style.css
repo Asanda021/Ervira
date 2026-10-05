@@ -52,3 +52,6 @@
 
 /* P81-P85 */
 .route-recovery{max-width:760px;margin:auto}.route-recovery a{display:inline-block;margin-top:18px}.release-candidate{border:1px solid currentColor;border-radius:14px;padding:18px}
+
+/* P86-P90 */
+img{max-width:100%;height:auto}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

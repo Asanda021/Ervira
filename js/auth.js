@@ -43,6 +43,17 @@ const showSignedIn = (session) => {
   els.configNotice?.setAttribute('hidden', '');
 };
 
+const handleAuthCallbackMessage = () => {
+  const params = new URLSearchParams(window.location.search);
+  const error = params.get('error_description') || params.get('error');
+  if (error) {
+    setStatus('ورود تکمیل نشد. دوباره روش ورود را انتخاب کن.', 'error');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+};
+
+handleAuthCallbackMessage();
+
 if (!configured) {
   els.configNotice?.removeAttribute('hidden');
   setStatus('ورود واقعی آماده است؛ فقط اتصال پروژه احراز هویت باید تنظیم شود.', 'setup');
@@ -65,7 +76,7 @@ if (!configured) {
 
   els.emailButton?.addEventListener('click', async () => {
     const email = els.email?.value.trim();
-    if (!email || !email.includes('@')) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus('یک ایمیل معتبر وارد کن.', 'error');
       els.email?.focus();
       return;

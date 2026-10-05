@@ -28,3 +28,6 @@
 
 /* P41-P45 */
 .governance,.product-lifecycle,.quality-gate,.entitlement,.release-process{padding-top:60px}.governance{padding-bottom:20px}.quality-gate,.entitlement,.release-process{padding-bottom:20px}.product-lifecycle .flow,.release-process .flow{margin-top:20px}
+
+/* P46-P50 */
+.platform-foundation,.selection-flow,.output-contract,.plan-architecture,.docs-versioning{padding-top:60px}.platform-foundation,.output-contract,.plan-architecture,.docs-versioning{padding-bottom:20px}.selection-flow .flow{margin-top:20px}

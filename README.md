@@ -71,6 +71,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P64 — Commercial controls:** checkout, payment, license and entitlement chain.
 - **P65 — Identity controls:** user, role, license and access boundaries.
 - **P66 — Workspace controls:** project, report, license and activity state.
+- **P67 — Production readiness:** QA, security, monitoring and support baseline.
+- **P68 — Catalog quality:** consistent product identity, version, docs and access.
+- **P69 — StructuralPro QA:** flagship functional, output and regression gate.
+- **P70 — Documentation quality:** synchronized guides, changes and support.
+- **P71 — Legal readiness:** privacy, terms, security and IP alignment.
 
 ## Site architecture
 - Home / product-led landing

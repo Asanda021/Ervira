@@ -139,3 +139,6 @@ Static HTML + CSS + JavaScript, ready for GitHub Pages and custom domain `ervira
 
 ## Security
 Payment secrets, private API keys and licensing secrets must never be stored in frontend code. Future checkout/licensing will use a secure backend.
+
+
+Release gate: production payment and software downloads remain disabled until real gateway verification and official release artifacts are available.

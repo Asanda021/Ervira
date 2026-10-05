@@ -31,39 +31,47 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const cfg=window.ERVIRA_AUTH_CONFIG||{};
 const configured=cfg.supabaseUrl&&!cfg.supabaseUrl.includes('YOUR-PROJECT')&&cfg.supabaseAnonKey&&!cfg.supabaseAnonKey.includes('YOUR_SUPABASE');
-const status=document.querySelector('[data-dashboard-status]');
-const orderCount=document.querySelector('[data-order-count]');
-const orderSummary=document.querySelector('[data-order-summary]');
-const licenseCount=document.querySelector('[data-license-count]');
-const licenseSummary=document.querySelector('[data-license-summary]');
-const profileSummary=document.querySelector('[data-profile-summary]');
-const lastOrder=document.querySelector('[data-last-order]');
-const licenseDetail=document.querySelector('[data-license-detail]');
-if(!configured){status.textContent='اتصال احراز هویت تنظیم نشده است.';}
+const q=s=>document.querySelector(s);
+if(!configured){q('[data-dashboard-status]').textContent='اتصال احراز هویت تنظیم نشده است.';}
 else{
  const supabase=createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
  const {data,error}=await supabase.auth.getSession();
  if(error||!data.session){location.replace('account.html');}
  else{
-   const u=data.session.user;
-   status.textContent='ورود موفق: '+(u.email||'کاربر ERVIRA');
-   document.querySelector('[data-dashboard-user]').textContent=u.user_metadata?.full_name||u.user_metadata?.name||u.email||'';
-   const [orders,licenses,profile]=await Promise.all([
-     supabase.from('orders').select('id,status,amount_toman,created_at,product_plan_id').order('created_at',{ascending:false}),
-     supabase.from('licenses').select('id,status,activated_at,expires_at,product_plan_id').order('created_at',{ascending:false}),
-     supabase.from('profiles').select('display_name').eq('id',u.id).maybeSingle()
-   ]);
-   if(orders.error) orderSummary.textContent='سفارش‌ها فعلاً در دسترس نیست.';
-   else{
-     const rows=orders.data||[]; orderCount.textContent=rows.length; orderSummary.textContent=rows.length?('آخرین سفارش: '+new Date(rows[0].created_at).toLocaleDateString('fa-IR')):'هنوز سفارشی ثبت نشده است.';
-     if(rows[0]) lastOrder.textContent='وضعیت: '+rows[0].status+' — مبلغ: '+Number(rows[0].amount_toman).toLocaleString('fa-IR')+' تومان';
+  const u=data.session.user;
+  q('[data-dashboard-status]').textContent='ورود موفق: '+(u.email||'کاربر ERVIRA');
+  q('[data-dashboard-user]').textContent=u.user_metadata?.full_name||u.user_metadata?.name||u.email||'';
+  const [orders,licenses,profile]=await Promise.all([
+   supabase.from('orders').select('id,status,amount_toman,created_at,product_plan_id').order('created_at',{ascending:false}),
+   supabase.from('licenses').select('id,status,activated_at,expires_at,product_plan_id').order('created_at',{ascending:false}),
+   supabase.from('profiles').select('display_name').eq('id',u.id).maybeSingle()
+  ]);
+  const planIds=[...(orders.data||[]),...(licenses.data||[])].map(x=>x.product_plan_id).filter(Boolean);
+  const plans=planIds.length?await supabase.from('product_plans').select('id,name,slug,product_id').in('id',[...new Set(planIds)]):{data:[],error:null};
+  const planMap=new Map((plans.data||[]).map(x=>[x.id,x]));
+  const productIds=[...new Set((plans.data||[]).map(x=>x.product_id).filter(Boolean))];
+  const products=productIds.length?await supabase.from('products').select('id,name,slug').in('id',productIds):{data:[],error:null};
+  const productMap=new Map((products.data||[]).map(x=>[x.id,x]));
+  if(orders.error){q('[data-order-summary]').textContent='سفارش‌ها فعلاً در دسترس نیست.';}
+  else{
+   const rows=orders.data||[]; q('[data-order-count]').textContent=rows.length;
+   q('[data-order-summary]').textContent=rows.length?'آخرین سفارش: '+new Date(rows[0].created_at).toLocaleDateString('fa-IR'):'هنوز سفارشی ثبت نشده است.';
+   if(rows[0]){
+    const p=planMap.get(rows[0].product_plan_id), prod=p?productMap.get(p.product_id):null;
+    q('[data-last-order]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: '+rows[0].status+' — مبلغ: '+Number(rows[0].amount_toman).toLocaleString('fa-IR')+' تومان';
    }
-   if(licenses.error) licenseSummary.textContent='لایسنس‌ها فعلاً در دسترس نیست.';
-   else{
-     const rows=licenses.data||[]; const active=rows.filter(x=>x.status==='active'); licenseCount.textContent=active.length; licenseSummary.textContent=active.length?'لایسنس فعال دارید.':'لایسنس فعالی ثبت نشده است.';
-     if(active[0]) licenseDetail.textContent='وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):'');
+  }
+  if(licenses.error){q('[data-license-summary]').textContent='لایسنس‌ها فعلاً در دسترس نیست.';}
+  else{
+   const rows=licenses.data||[], active=rows.filter(x=>x.status==='active');
+   q('[data-license-count]').textContent=active.length;
+   q('[data-license-summary]').textContent=active.length?'لایسنس فعال دارید.':'لایسنس فعالی ثبت نشده است.';
+   if(active[0]){
+    const p=planMap.get(active[0].product_plan_id), prod=p?productMap.get(p.product_id):null;
+    q('[data-license-detail]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):'');
    }
-   profileSummary.textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');
+  }
+  q('[data-profile-summary]').textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');
  }
 }
 </script>

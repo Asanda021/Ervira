@@ -43,3 +43,6 @@
 
 /* P67-P71 */
 .production-readiness,.catalog-quality,.flagship-qa,.docs-quality,.legal-readiness{padding-top:60px;padding-bottom:20px}
+
+/* P72-P75 */
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}button,a{touch-action:manipulation}@media(max-width:640px){.section-head{gap:18px}.flow{overflow-x:auto}.docs-grid{grid-template-columns:1fr}}

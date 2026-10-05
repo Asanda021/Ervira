@@ -128,7 +128,7 @@ html[data-theme="dark"] footer{background:#050c16;color:#8193aa}
 html[data-theme="dark"] .footer-brand b{color:#fff}
 html[data-theme="dark"] .sp-stats>div{background:var(--theme-surface);border-color:var(--theme-border);color:var(--theme-text)}
 html[data-theme="dark"] .detail-list,html[data-theme="dark"] .detail-list div,html[data-theme="dark"] .roadmap-list,html[data-theme="dark"] .roadmap-list>div{border-color:var(--theme-border)}
-html[data-theme="dark"] .output-card,html[data-theme="dark"] .audience-grid span,html[data-theme="dark"] .legal-grid article,.html[data-theme="dark"] .docs-content details,.html[data-theme="dark"] .dashboard-note{background:var(--theme-surface);border-color:var(--theme-border);color:var(--theme-text)}
+html[data-theme="dark"] .output-card,html[data-theme="dark"] .audience-grid span,html[data-theme="dark"] .legal-grid article,html[data-theme="dark"] .docs-content details,html[data-theme="dark"] .dashboard-note{background:var(--theme-surface);border-color:var(--theme-border);color:var(--theme-text)}
 html[data-theme="dark"] .compare-table{background:var(--theme-surface);border-color:var(--theme-border)}
 html[data-theme="dark"] .compare-table th{background:#12243a}
 html[data-theme="dark"] .compare-table td,html[data-theme="dark"] .compare-table th{border-color:var(--theme-border);color:var(--theme-text)}

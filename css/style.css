@@ -58,3 +58,6 @@ img{max-width:100%;height:auto}html{scroll-behavior:smooth}@media(prefers-reduce
 
 /* P91-P95 */
 html{overflow-x:hidden}body{min-width:320px}.release-signoff{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* P96-P100 */
+@media(max-width:480px){.container{padding-left:16px;padding-right:16px}.btn,.button{max-width:100%}}

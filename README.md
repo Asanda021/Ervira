@@ -76,6 +76,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P69 — StructuralPro QA:** flagship functional, output and regression gate.
 - **P70 — Documentation quality:** synchronized guides, changes and support.
 - **P71 — Legal readiness:** privacy, terms, security and IP alignment.\n- **P72 — SEO foundation:** metadata, indexing and social preview baseline.\n- **P73 — Accessibility foundation:** semantic structure, keyboard and focus readiness.\n- **P74 — Mobile QA:** responsive layout and touch-target review baseline.\n- **P75 — Navigation QA:** internal route and CTA consistency baseline.
+- **P76 — Canonical URLs:** primary URL declarations for indexable pages.
+- **P77 — Social metadata:** consistent sharing metadata for key pages.
+- **P78 — Error handling:** production 404 route and recovery navigation.
+- **P79 — Sitemap/robots:** crawler discovery and indexing controls.
+- **P80 — Final web QA:** consolidated pre-launch verification baseline.
 
 ## Site architecture
 - Home / product-led landing

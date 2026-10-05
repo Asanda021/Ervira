@@ -60,6 +60,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P53 — StructuralPro project lifecycle:** project-to-report workflow foundation.
 - **P54 — Account security:** identity, authentication, entitlement and session boundaries.
 - **P55 — Workspace model:** projects, products, licenses and reports.
+- **P56 — Release readiness:** quality gates, regression, sign-off and release notes.
+- **P57 — Product governance:** scope, version, quality and lifecycle ownership.
+- **P58 — StructuralPro flagship readiness:** flagship quality baseline.
+- **P59 — Support escalation:** structured issue resolution path.
+- **P60 — Platform release baseline:** shared readiness standard for ERVIRA products.
 
 ## Site architecture
 - Home / product-led landing

@@ -25,6 +25,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P18 — Commercial UX:** pricing FAQ and purchase decision support.
 - **P19 — Release center:** versions, roadmap status and product updates.
 - **P20 — Security checklist:** baseline frontend/backend security principles.
+- **P21 — Product ecosystem:** independent product positioning.
+- **P22 — Product comparison:** guided product selection.
+- **P23 — Product-fit UX:** role-based product positioning.
+- **P24 — Product consistency:** shared product-page structure.
+- **P25 — Ecosystem navigation:** cross-product discovery and conversion paths.
 
 ## Site architecture
 - Home / product-led landing

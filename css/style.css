@@ -25,3 +25,6 @@
 
 /* P36-P40 */
 .trust-layer,.product-compare-note,.flagship-workflow,.commercial-readiness,.documentation-principles,.identity-map,.dashboard-map{padding-top:60px}.product-compare-note{padding-bottom:20px}.flagship-workflow .flow,.identity-map .flow{margin-top:20px}.commercial-readiness,.documentation-principles{padding-bottom:20px}
+
+/* P41-P45 */
+.governance,.product-lifecycle,.quality-gate,.entitlement,.release-process{padding-top:60px}.governance{padding-bottom:20px}.quality-gate,.entitlement,.release-process{padding-bottom:20px}.product-lifecycle .flow,.release-process .flow{margin-top:20px}

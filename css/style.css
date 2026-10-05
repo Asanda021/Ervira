@@ -156,3 +156,5 @@ html[data-theme="dark"] .auth-provider.google{background:#0d1a2b;color:#eef5ff;b
 html[data-theme="dark"] .auth-provider.google span{background:#12243a}
 html[data-theme="dark"] .auth-divider:before,html[data-theme="dark"] .auth-divider:after{background:var(--theme-border)}
 html[data-theme="dark"] .auth-config-note{background:#3a2d14;color:#e9c978}
+
+.workspace-muted{display:inline-block;margin-top:14px;color:#8797a8;font-size:9px;font-weight:800}.dashboard-note{display:flex;justify-content:space-between;gap:18px;align-items:center}.dashboard-note b{font-size:11px}@media(max-width:600px){.dashboard-note{flex-direction:column;align-items:flex-start}}

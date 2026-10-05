@@ -30,6 +30,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P23 — Product-fit UX:** role-based product positioning.
 - **P24 — Product consistency:** shared product-page structure.
 - **P25 — Ecosystem navigation:** cross-product discovery and conversion paths.
+- **P26 — Product discovery:** intent-based product entry points.
+- **P27 — StructuralPro roadmap:** public product development path.
+- **P28 — Licensing flow:** purchase-to-activation UX.
+- **P29 — Documentation map:** task-oriented documentation structure.
+- **P30 — Account/workspace readiness:** prepare unified identity and workspace surfaces.
 
 ## Site architecture
 - Home / product-led landing

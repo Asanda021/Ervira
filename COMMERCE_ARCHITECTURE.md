@@ -98,3 +98,6 @@ Protected software delivery must be entitlement-based: authenticated user + acti
 
 ## P157 — Release artifact policy
 Release artifacts must be published from a verified release pipeline and referenced by immutable version identifiers. No fabricated binary URL is allowed in production UI.
+
+## P161 — Version entitlement
+A customer entitlement maps a license to a product plan. Customer downloads must match the licensed product/plan and an explicitly published stable release. Never substitute another product or release.

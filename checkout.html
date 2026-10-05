@@ -13,7 +13,8 @@ if(x&&labels[plan]){
   const supabase=createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
   const {data}=await supabase.auth.getSession();
   if(data.session){
-   const {data:planRow,error:planError}=await supabase.from('product_plans').select('id,name,price_toman').eq('slug',plan).eq('active',true).eq('products.slug',p).maybeSingle();
+   const {data:productRow,error:productError}=await supabase.from('products').select('id').eq('slug',p).eq('status','available').maybeSingle();
+   const {data:planRow,error:planError}=productRow?await supabase.from('product_plans').select('id,name,price_toman').eq('product_id',productRow.id).eq('slug',plan).eq('active',true).maybeSingle():{data:null,error:productError};
    if(planError||!planRow){status.textContent='نسخه انتخاب‌شده در فروشگاه پیدا نشد.';}
    else{
     planPrice.textContent=Number(planRow.price_toman).toLocaleString('fa-IR')+' تومان';

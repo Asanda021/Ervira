@@ -86,6 +86,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P83 — 404 recovery:** dedicated recovery experience for missing routes.
 - **P84 — Asset hygiene:** consistent static asset and stylesheet organization.
 - **P85 — Release candidate:** final website release-candidate baseline.
+- **P86 — Browser hardening:** referrer and browser behavior baseline.
+- **P87 — Link integrity:** internal navigation audit baseline.
+- **P88 — Static asset audit:** missing-file and path consistency baseline.
+- **P89 — Responsive regression:** desktop/tablet/mobile consistency baseline.
+- **P90 — Launch gate:** consolidated release checklist before custom-domain activation.
 
 ## Site architecture
 - Home / product-led landing

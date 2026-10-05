@@ -14,12 +14,14 @@
 <div class="dash-heading"><div><span class="kicker">USER WORKSPACE</span><h1>داشبورد ERVIRA</h1><p>مرکز پروژه‌ها، محصولات و دسترسی‌های شما.</p><div class="dashboard-user" data-dashboard-user></div></div><div class="dash-actions"><a class="btn primary" href="products.html">افزودن محصول ←</a><a class="btn ghost" href="account.html">حساب</a></div></div>
 <div class="dashboard-grid">
 <article class="workspace-card main"><span>ACTIVE PRODUCT</span><h2>StructuralPro</h2><p>فضای کاری متره، برآورد و داده‌های پروژه.</p><div class="workspace-meta"><b>وضعیت</b><strong>در دسترس</strong><b>نسخه</b><strong>Current</strong></div><a href="products/structuralpro.html">مشاهده محصول ←</a></article>
-<article class="workspace-card"><span>PROJECTS</span><strong class="big-number">—</strong><p>فضای پروژه‌ها پس از اتصال دیتابیس فعال می‌شود.</p><span class="workspace-muted">به‌زودی</span></article>
-<article class="workspace-card"><span>LICENSES</span><strong class="big-number">—</strong><p>مدیریت لایسنس پس از راه‌اندازی فروش فعال می‌شود.</p><span class="workspace-muted">به‌زودی</span></article>
-<article class="workspace-card"><span>REPORTS</span><strong class="big-number">—</strong><p>گزارش‌ها با اتصال محصولات ERVIRA نمایش داده می‌شوند.</p><span class="workspace-muted">به‌زودی</span></article>
+<article class="workspace-card"><span>ORDERS</span><strong class="big-number" data-order-count>—</strong><p>سفارش‌های حساب شما</p><span class="workspace-muted" data-order-summary>در حال بارگذاری…</span></article>
+<article class="workspace-card"><span>LICENSES</span><strong class="big-number" data-license-count>—</strong><p>لایسنس‌های فعال شما</p><span class="workspace-muted" data-license-summary>در حال بارگذاری…</span></article>
+<article class="workspace-card"><span>PROFILE</span><strong class="big-number">✓</strong><p>پروفایل متصل به حساب</p><span class="workspace-muted" data-profile-summary>در حال بارگذاری…</span></article>
 <article class="workspace-card"><span>ACCOUNT</span><h3>پروفایل و تنظیمات</h3><p>اطلاعات حساب، امنیت و دسترسی‌ها.</p><a href="account.html">تنظیمات حساب ←</a></article>
 </div>
 <div class="dashboard-note"><b>حساب فعال</b><span data-dashboard-status>در حال بررسی نشست امن کاربر…</span></div>
+<div class="dashboard-note"><b>آخرین سفارش</b><span data-last-order>هنوز سفارشی ثبت نشده است.</span></div>
+<div class="dashboard-note"><b>لایسنس</b><span data-license-detail>هنوز لایسنس فعالی برای این حساب ثبت نشده است.</span></div>
 </section>
 <section class="section workspace-ready"><div class="section-head"><div><span class="kicker">WORKSPACE</span><h2>یک مرکز برای پروژه‌ها و محصولات.</h2></div><p>حساب کاربری به‌عنوان هویت مشترک ERVIRA استفاده می‌شود.</p></div><div class="docs-grid"><span>Projects</span><span>Products</span><span>Licenses</span><span>Reports</span></div></section>
 </main>
@@ -30,12 +32,39 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const cfg=window.ERVIRA_AUTH_CONFIG||{};
 const configured=cfg.supabaseUrl&&!cfg.supabaseUrl.includes('YOUR-PROJECT')&&cfg.supabaseAnonKey&&!cfg.supabaseAnonKey.includes('YOUR_SUPABASE');
 const status=document.querySelector('[data-dashboard-status]');
-if(!configured){status.textContent='اتصال احراز هویت هنوز تنظیم نشده است؛ پس از تنظیم، داشبورد فقط برای کاربران واردشده باز می‌شود.';}
+const orderCount=document.querySelector('[data-order-count]');
+const orderSummary=document.querySelector('[data-order-summary]');
+const licenseCount=document.querySelector('[data-license-count]');
+const licenseSummary=document.querySelector('[data-license-summary]');
+const profileSummary=document.querySelector('[data-profile-summary]');
+const lastOrder=document.querySelector('[data-last-order]');
+const licenseDetail=document.querySelector('[data-license-detail]');
+if(!configured){status.textContent='اتصال احراز هویت تنظیم نشده است.';}
 else{
  const supabase=createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
- const {data}=await supabase.auth.getSession();
- if(!data.session){location.replace('account.html');}
- else{const u=data.session.user;status.textContent='ورود موفق: '+(u.email||'کاربر ERVIRA');document.querySelector('[data-dashboard-user]').textContent=u.user_metadata?.full_name||u.user_metadata?.name||'';}
+ const {data,error}=await supabase.auth.getSession();
+ if(error||!data.session){location.replace('account.html');}
+ else{
+   const u=data.session.user;
+   status.textContent='ورود موفق: '+(u.email||'کاربر ERVIRA');
+   document.querySelector('[data-dashboard-user]').textContent=u.user_metadata?.full_name||u.user_metadata?.name||u.email||'';
+   const [orders,licenses,profile]=await Promise.all([
+     supabase.from('orders').select('id,status,amount_toman,created_at,product_plan_id').order('created_at',{ascending:false}),
+     supabase.from('licenses').select('id,status,activated_at,expires_at,product_plan_id').order('created_at',{ascending:false}),
+     supabase.from('profiles').select('display_name').eq('id',u.id).maybeSingle()
+   ]);
+   if(orders.error) orderSummary.textContent='سفارش‌ها فعلاً در دسترس نیست.';
+   else{
+     const rows=orders.data||[]; orderCount.textContent=rows.length; orderSummary.textContent=rows.length?('آخرین سفارش: '+new Date(rows[0].created_at).toLocaleDateString('fa-IR')):'هنوز سفارشی ثبت نشده است.';
+     if(rows[0]) lastOrder.textContent='وضعیت: '+rows[0].status+' — مبلغ: '+Number(rows[0].amount_toman).toLocaleString('fa-IR')+' تومان';
+   }
+   if(licenses.error) licenseSummary.textContent='لایسنس‌ها فعلاً در دسترس نیست.';
+   else{
+     const rows=licenses.data||[]; const active=rows.filter(x=>x.status==='active'); licenseCount.textContent=active.length; licenseSummary.textContent=active.length?'لایسنس فعال دارید.':'لایسنس فعالی ثبت نشده است.';
+     if(active[0]) licenseDetail.textContent='وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):'');
+   }
+   profileSummary.textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');
+ }
 }
 </script>
 </body></html>

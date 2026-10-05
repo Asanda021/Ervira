@@ -148,3 +148,6 @@ ERVIRA releases use stable/beta/alpha channels. Production customer delivery mus
 
 ## P168 — Release checklist
 Before customer release: verify product artifact, version, channel=stable, release notes, download entitlement, license mapping, payment verification, and post-release smoke test. If any item is missing, do not expose a customer download.
+
+## P174 — End-to-end QA gate
+Before production activation, verify: landing → products → guide/compare → pricing → account → checkout → pending order → payment preparation → verified payment → license → dashboard. Any broken route, unverified payment state, or missing release artifact blocks production activation.

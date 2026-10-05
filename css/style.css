@@ -22,3 +22,6 @@
 
 /* P31-P35 */
 .quick-start,.product-status,.release-note,.pricing-principles,.support-center{padding-top:60px}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.quick-grid a{border:1px solid #dfe7ef;border-radius:16px;padding:24px;background:#fff;display:flex;flex-direction:column;gap:10px}.quick-grid b{font-size:10px;color:#7890a6}.quick-grid span{font-size:13px;font-weight:700}.pricing-principles,.support-center{padding-bottom:20px}@media(max-width:600px){.quick-grid{grid-template-columns:1fr}}
+
+/* P36-P40 */
+.trust-layer,.product-compare-note,.flagship-workflow,.commercial-readiness,.documentation-principles,.identity-map,.dashboard-map{padding-top:60px}.product-compare-note{padding-bottom:20px}.flagship-workflow .flow,.identity-map .flow{margin-top:20px}.commercial-readiness,.documentation-principles{padding-bottom:20px}

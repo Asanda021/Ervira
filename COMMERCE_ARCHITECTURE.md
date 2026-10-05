@@ -92,3 +92,6 @@ Production payment integration is provider-neutral: create a payment attempt fro
 
 ## P152 — Download Delivery
 The customer download area is intentionally license-aware. Public product pages may describe products, but protected binaries must only be delivered after account authentication and license entitlement checks. Until official release artifacts are published, the store must not expose placeholder or fabricated download URLs.
+
+## P156 — Download entitlement
+Protected software delivery must be entitlement-based: authenticated user + active license + matching product/plan. Until release artifacts exist, the UI must not expose a download URL.

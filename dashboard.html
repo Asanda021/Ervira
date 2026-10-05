@@ -70,7 +70,7 @@ else{
    q('[data-license-summary]').textContent=active.length?'لایسنس فعال دارید.':'لایسنس فعالی ثبت نشده است.';
    if(active[0]){
     const p=planMap.get(active[0].product_plan_id), prod=p?productMap.get(p.product_id):null;
-    q('[data-license-detail]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):''); const center=q('#licenseCenter'); if(center){center.innerHTML='<strong>License Key</strong><br><code>'+String(active[0].license_key||'—')+'</code>';} const act=q('#licenseActions'); if(act)act.innerHTML='<a class="btn ghost" href="downloads.html">مرکز دریافت نرم‌افزار ←</a>';
+    q('[data-license-detail]').textContent=(prod?.name||'محصول')+' / '+(p?.name||'نسخه')+' — وضعیت: فعال'+(active[0].expires_at?' — انقضا: '+new Date(active[0].expires_at).toLocaleDateString('fa-IR'):''); const center=q('#licenseCenter'); if(center){center.innerHTML='<strong>License Key</strong><br><code>'+String(active[0].license_key||'—')+'</code>';} const act=q('#licenseActions'); if(act)act.innerHTML='<a class="btn ghost" href="products.html">دریافت نسخه رسمی ←</a>';
    }
   }
   q('[data-profile-summary]').textContent=profile.error?'پروفایل هنوز ساخته نشده است.':(profile.data?.display_name||'پروفایل کاربر');

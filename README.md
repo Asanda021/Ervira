@@ -10,6 +10,21 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P3 — Home:** product-led homepage with ecosystem, capabilities and contact sections.
 - **P4 — Store:** dedicated software store with independent product entries.
 - **P5 — Product pages:** dedicated landing pages for StructuralPro, StructureCalc, EstimatePro, OfficePro, SitePro and EngineerAI.
+- **P6 — StructuralPro flagship:** comprehensive flagship product page, modules, workflow, outputs, audience and roadmap.
+- **P7 — Account & access:** account entry point and future authentication/licensing architecture.
+- **P8 — User workspace:** dashboard shell for projects, products, licenses and reports.
+- **P9 — Commercial platform:** pricing models, licensing paths and secure payment/activation architecture.
+- **P10 — Documentation:** product guide, quick-start flow, outputs and FAQ center.
+- **P11 — Trust center:** privacy, terms, security and intellectual-property foundation.
+
+## Site architecture
+- Home / product-led landing
+- Product store and dedicated product pages
+- Account and future authentication
+- User dashboard / workspace
+- Pricing, licensing and commercial flow
+- Documentation and support center
+- Trust, privacy, security and legal pages
 
 ## Current products
 - **StructuralPro** — flagship takeoff, estimation and engineering-data platform.

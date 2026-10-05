@@ -96,6 +96,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P93 — HTTPS readiness:** certificate and secure-transport verification checklist.
 - **P94 — Cache/release hygiene:** deployment freshness and cache-control review.
 - **P95 — Final sign-off:** ERVIRA website release candidate sign-off before domain cutover.
+- **P96 — Brand metadata:** application and platform identity metadata.
+- **P97 — Social consistency:** shared site identity across indexable pages.
+- **P98 — Release documentation:** final launch checklist and operational notes.
+- **P99 — Domain cutover readiness:** GitHub Pages custom-domain verification sequence.
+- **P100 — ERVIRA Web v1.0:** consolidated release baseline.
 
 ## Site architecture
 - Home / product-led landing

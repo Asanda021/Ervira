@@ -95,3 +95,6 @@ The customer download area is intentionally license-aware. Public product pages 
 
 ## P156 — Download entitlement
 Protected software delivery must be entitlement-based: authenticated user + active license + matching product/plan. Until release artifacts exist, the UI must not expose a download URL.
+
+## P157 — Release artifact policy
+Release artifacts must be published from a verified release pipeline and referenced by immutable version identifiers. No fabricated binary URL is allowed in production UI.

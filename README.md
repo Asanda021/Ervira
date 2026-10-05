@@ -151,3 +151,6 @@ Before customer release: verify product artifact, version, channel=stable, relea
 
 ## P174 — End-to-end QA gate
 Before production activation, verify: landing → products → guide/compare → pricing → account → checkout → pending order → payment preparation → verified payment → license → dashboard. Any broken route, unverified payment state, or missing release artifact blocks production activation.
+
+## P176 — Production error policy
+User-facing production flows must fail closed: authentication errors, payment-provider failures, missing licenses, and unavailable release artifacts must show a clear Persian status instead of a false success state.

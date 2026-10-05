@@ -20,6 +20,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P13 — Navigation integration:** connect store, docs, dashboard and account journeys.
 - **P14 — Product UX polish:** improve StructuralPro and store conversion paths.
 - **P15 — Pre-backend readiness:** prepare the public frontend for backend/API integration.
+- **P16 — Security architecture:** identity, licensing, payments and API boundaries.
+- **P17 — Account UX:** refine dashboard and account journeys.
+- **P18 — Commercial UX:** pricing FAQ and purchase decision support.
+- **P19 — Release center:** versions, roadmap status and product updates.
+- **P20 — Security checklist:** baseline frontend/backend security principles.
 
 ## Site architecture
 - Home / product-led landing

@@ -62,3 +62,7 @@ Secretها را ارسال نکن.
 - Provider credentials: نیازمند تنظیم در حساب‌های مالک پروژه
 - Production SMTP: نیازمند تنظیم قبل از استفاده عمومی
 
+
+
+## P180–P189 Production Auth Gate
+Before enabling Google, Apple, or production email delivery, verify Supabase Auth Site URL is `https://ervira.ir` and redirect URL is `https://ervira.ir/account.html`. Provider secrets must remain in Supabase/server configuration and never in GitHub or browser code. Perform a real login smoke test for each enabled provider before production activation.

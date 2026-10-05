@@ -89,3 +89,6 @@ The first production backend boundary is now active as Supabase Edge Function `c
 
 ## Payment Adapter Contract
 Production payment integration is provider-neutral: create a payment attempt from the server-side order amount, store provider/reference, redirect to the gateway, and verify the callback on the server before marking an order paid. The frontend never marks an order paid. The callback endpoint currently fails closed until a real gateway is configured.
+
+## P152 — Download Delivery
+The customer download area is intentionally license-aware. Public product pages may describe products, but protected binaries must only be delivered after account authentication and license entitlement checks. Until official release artifacts are published, the store must not expose placeholder or fabricated download URLs.

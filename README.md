@@ -112,6 +112,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P107 — Selectable comparison center:** user-selected product comparison framework with fair-comparison rules.
 - **P108 — Online product catalog:** first live catalog for StructuralPro with print/PDF-ready layout.
 
+- **P109 — StructuralPro fit:** added product-fit guidance and catalog access to the flagship page.
+- **P110 — Product catalogs:** online catalog shells added for the ERVIRA product family.
+- **P111 — Comparison selection UX:** comparison center expanded around checkbox-based selection.
+- **P112 — Guided decision:** comparison and guide journeys connected for product-fit decisions.
+
 ## Site architecture
 - Home / product-led landing
 - Product store and dedicated product pages

@@ -102,6 +102,12 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P99 — Domain cutover readiness:** GitHub Pages custom-domain verification sequence.
 - **P100 — ERVIRA Web v1.0:** consolidated release baseline.
 
+- **P101 — Marketplace direction:** ERVIRA positioned as a store for ERVIRA-owned software products only.
+- **P102 — Store navigation:** product-led navigation expanded with Guide and Compare journeys.
+- **P103 — Smart product selection:** store now routes users to selection guidance and comparison.
+- **P104 — Comparison framework:** reusable comparison UI for ERVIRA products and verified external alternatives.
+- **P105 — Product catalog model:** online catalog structure prepared for every ERVIRA product; PDF catalogs remain versioned deliverables.
+
 ## Site architecture
 - Home / product-led landing
 - Product store and dedicated product pages

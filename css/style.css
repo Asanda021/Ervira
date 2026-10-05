@@ -64,3 +64,75 @@ html{overflow-x:hidden}body{min-width:320px}.release-signoff{display:flex;align-
 
 /* P101-P105 — ERVIRA software store, guide and comparison */
 .guide-cta{padding-top:30px}.guide-grid,.compare-options{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.guide-card,.compare-option{border:1px solid #dfe7ef;border-radius:18px;padding:22px;background:#fff}.guide-card h3,.compare-option h3{margin:8px 0;font-size:18px}.guide-card p,.compare-option p{font-size:11px;color:#718095;line-height:2}.compare-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #dfe7ef;border-radius:18px;overflow:hidden}.compare-table th,.compare-table td{padding:14px;border-bottom:1px solid #e5ebf0;text-align:right;font-size:11px}.compare-table th{background:#f3f7fa;font-weight:800}.check{font-weight:800}.catalog-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}@media(max-width:760px){.guide-grid,.compare-options{grid-template-columns:1fr 1fr}}@media(max-width:500px){.guide-grid,.compare-options{grid-template-columns:1fr}.compare-table{display:block;overflow-x:auto;white-space:nowrap}}
+
+
+/* P118 — Unified Light/Dark Theme */
+:root{
+  color-scheme:light;
+  --theme-bg:#f7f9fc;
+  --theme-surface:#ffffff;
+  --theme-surface-2:#eef3f7;
+  --theme-text:#122033;
+  --theme-muted:#68788d;
+  --theme-border:#dfe7ef;
+  --theme-header:rgba(255,255,255,.88);
+  --theme-header-text:#122033;
+  --theme-dark:#07111f;
+}
+body{background:var(--theme-bg);color:var(--theme-text);transition:background-color .2s,color .2s}
+.site-header{background:var(--theme-header);color:var(--theme-header-text);border-bottom-color:var(--theme-border)}
+.nav{color:#52657a}
+.lang,.menu{color:var(--theme-header-text);border-color:var(--theme-border)}
+.hero{background:radial-gradient(circle at 75% 45%,#dcebf5 0,#f7f9fc 45%,#edf3f8 100%);color:var(--theme-text)}
+.hero p{color:#5f7085}
+.btn.ghost{color:#23364b;border-color:#cdd9e4}
+.dashboard{background:rgba(255,255,255,.72);border-color:#d8e2eb;box-shadow:0 35px 90px rgba(18,32,51,.12)}
+.dash-card{background:rgba(18,32,51,.035);border-color:#dce5ec}
+.dash-card span{color:#728399}.dash-card small{color:#6e839c}
+.line{background:#d9e5ee}
+.strip{background:#edf3f7;color:#718398}
+.product-card.featured,.page-hero,.product-hero,.account-shell,.dark-section,.sp-cta{color:#fff}
+.store-card,.mini-card,.sp-module,.workspace-card,.price-card,.compare-table,.guide-card,.compare-option{background:var(--theme-surface);color:var(--theme-text);border-color:var(--theme-border)}
+.contact{background:#edf6f5}
+footer{background:#e8eef3;color:#62758a}
+.footer-brand b{color:#122033}
+.theme-toggle{border:1px solid var(--theme-border);background:transparent;color:var(--theme-header-text);border-radius:10px;padding:7px 10px;cursor:pointer;font:inherit;font-size:13px;min-width:40px}
+.theme-toggle:hover{background:var(--theme-surface-2)}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --theme-bg:#07111f;
+  --theme-surface:#0d1a2b;
+  --theme-surface-2:#12243a;
+  --theme-text:#eef5ff;
+  --theme-muted:#9aabc0;
+  --theme-border:rgba(255,255,255,.1);
+  --theme-header:rgba(7,17,31,.88);
+  --theme-header-text:#fff;
+}
+html[data-theme="dark"] body{background:var(--theme-bg);color:var(--theme-text)}
+html[data-theme="dark"] .site-header{background:var(--theme-header);color:#fff;border-bottom-color:var(--theme-border)}
+html[data-theme="dark"] .nav{color:#c4d0df}
+html[data-theme="dark"] .lang,html[data-theme="dark"] .menu,html[data-theme="dark"] .theme-toggle{color:#fff;border-color:var(--theme-border)}
+html[data-theme="dark"] .hero{background:radial-gradient(circle at 75% 45%,#122c48 0,#07111f 43%,#050c16 100%);color:#fff}
+html[data-theme="dark"] .hero p{color:#b6c5d7}
+html[data-theme="dark"] .btn.ghost{color:#d8e4f2;border-color:var(--theme-border)}
+html[data-theme="dark"] .dashboard{background:rgba(10,25,42,.76);border-color:rgba(255,255,255,.13);box-shadow:0 35px 90px rgba(0,0,0,.35)}
+html[data-theme="dark"] .dash-card{background:rgba(255,255,255,.035);border-color:var(--theme-border)}
+html[data-theme="dark"] .line{background:#1c344b}
+html[data-theme="dark"] .strip{background:#091522;color:#8193aa}
+html[data-theme="dark"] .store-card:not(.featured-store),html[data-theme="dark"] .mini-card,html[data-theme="dark"] .sp-module:not(.featured),html[data-theme="dark"] .workspace-card:not(.main),html[data-theme="dark"] .price-card:not(.featured-price),html[data-theme="dark"] .guide-card,html[data-theme="dark"] .compare-option{background:var(--theme-surface);color:var(--theme-text);border-color:var(--theme-border)}
+html[data-theme="dark"] .store-card p,html[data-theme="dark"] .mini-card p,html[data-theme="dark"] .sp-module p,html[data-theme="dark"] .workspace-card p,html[data-theme="dark"] .price-card p,html[data-theme="dark"] .guide-card p,html[data-theme="dark"] .compare-option p{color:#9aabc0}
+html[data-theme="dark"] .section-head p,html[data-theme="dark"] .about p{color:#9aabc0}
+html[data-theme="dark"] .contact{background:#102b2b;color:#fff}
+html[data-theme="dark"] footer{background:#050c16;color:#8193aa}
+html[data-theme="dark"] .footer-brand b{color:#fff}
+html[data-theme="dark"] .sp-stats>div{background:var(--theme-surface);border-color:var(--theme-border);color:var(--theme-text)}
+html[data-theme="dark"] .detail-list,html[data-theme="dark"] .detail-list div,html[data-theme="dark"] .roadmap-list,html[data-theme="dark"] .roadmap-list>div{border-color:var(--theme-border)}
+html[data-theme="dark"] .output-card,html[data-theme="dark"] .audience-grid span,html[data-theme="dark"] .legal-grid article,.html[data-theme="dark"] .docs-content details,.html[data-theme="dark"] .dashboard-note{background:var(--theme-surface);border-color:var(--theme-border);color:var(--theme-text)}
+html[data-theme="dark"] .compare-table{background:var(--theme-surface);border-color:var(--theme-border)}
+html[data-theme="dark"] .compare-table th{background:#12243a}
+html[data-theme="dark"] .compare-table td,html[data-theme="dark"] .compare-table th{border-color:var(--theme-border);color:var(--theme-text)}
+html[data-theme="dark"] .auth-card{background:var(--theme-surface);color:var(--theme-text)}
+html[data-theme="dark"] .auth-card input{background:#12243a;color:#fff;border-color:var(--theme-border)}
+html[data-theme="dark"] .docs-nav{border-color:var(--theme-border)}
+@media(prefers-color-scheme:dark){html:not([data-theme]){color-scheme:dark}}

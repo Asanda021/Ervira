@@ -81,6 +81,11 @@ ERVIRA is the parent brand for a family of professional engineering software pro
 - **P78 — Error handling:** production 404 route and recovery navigation.
 - **P79 — Sitemap/robots:** crawler discovery and indexing controls.
 - **P80 — Final web QA:** consolidated pre-launch verification baseline.
+- **P81 — Structured data:** Organization, product catalog and software metadata.
+- **P82 — Security headers plan:** production header policy and deployment checklist.
+- **P83 — 404 recovery:** dedicated recovery experience for missing routes.
+- **P84 — Asset hygiene:** consistent static asset and stylesheet organization.
+- **P85 — Release candidate:** final website release-candidate baseline.
 
 ## Site architecture
 - Home / product-led landing

@@ -55,3 +55,6 @@
 
 /* P86-P90 */
 img{max-width:100%;height:auto}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* P91-P95 */
+html{overflow-x:hidden}body{min-width:320px}.release-signoff{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}

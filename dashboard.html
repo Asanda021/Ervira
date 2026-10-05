@@ -45,7 +45,7 @@ else{
   q('[data-dashboard-user]').textContent=u.user_metadata?.full_name||u.user_metadata?.name||u.email||'';
   const [orders,licenses,profile]=await Promise.all([
    supabase.from('orders').select('id,status,amount_toman,created_at,product_plan_id').order('created_at',{ascending:false}),
-   supabase.from('licenses').select('id,status,activated_at,expires_at,product_plan_id').order('created_at',{ascending:false}),
+   supabase.from('licenses').select('id,status,starts_at,expires_at,product_plan_id,license_key').order('created_at',{ascending:false}),
    supabase.from('profiles').select('display_name').eq('id',u.id).maybeSingle()
   ]);
   const planIds=[...(orders.data||[]),...(licenses.data||[])].map(x=>x.product_plan_id).filter(Boolean);

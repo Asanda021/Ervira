@@ -80,3 +80,8 @@ These are intentionally not fabricated:
 - production Edge Functions/backend
 
 These should be connected at the final integration stage when the corresponding accounts and secrets are available.
+
+
+## P133 — secure pending-order backend
+
+The first production backend boundary is now active as Supabase Edge Function `create-pending-order` with JWT verification enabled. The public checkout sends only product/plan identifiers; the function authenticates the user, resolves the active product and plan from the database, reads the authoritative price server-side, reuses an existing pending order when available, and creates a new pending order otherwise. Payment secrets are not exposed to the browser.

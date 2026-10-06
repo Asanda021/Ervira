@@ -10,5 +10,7 @@
     "provider": "ERVIRA",
     "identity_authority": "ERVIRA",
     "runtime_implemented": false
-  }
+  },
+  "runtime_status": "not_implemented",
+  "release_ready": false
 }

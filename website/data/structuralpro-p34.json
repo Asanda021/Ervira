@@ -10,5 +10,7 @@
     "explicit_consent": true,
     "reversible": true,
     "runtime_implemented": false
-  }
+  },
+  "runtime_status": "not_implemented",
+  "release_ready": false
 }

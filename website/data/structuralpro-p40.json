@@ -5,12 +5,7 @@
   "version": "0.1.0",
   "phase": "P40",
   "purpose": "Identity end-to-end gate",
-  "checks": [
-    "identity",
-    "association",
-    "profile",
-    "ownership"
-  ],
+  "checks": ["identity", "association", "profile", "ownership"],
   "source_of_truth": "ERVIRA",
   "runtime_status": "not_implemented",
   "release_ready": false

@@ -8,10 +8,9 @@
   "purpose": "Unified login/logout contract",
   "auth": {
     "provider": "ERVIRA",
-    "operations": [
-      "login",
-      "logout"
-    ],
+    "operations": ["login", "logout"],
     "runtime_implemented": false
-  }
+  },
+  "runtime_status": "not_implemented",
+  "release_ready": false
 }

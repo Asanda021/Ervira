@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "product_id": "structuralpro",
+  "parent_platform": "ERVIRA",
+  "version": "0.1.0",
+  "phase": "P35",
+  "purpose": "Profile synchronization contract",
+  "profile": {"source_of_truth": "ERVIRA", "runtime_implemented": false},
+  "runtime_status": "not_implemented",
+  "release_ready": false
+}

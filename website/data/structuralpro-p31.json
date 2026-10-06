@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "product_id": "structuralpro",
+  "parent_platform": "ERVIRA",
+  "source_contract": "https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json",
+  "version": "0.1.0",
+  "phase": "P31",
+  "purpose": "Real account identity boundary",
+  "account": {
+    "provider": "ERVIRA",
+    "identity_authority": "ERVIRA",
+    "runtime_implemented": false
+  },
+  "runtime_status": "not_implemented",
+  "release_ready": false
+}

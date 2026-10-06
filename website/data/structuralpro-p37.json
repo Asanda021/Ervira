@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "product_id": "structuralpro",
+  "parent_platform": "ERVIRA",
+  "version": "0.1.0",
+  "phase": "P37",
+  "purpose": "Account recovery boundary contract",
+  "recovery": {"provider": "ERVIRA", "runtime_implemented": false},
+  "runtime_status": "not_implemented",
+  "release_ready": false
+}

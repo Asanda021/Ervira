@@ -1,7 +1,7 @@
 name: StructuralPro integration P31-P40
 on:
   push:
-    branches: [main]
+    branches: [main, feat/structuralpro-integration-p31-p40]
   pull_request:
     branches: [main]
 jobs:

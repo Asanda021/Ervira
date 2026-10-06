@@ -5,10 +5,7 @@
   "version": "0.1.0",
   "phase": "P39",
   "purpose": "Product ownership mapping",
-  "checks": [
-    "structuralpro",
-    "verified_account"
-  ],
+  "checks": ["structuralpro", "verified_account"],
   "source_of_truth": "ERVIRA",
   "runtime_status": "not_implemented",
   "release_ready": false

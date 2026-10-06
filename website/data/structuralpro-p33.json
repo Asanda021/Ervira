@@ -8,11 +8,9 @@
   "purpose": "Session lifecycle",
   "session": {
     "owner": "ERVIRA",
-    "states": [
-      "active",
-      "expired",
-      "revoked"
-    ],
+    "states": ["active", "expired", "revoked"],
     "runtime_implemented": false
-  }
+  },
+  "runtime_status": "not_implemented",
+  "release_ready": false
 }

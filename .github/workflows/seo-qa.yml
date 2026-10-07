@@ -1,0 +1,18 @@
+name: Website SEO QA
+
+on:
+  push:
+    branches: [main, feat/seo-foundation]
+  pull_request:
+    branches: [main]
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate SEO metadata, canonical URLs, structured data and crawl files
+        run: node scripts/validate-seo.mjs

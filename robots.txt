@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /account.html
+Disallow: /checkout.html
+Disallow: /dashboard.html
+Disallow: /js/
+Disallow: /data/
+Disallow: /website/
+Disallow: /scripts/
+Disallow: /tools/
+Disallow: /docs/
+
+Sitemap: https://ervira.ir/sitemap.xml

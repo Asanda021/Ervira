@@ -1,0 +1,18 @@
+name: Product Family Catalog QA
+
+on:
+  push:
+    branches: [main, feat/structuralpro-product-family]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate Product Family catalog and page wiring
+        run: node scripts/validate-product-family.mjs

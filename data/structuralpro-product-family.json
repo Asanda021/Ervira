@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "catalog_id": "structuralpro-product-family",
+  "product": "structuralpro",
+  "platform": "ERVIRA",
+  "updated": "2026-10-07",
+  "editions": [
+    {"id":"light","name":"StructuralPro Light","audience":"پروژه‌ها و کاربران سبک","status":"included","description":"برای متره و برآورد سبک و گردش‌کارهای پایه پروژه.","features":["Project & Takeoff","BOQ & Estimation","Reports","Offline AI"],"cta":"مشاهده جزئیات"},
+    {"id":"standard","name":"StructuralPro Standard","audience":"استفاده حرفه‌ای عمومی","status":"included","description":"برای استفاده حرفه‌ای عمومی در پروژه‌های AEC.","features":["Advanced Takeoff","BOQ & Pricing","BIM / IFC","Financial Reports"],"cta":"مشاهده جزئیات"},
+    {"id":"pro","name":"StructuralPro Pro","audience":"شرکت‌ها و پروژه‌های حرفه‌ای","status":"included","description":"برای تیم‌ها و پروژه‌های حرفه‌ای با گردش‌کار کامل‌تر.","features":["Advanced BIM","AI Takeoff","Financial Management","Professional Reports"],"cta":"مشاهده جزئیات"},
+    {"id":"enterprise","name":"StructuralPro Enterprise","audience":"سازمان‌ها و شرکت‌های بزرگ","status":"included","description":"برای استقرار سازمانی، کنترل دسترسی و مقیاس عملیاتی بالا.","features":["Enterprise Administration","Team Workflows","Commercial Entitlement","Advanced Reporting"],"cta":"مشاهده جزئیات"}
+  ],
+  "categories": [
+    {"id":"takeoff","name":"Drawing & Takeoff","fa":"نقشه و متره","items":[
+      ["pdf-takeoff-engine","PDF Takeoff Engine","Module","Part of StructuralPro"],
+      ["dwg-dxf-converter-pro","DWG/DXF Converter Pro","Module","Coming Soon"],
+      ["ifc-bim-viewer","IFC/BIM Viewer","Module","Part of StructuralPro"],
+      ["ai-takeoff-assistant","AI Takeoff Assistant","Module","Part of StructuralPro"],
+      ["boq-generator","BOQ Generator","Module","Part of StructuralPro"],
+      ["drawing-manager","Drawing Manager","Module","Part of StructuralPro"],
+      ["quantity-validator","Quantity Validator","Module","Part of StructuralPro"],
+      ["takeoff-templates-pack","Takeoff Templates Pack","Pack","Coming Soon"],
+      ["discipline-classifier","Discipline Classifier","Module","Coming Soon"],
+      ["drawing-to-boq-converter","Drawing-to-BOQ Converter","Module","Coming Soon"],
+      ["ifc-quantity-extractor","IFC Quantity Extractor","Module","Part of StructuralPro"],
+      ["dwg-layer-analyzer","DWG Layer Analyzer","Module","Coming Soon"]
+    ]},
+    {"id":"pricebook","name":"Pricebook","fa":"فهرست‌بها","items":[
+      ["pricebook-1399-1404","Pricebook 1399–1404 Bundle","Pack","Coming Soon"],
+      ["mechanical-pricebook-pack","Mechanical Pricebook Pack","Pack","Coming Soon"],
+      ["electrical-pricebook-pack","Electrical Pricebook Pack","Pack","Coming Soon"],
+      ["historical-restoration-pricebook","Historical Restoration Pricebook","Pack","Coming Soon"],
+      ["pricebook-integrity-checker","Pricebook Integrity Checker","Module","Coming Soon"],
+      ["provenance-validator","Provenance Validator","Module","Part of StructuralPro"],
+      ["pricebook-editor","Pricebook Editor","Module","Coming Soon"],
+      ["pricebook-api","Pricebook API","SDK / API","Coming Soon"],
+      ["pricebook-compare-tool","Pricebook Compare Tool","Module","Coming Soon"],
+      ["pricebook-update-pack","Pricebook Update Pack","Pack","Coming Soon"]
+    ]},
+    {"id":"financial","name":"Financial","fa":"مالی و هزینه","items":[
+      ["financial-dashboard","Financial Dashboard","Module","Part of StructuralPro"],
+      ["cost-ledger-engine","Cost Ledger Engine","Module","Part of StructuralPro"],
+      ["receivables-manager","Receivables Manager","Module","Part of StructuralPro"],
+      ["commitments-tracker","Commitments Tracker","Module","Part of StructuralPro"],
+      ["progress-statement-generator","Progress Statement Generator","Module","Part of StructuralPro"],
+      ["estimate-calculator","Estimate Calculator","Module","Part of StructuralPro"],
+      ["financial-templates-pack","Financial Templates Pack","Pack","Coming Soon"],
+      ["project-cost-analyzer","Project Cost Analyzer","Module","Coming Soon"],
+      ["cashflow-predictor","Cashflow Predictor","Module","Coming Soon"],
+      ["project-audit-tool","Project Audit Tool","Module","Coming Soon"],
+      ["statement-validator","Statement Validator","Module","Coming Soon"],
+      ["financial-exporter","Financial Exporter","Module","Part of StructuralPro"]
+    ]},
+    {"id":"ai","name":"AI","fa":"هوش مصنوعی","items":[
+      ["offline-ai-model-pack","Offline AI Model Pack (GGUF)","Pack","Part of StructuralPro"],
+      ["ai-error-review-engine","AI Error Review Engine","Module","Coming Soon"],
+      ["ai-boq-assistant","AI BOQ Assistant","Module","Coming Soon"],
+      ["ai-drawing-analyzer","AI Drawing Analyzer","Module","Coming Soon"],
+      ["ai-project-summary-generator","AI Project Summary Generator","Module","Coming Soon"],
+      ["ai-price-suggestion-tool","AI Price Suggestion Tool","Module","Coming Soon"],
+      ["ai-document-classifier","AI Document Classifier","Module","Coming Soon"],
+      ["ai-risk-detector","AI Risk Detector","Module","Coming Soon"],
+      ["ai-takeoff-reviewer","AI Takeoff Reviewer","Module","Part of StructuralPro"]
+    ]},
+    {"id":"documents","name":"Documents & Reports","fa":"مستندات و گزارش","items":[
+      ["aec-document-templates-pack","AEC Document Templates Pack","Pack","Coming Soon"],
+      ["rtl-persian-report-engine","RTL Persian Report Engine","Module","Part of StructuralPro"],
+      ["project-archive-manager","Project Archive Manager","Module","Part of StructuralPro"],
+      ["drawing-to-report-converter","Drawing-to-Report Converter","Module","Coming Soon"],
+      ["document-sync-tool","Document Sync Tool","Module","Coming Soon"],
+      ["project-export-pack","Project Export Pack","Pack","Coming Soon"],
+      ["report-designer","Report Designer","Module","Coming Soon"]
+    ]},
+    {"id":"commercial","name":"Commercial & Developer","fa":"تجاری و توسعه‌دهندگان","items":[
+      ["license-verification-sdk","License Verification SDK","SDK / API","Coming Soon"],
+      ["entitlement-manager","Entitlement Manager","SDK / API","Part of StructuralPro"],
+      ["billing-toolkit","Billing Toolkit","SDK / API","Coming Soon"],
+      ["subscription-engine","Subscription Engine","SDK / API","Coming Soon"],
+      ["commercial-audit-tool","Commercial Audit Tool","Module","Coming Soon"]
+    ]}
+  ]
+}

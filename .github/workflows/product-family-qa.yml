@@ -1,0 +1,32 @@
+name: Product Family Catalog QA
+on:
+  push:
+    branches: [main, feat/structuralpro-product-family]
+  pull_request:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Product Family JSON
+        run: node - <<'NODE'
+const fs=require('fs');
+const p='data/structuralpro-product-family.json';
+const d=JSON.parse(fs.readFileSync(p,'utf8'));
+if(d.product!=='structuralpro'||d.platform!=='ERVIRA') throw new Error('invalid catalog identity');
+if(!Array.isArray(d.editions)||d.editions.length!==4) throw new Error('expected four editions');
+const allowedTypes=new Set(['Standalone','Module','Pack','SDK / API']);
+const allowedStatus=new Set(['Part of StructuralPro','Coming Soon','Available','Add-on']);
+const ids=new Set();
+for(const c of d.categories){if(!c.id||!c.name||!Array.isArray(c.items)) throw new Error('invalid category');for(const x of c.items){if(x.length!==4) throw new Error('invalid product tuple');if(ids.has(x[0])) throw new Error('duplicate product id '+x[0]);ids.add(x[0]);if(!allowedTypes.has(x[2])) throw new Error('invalid type '+x[2]);if(!allowedStatus.has(x[3])) throw new Error('invalid status '+x[3]);}}
+if(ids.size<40) throw new Error('catalog unexpectedly small');
+console.log('Product Family catalog valid:',ids.size,'items');
+NODE
+      - name: Validate page wiring
+        run: node - <<'NODE'
+const fs=require('fs');
+const h=fs.readFileSync('product-family.html','utf8');
+for(const x of ['css/product-family.css','js/product-family.js','data/structuralpro-product-family.json']) if(!h.includes(x)) throw new Error('missing '+x);
+console.log('Product Family page wiring valid');
+NODE

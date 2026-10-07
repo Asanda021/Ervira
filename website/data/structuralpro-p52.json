@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "product_id": "structuralpro",
+  "parent_platform": "ERVIRA",
+  "source_contract": "https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json",
+  "version": "0.1.0",
+  "phase": "P52",
+  "purpose": "Product Detail Runtime",
+  "detail": {
+    "authority": "ERVIRA",
+    "runtime_implemented": true,
+    "actions": [
+      "detail"
+    ]
+  },
+  "runtime_status": "implemented",
+  "release_ready": false
+}

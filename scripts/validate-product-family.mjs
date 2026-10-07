@@ -23,9 +23,11 @@ for (const category of data.categories) {
 if (ids.size < 40) throw new Error("catalog unexpectedly small");
 
 const page = fs.readFileSync(pagePath, "utf8");
-for (const required of ["css/product-family.css", "js/product-family.js", catalogPath]) {
+for (const required of ["css/product-family.css", "js/product-family.js"]) {
   if (!page.includes(required)) throw new Error("missing page wiring: " + required);
 }
+const js = fs.readFileSync("js/product-family.js", "utf8");
+if (!js.includes(catalogPath)) throw new Error("catalog data path is not wired in JS");
 
 console.log("Product Family catalog valid:", ids.size, "items");
 console.log("Product Family page wiring valid");

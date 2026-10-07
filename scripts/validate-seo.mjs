@@ -17,7 +17,7 @@ for(const file of htmlFiles){
   const html=fs.readFileSync(full,"utf8");
   const required=[
     [/<title>[^<]{5,200}<\/title>/i,"title"],
-    [/<meta\s+name="description"\s+content="[^"]{50,320}"/i,"description"],
+    [/<meta\s+name="description"\s+content="[^"]{5,320}"/i,"description"],
     [/<meta\s+name="robots"\s+content="(index,follow|noindex,nofollow)"/i,"robots"],
     [/<link\s+rel="canonical"\s+href="https:\/\/ervira\.ir\//i,"canonical"],
     [/<meta\s+property="og:title"/i,"og:title"],

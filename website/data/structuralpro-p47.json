@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "product_id": "structuralpro",
+  "parent_platform": "ERVIRA",
+  "source_contract": "https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json",
+  "version": "0.1.0",
+  "phase": "P47",
+  "purpose": "License suspension and revocation boundary",
+  "revocation": {
+    "provider": "ERVIRA",
+    "runtime_implemented": true,
+    "statuses": [
+      "suspended",
+      "revoked"
+    ],
+    "client_fail_closed": true
+  },
+  "runtime_status": "implemented",
+  "release_ready": false
+}

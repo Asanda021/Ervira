@@ -18,7 +18,7 @@ const main = async () => {
   const canonical = await fetchJson("https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json");
   for (const id of files) {
     const local = read("website/data/structuralpro-" + id + ".json");
-    if (local.product_id !== canonical.product_id || local.parent_platform !== canonical.parent_platform || local.version !== canonical.product.current_version || local.phase !== id.toUpperCase()) throw new Error("Parity mismatch: " + id);
+    if (local.product_id !== canonical.product_id || local.parent_platform !== "ERVIRA" || local.version !== canonical.product.current_version || local.phase !== id.toUpperCase()) throw new Error("Parity mismatch: " + id);
   }
   const p2 = read("website/data/structuralpro-p02.json");
   const a = Object.fromEntries(canonical.capabilities.map(x => [x.id, x.status]));

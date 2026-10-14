@@ -26,6 +26,8 @@ jobs:
         run: python3 scripts/stage_document_portfolio.py
       - name: Verify and stage presentation portfolio
         run: python3 scripts/stage_presentation_portfolio.py
+      - name: Export verified graphic SVG assets
+        run: node scripts/export_ervira_graphics.mjs
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:

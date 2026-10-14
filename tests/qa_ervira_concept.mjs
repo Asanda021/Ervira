@@ -73,6 +73,7 @@ try {
  assert.ok(await page.locator(".case-proof img").evaluate(img=>img.naturalWidth>0));
  assert.equal(await page.locator('.case-meta a[download]').getAttribute("href"),"/excel/downloads/01_ERVIRA_Sales_Intelligence.xlsx");
  const layout=await page.evaluate(()=>({w:document.documentElement.clientWidth,sw:document.documentElement.scrollWidth}));
+ if(layout.sw>layout.w+1){console.error("CASE_OVERFLOW_DETAILS",JSON.stringify(await page.evaluate(()=>({viewport:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,items:[...document.querySelectorAll("*")].map(el=>({tag:el.tagName,cls:String(el.className||"").slice(0,60),text:el.textContent?.trim().slice(0,55),right:Math.round(el.getBoundingClientRect().right),left:Math.round(el.getBoundingClientRect().left),width:Math.round(el.getBoundingClientRect().width)})).filter(x=>x.right>window.innerWidth+1||x.left< -1).slice(0,35)}))));}
  assert.ok(layout.sw<=layout.w+1,"Case study overflow");
  await page.screenshot({path:"concept-qa/case-sales-390.png",fullPage:true,animations:"disabled"});
  await page.close();

@@ -186,11 +186,14 @@ def resize_images(args):
     src = Path(args.folder); dest = Path(args.dest)
     if not src.is_dir() or src.resolve() == dest.resolve():
         raise ValueError("Source/destination must be distinct")
-    images = [p for p in sorted(src.iterdir()) if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg"}]
-    for p in images:
-        target = dest / (p.stem + ".png")
-        if target.exists():
-            raise FileExistsError(target)
+    images = [p for p in sorted(src.iterdir()) if p.is_file() and not p.is_symlink()
+              and p.suffix.lower() in {".png", ".jpg", ".jpeg"}]
+    targets = [dest / (p.stem + ".png") for p in images]
+    if len(targets) != len(set(targets)):
+        raise ValueError("Different source images would overwrite the same PNG target")
+    if any(target.exists() for target in targets):
+        raise FileExistsError("Output image already exists")
+    for p, target in zip(images, targets):
         if args.apply:
             dest.mkdir(parents=True, exist_ok=True)
             with Image.open(p) as im:

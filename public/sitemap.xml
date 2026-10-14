@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://ervira.ir/</loc></url>
+<url><loc>https://ervira.ir/excel/</loc></url>
+<url><loc>https://ervira.ir/excel/sales.html</loc></url>
+<url><loc>https://ervira.ir/excel/inventory.html</loc></url>
+<url><loc>https://ervira.ir/excel/budget.html</loc></url>
+<url><loc>https://ervira.ir/excel/attendance.html</loc></url>
+<url><loc>https://ervira.ir/excel/costing.html</loc></url>
+<url><loc>https://ervira.ir/excel/receivables.html</loc></url>
+<url><loc>https://ervira.ir/excel/gantt.html</loc></url>
+<url><loc>https://ervira.ir/excel/cleaning.html</loc></url>
+<url><loc>https://ervira.ir/excel/survey.html</loc></url>
+<url><loc>https://ervira.ir/excel/branches.html</loc></url>
 <url><loc>https://ervira.ir/works/dashboard.html</loc></url>
 <url><loc>https://ervira.ir/works/invoice.html</loc></url>
 <url><loc>https://ervira.ir/works/text.html</loc></url>

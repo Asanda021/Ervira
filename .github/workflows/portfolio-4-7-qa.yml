@@ -1,0 +1,46 @@
+name: ERVIRA Portfolio 4-7 Quality Gate
+on:
+  pull_request:
+    paths:
+      - "public/websites/**"
+      - "public/automation/**"
+      - "public/content/**"
+      - "public/graphics/**"
+      - "public/assets/studio-portfolio.css"
+      - "scripts/export_ervira_graphics.mjs"
+      - "tests/check_portfolio_phases.mjs"
+      - "tests/test_ervira_automation.py"
+      - "tests/test_ervira_optional.py"
+      - ".github/workflows/portfolio-4-7-qa.yml"
+  push:
+    branches: [main]
+    paths:
+      - "public/websites/**"
+      - "public/automation/**"
+      - "public/content/**"
+      - "public/graphics/**"
+      - "public/assets/studio-portfolio.css"
+      - "tests/check_portfolio_phases.mjs"
+      - "tests/test_ervira_automation.py"
+jobs:
+  portfolio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Export standalone SVG samples
+        run: node scripts/export_ervira_graphics.mjs
+      - name: Check 40 samples, SVG outputs, links and syntax
+        run: node tests/check_portfolio_phases.mjs
+      - name: Install image and PDF sample dependencies
+        run: python -m pip install --disable-pip-version-check pillow pypdf
+      - name: Run offline Python safety, calculation, image and PDF tests
+        run: python -m unittest discover -s tests -p "test_ervira_*.py" -v

@@ -26,6 +26,8 @@ for(let i=1;i<=10;i++){
 }
 for(const f of ["automation/ervira_automation.py","automation/data/sales_a.csv","automation/data/sales_b.csv","automation/data/contacts.csv","automation/data/invoice.csv","automation/data/ledger_a.csv","automation/data/ledger_b.csv"])assert.ok(fs.existsSync(path.join(root,f)));
 const graphics=text("graphics/graphics.js");
+for(let i=1;i<=10;i++){const f="graphics/assets/"+String(i).padStart(2,"0")+".svg";assert.ok(fs.existsSync(path.join(root,f)),f+" not exported");assert.match(text(f),/<svg xmlns="http:\/\/www.w3.org\/2000\/svg"/);}
+
 assert.doesNotThrow(()=>new vm.Script(graphics));
 const prev=[];
 const previews=Array.from({length:10},(_,i)=>({dataset:{graphicPreview:String(i+1)},set src(v){prev[i]=v;}}));

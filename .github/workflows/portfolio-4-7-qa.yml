@@ -7,6 +7,7 @@ on:
       - "public/content/**"
       - "public/graphics/**"
       - "public/assets/studio-portfolio.css"
+      - "scripts/export_ervira_graphics.mjs"
       - "tests/check_portfolio_phases.mjs"
       - "tests/test_ervira_automation.py"
       - ".github/workflows/portfolio-4-7-qa.yml"
@@ -34,6 +35,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Export standalone SVG samples
+        run: node scripts/export_ervira_graphics.mjs
       - name: Check 40 samples, SVG outputs, links and syntax
         run: node tests/check_portfolio_phases.mjs
       - name: Run offline Python safety and calculation tests

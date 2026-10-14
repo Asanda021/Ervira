@@ -1,0 +1,90 @@
+/* ERVIRA · Persian mobile and information architecture refinement */
+html{scroll-padding-top:90px}
+body{font-feature-settings:"kern";text-rendering:optimizeLegibility}
+.site-header .nav{gap:19px}
+.site-header .nav a{font-size:12px;white-space:nowrap}
+.site-header .top-cta{flex-shrink:0}
+.service-grid-8{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.new-services{background:linear-gradient(180deg,#101c26,#101c25);padding:82px 0}
+.new-services .section-heading{margin-bottom:28px}
+.new-services .service{min-height:215px;padding:22px 19px;display:flex;flex-direction:column}
+.new-services .service h3{font-size:16px;line-height:1.7;margin:13px 0 6px}
+.new-services .service p{font-size:12px;line-height:2;margin-bottom:16px}
+.new-services .service-open{font-size:11px;color:#d2fb8a;font-weight:900;margin-top:auto;display:block}
+.new-services .service-soon{font-size:10.5px;color:#93a9b3;margin-top:auto;display:block}
+.service-integrity{color:#95aab3;margin-top:25px;font-size:11px;border-right:2px solid #d2fb8a;padding-right:12px;line-height:2.1}
+.section{padding-block:82px}
+.section-heading h2{font-size:clamp(30px,3.6vw,45px)}
+.excel-feature{padding:66px 0}
+.excel-feature h2{font-size:clamp(27px,3.3vw,43px)}
+.hero{padding:77px 0 74px}
+.hero h1{font-size:clamp(38px,4.8vw,67px);line-height:1.4;letter-spacing:-.025em}
+.hero-lead{font-size:16px}
+.work-card{min-height:400px}
+.work-art{height:215px}
+.card-body{padding:20px 22px 23px}
+.card-body h3{font-size:21px}
+.section-surface{background:#111c26}
+.steps{gap:14px}.step{padding:23px 23px}
+.contact-panel{padding:54px}
+.contact-panel h2{font-size:clamp(28px,3.4vw,43px)}
+.brand small{font-size:9px}
+@media(max-width:1030px){
+ .site-header .nav{gap:11px}
+ .site-header .nav a{font-size:11px}
+ .site-header .header-inner{gap:15px}
+ .service-grid-8{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .new-services .service{min-height:185px}
+}
+@media(max-width:700px){
+ html{scroll-padding-top:78px}
+ .header-inner{height:70px;gap:8px!important}
+ .site-header .brand{gap:7px;flex-shrink:1;min-width:0}
+ .site-header .brand-symbol{width:34px;height:34px;font-size:18px;flex-shrink:0}
+ .site-header .brand strong{font-size:15px;letter-spacing:.09em}
+ .site-header .brand small{font-size:7px;letter-spacing:.05em}
+ .site-header .top-cta{font-size:10px;padding:7px 10px}
+ .site-header .menu-toggle{width:39px;height:39px;flex-shrink:0}
+ .site-header .nav a{font-size:13px}
+ .hero{padding:44px 0 52px}
+ .hero h1{font-size:clamp(33px,8vw,46px);line-height:1.53;margin:18px 0}
+ .hero-lead{font-size:13px;line-height:2}
+ .hero .hero-actions{margin:23px 0 25px;gap:8px}
+ .hero .btn{padding:10px 13px;font-size:11px}
+ .hero .tiny-proof{gap:8px 14px;font-size:10px}
+ .hero-visual{max-width:100%;padding:0 5px}
+ .float-chip{font-size:9px;right:6px}
+ .section{padding-block:57px}
+ .section-heading{margin-bottom:21px}
+ .section-heading h2{font-size:clamp(29px,7vw,37px);line-height:1.55}
+ .section-heading p{font-size:12px;line-height:2.05}
+ .new-services{padding:57px 0}
+ .service-grid-8{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .new-services .service{padding:17px 14px;min-height:194px}
+ .new-services .service h3{font-size:14px;margin:12px 0 6px}
+ .new-services .service p{font-size:11px;line-height:1.9}
+ .new-services .service-open{font-size:10px}
+ .new-services .service-soon{font-size:10px}
+ .service-integrity{font-size:10px}
+ .excel-feature{padding:54px 0}
+ .excel-feature h2{font-size:clamp(27px,6.5vw,35px)}
+ .excel-feature p{font-size:12px}
+ .excel-feature-card{padding:18px}
+ .work-card{min-height:0}
+ .work-art{height:195px}
+ .card-body{padding:18px 20px 22px}
+ .card-body h3{font-size:19px}
+ .work-card p{font-size:11.5px}
+ .step{padding:20px}.step h3{font-size:17px}
+ .contact-panel{padding:28px 23px}
+ .contact-panel h2{font-size:clamp(29px,7vw,38px)}
+ .contact-panel p{font-size:12px;line-height:2}
+ .footer{padding-block:26px}
+}
+@media(max-width:370px){
+ .site-header .brand small{display:none}
+ .site-header .brand strong{font-size:14px}
+ .site-header .top-cta{padding:6px 8px;font-size:9px}
+ .service-grid-8{grid-template-columns:1fr}
+ .new-services .service{min-height:0}
+}

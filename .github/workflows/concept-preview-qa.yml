@@ -1,0 +1,44 @@
+name: ERVIRA New Concept Preview QA
+on:
+  pull_request:
+    paths:
+      - "public/concept/**"
+      - "tests/qa_ervira_concept.mjs"
+      - ".github/workflows/concept-preview-qa.yml"
+jobs:
+  visual-and-function:
+    name: Responsive browser acceptance
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stage actual document and presentation samples
+        run: |
+          python3 scripts/stage_document_portfolio.py
+          python3 scripts/stage_presentation_portfolio.py
+          node scripts/export_ervira_graphics.mjs
+      - name: Install sandbox browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Verify four viewports, six examples and honest request form
+        run: |
+          python3 -m http.server 8765 --directory public --bind 127.0.0.1 > /tmp/ervira-preview-http.log 2>&1 &
+          sleep 2
+          node tests/qa_ervira_concept.mjs
+      - name: Save visual review screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ervira-concept-visual-qa
+          path: concept-qa/
+          if-no-files-found: ignore
+          retention-days: 7

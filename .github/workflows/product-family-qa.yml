@@ -1,10 +1,7 @@
 name: Product Family Catalog QA
 
 on:
-  push:
-    branches: [main, feat/structuralpro-product-family]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   validate:

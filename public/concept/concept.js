@@ -33,7 +33,8 @@
     let visible = 0;
     cards.forEach(card => {
       const categoryMatches = selectedCategory === "all" || card.dataset.category === selectedCategory;
-      const textMatches = !query || normalize(card.textContent || "").includes(query);
+      const cardText = normalize(card.textContent || "");
+      const textMatches = !query || query.split(/\s+/).every(term => cardText.includes(term));
       const show = categoryMatches && textMatches;
       card.hidden = !show;
       if (show) visible += 1;

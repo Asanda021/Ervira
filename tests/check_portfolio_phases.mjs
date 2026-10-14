@@ -46,7 +46,8 @@ assert.equal(new Set(svg).size,10,"Artwork should be distinct");
 for(const s of svg){assert.ok(s.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'));assert.ok(s.includes('xmlns="http://www.w3.org/2000/svg"'));assert.ok(s.endsWith("</svg>"));assert.ok(s.includes("نمونه‌کار برداری مستقل"));assert.ok(!/<script|onload\s*=|javascript:/i.test(s));}
 // Persian typography contract: every SVG has a language tag and the sample label is legible.
 const luminance=hex=>{
- const rgb=[0,2,4].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);
+ const normalized=hex.replace(/^#/,"");
+ const rgb=[0,2,4].map(i=>parseInt(normalized.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);
  return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
 };
 const ratio=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};

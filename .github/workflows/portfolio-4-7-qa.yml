@@ -1,0 +1,40 @@
+name: ERVIRA Portfolio 4-7 Quality Gate
+on:
+  pull_request:
+    paths:
+      - "public/websites/**"
+      - "public/automation/**"
+      - "public/content/**"
+      - "public/graphics/**"
+      - "public/assets/studio-portfolio.css"
+      - "tests/check_portfolio_phases.mjs"
+      - "tests/test_ervira_automation.py"
+      - ".github/workflows/portfolio-4-7-qa.yml"
+  push:
+    branches: [main]
+    paths:
+      - "public/websites/**"
+      - "public/automation/**"
+      - "public/content/**"
+      - "public/graphics/**"
+      - "public/assets/studio-portfolio.css"
+      - "tests/check_portfolio_phases.mjs"
+      - "tests/test_ervira_automation.py"
+jobs:
+  portfolio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check 40 samples, SVG outputs, links and syntax
+        run: node tests/check_portfolio_phases.mjs
+      - name: Run offline Python safety and calculation tests
+        run: python -m unittest discover -s tests -p "test_ervira_automation.py" -v

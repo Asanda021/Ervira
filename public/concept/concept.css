@@ -330,3 +330,37 @@ img{max-width:100%;display:block}
 @media(max-width:620px){.case-hero{padding:35px 0}.case-heading h1{font-size:35px}.case-heading p{font-size:12px}.case-meta{padding:18px}.case-body{padding:35px 0 60px}.case-proof-title{flex-wrap:wrap}.case-proof-title,.case-proof-bottom{padding:11px 15px;font-size:10px}.case-sections{grid-template-columns:1fr;margin:45px 0;gap:34px}.case-sections h2{font-size:22px}.case-download-panel{display:block;padding:23px}.case-download-panel h2{font-size:22px}.case-download-panel>div:last-child{align-items:stretch;margin-top:20px}.case-next{flex-wrap:wrap}}
 
 @media(max-width:430px){.head-action{display:none}}
+
+
+/* Specific service offers: client problem, required input, accountable deliverable. */
+.service-lead{background:#e6ece3;padding:68px 0}
+.service-lead h1{font-size:clamp(37px,4.5vw,63px);line-height:1.52;margin:15px 0 19px;letter-spacing:-.04em}
+.service-lead h1 span{color:#2b7855}
+.service-lead>div>p{max-width:840px;color:#5a7061;font-size:13px;line-height:2.3}
+.service-tabs{margin-top:30px;display:flex;gap:9px;flex-wrap:wrap}
+.service-tabs a{font-size:12px;font-weight:900;border:1px solid #afc7b0;border-radius:6px;color:#22583e;padding:8px 18px;background:#f6faf1}
+.service-tabs a:hover{background:#d2e3d2}
+.service-section{padding:72px 0;scroll-margin-top:85px}
+.service-section.shade{background:#e9eae3}
+.service-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}
+.service-serial{font-size:12px;color:#30734f;font-weight:800}
+.service-text h2{font-size:clamp(27px,3.2vw,42px);line-height:1.6;margin:10px 0 16px;letter-spacing:-.028em}
+.service-text>p{font-size:12.5px;color:#596e60;line-height:2.35}
+.service-matrix{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:23px 0 20px}
+.service-matrix>div{border-top:2px solid #aec9b2;padding-top:10px}
+.service-matrix h3{font-size:13px;margin:0 0 6px}
+.service-matrix p{font-size:11px;line-height:2.15;color:#67796a;margin:0}
+.service-view{display:inline-block;font-size:12px;font-weight:900;color:#225f43;border-bottom:1px solid #507d5f}
+.service-sub{display:inline-block;font-size:11px;color:#547562;margin-right:20px}
+.service-image{background:#d9e5d8;min-height:345px;border-radius:14px;overflow:hidden;border:1px solid #c5d8c5;display:grid;place-items:center}
+.service-image img{width:100%;height:350px;object-fit:contain}
+.service-paper-image{background:#ecede1}
+.service-code-image{background:#214638}
+.service-code-image .terminal-mock{width:75%;padding:24px}
+.service-art-image{background:#e8dacd}
+.service-final{border-top:1px solid #cbdaca;padding:50px 0 75px;display:flex;gap:30px;justify-content:space-between;align-items:center}
+.service-final b{font-size:24px}
+.service-final p{font-size:12px;color:#617568;margin:7px 0 0}
+.service-final .button{white-space:nowrap}
+@media(max-width:850px){.service-feature{gap:29px}.service-image{min-height:260px}.service-image img{height:260px}}
+@media(max-width:650px){.service-lead{padding:37px 0}.service-lead h1{font-size:33px}.service-lead>div>p{font-size:12px}.service-tabs a{font-size:10px;padding:6px 12px}.service-feature{grid-template-columns:1fr}.service-section{padding:48px 0}.service-text h2{font-size:28px}.service-text>p{font-size:12px}.service-matrix{gap:13px}.service-image img{height:265px}.service-final{display:block}.service-final b{font-size:20px}.service-final .button{margin-top:19px}}

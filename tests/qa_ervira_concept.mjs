@@ -32,6 +32,17 @@ try {
   const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:25000});
   assert.equal(response?.status(),200);
   await page.locator(".work-card").first().waitFor();
+  for(const image of await page.locator(".real-preview img").all()){
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate(async img=>{
+      if(!img.complete)await new Promise(resolve=>{
+        img.addEventListener("load",resolve,{once:true});
+        img.addEventListener("error",resolve,{once:true});
+        setTimeout(resolve,8000);
+      });
+    });
+  }
+  await page.evaluate(()=>window.scrollTo(0,0));
   const size=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,cards:document.querySelectorAll(".work-card").length,images:[...document.querySelectorAll(".real-preview img")].map(x=>({complete:x.complete,width:x.naturalWidth}))}));
   assert.equal(size.cards,6);
   assert.ok(size.scroll<=size.viewport+1,"Horizontal overflow at "+width+": "+size.scroll+"/"+size.viewport);

@@ -10,7 +10,7 @@ const assertExists=p=>{
  const target=p.endsWith("/")?path.join(file,"index.html"):file;
  assert.ok(fs.existsSync(target),"Missing resource: "+p);
 };
-for(const f of ["concept/index.html","concept/concept.css","concept/concept.js","concept/case-sales.html"]){
+for(const f of ["concept/index.html","concept/concept.css","concept/concept.js","concept/case-sales.html","concept/services.html"]){
  assert.ok(fs.statSync(path.join(root,f)).size>0);
 }
 const source=fs.readFileSync(path.join(root,"concept/index.html"),"utf8");
@@ -77,5 +77,17 @@ try {
  assert.ok(layout.sw<=layout.w+1,"Case study overflow");
  await page.screenshot({path:"concept-qa/case-sales-390.png",fullPage:true,animations:"disabled"});
  await page.close();
+ for(const width of [390,1280]){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  await page.goto(url+"services.html",{waitUntil:"load",timeout:25000});
+  assert.equal(await page.locator(".service-feature").count(),4);
+  for(const img of await page.locator(".service-image img").all()){
+    assert.ok(await img.evaluate(x=>x.complete&&x.naturalWidth>0),"Service example image missing");
+  }
+  const size=await page.evaluate(()=>({w:document.documentElement.clientWidth,sw:document.documentElement.scrollWidth}));
+  assert.ok(size.sw<=size.w+1,"Service page overflow: "+width+" "+size.sw+"/"+size.w);
+  await page.screenshot({path:"concept-qa/services-"+width+".png",fullPage:true,animations:"disabled"});
+  await page.close();
+ }
  console.log("PASS: responsive concept, 4 viewport sizes, image files, real CTA, filters, mobile nav and honest local form",JSON.stringify(results));
 }finally{await browser.close();}

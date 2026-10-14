@@ -1,9 +1,26 @@
-name: ERVIRA New Concept Preview QA
+name: ERVIRA Studio Rebuild QA
 on:
   pull_request:
     paths:
       - "public/concept/**"
+      - "public/index.html"
+      - "public/services.html"
+      - "public/about.html"
+      - "public/cases/**"
+      - "public/sitemap.xml"
+      - "public/robots.txt"
+      - "public/works/**"
+      - "public/assets/**"
+      - "scripts/stage_document_portfolio.py"
+      - "scripts/stage_presentation_portfolio.py"
+      - "scripts/export_ervira_graphics.mjs"
+      - "scripts/sync_public_site_metadata.py"
+      - "scripts/validate-public-site-seo.mjs"
       - "tests/qa_ervira_concept.mjs"
+      - "tests/qa_ervira_studio.mjs"
+      - "tests/check_portfolio_phases.mjs"
+      - "tests/check_public_links.mjs"
+      - "tests/check_sample_downloads.py"
       - ".github/workflows/concept-preview-qa.yml"
 jobs:
   visual-and-function:
@@ -25,15 +42,21 @@ jobs:
           python3 scripts/stage_document_portfolio.py
           python3 scripts/stage_presentation_portfolio.py
           node scripts/export_ervira_graphics.mjs
+          python3 scripts/sync_public_site_metadata.py
+          node scripts/validate-public-site-seo.mjs
+          node tests/check_portfolio_phases.mjs
+          node tests/check_public_links.mjs
       - name: Install sandbox browser
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
-      - name: Verify four viewports, six examples and honest request form
+      - name: Verify public studio, 6 viewports and honest request form
         run: |
           python3 -m http.server 8765 --directory public --bind 127.0.0.1 > /tmp/ervira-preview-http.log 2>&1 &
           sleep 2
           node tests/qa_ervira_concept.mjs
+          node tests/qa_ervira_studio.mjs
+          python3 tests/check_sample_downloads.py
       - name: Save visual review screenshots
         if: always()
         uses: actions/upload-artifact@v4

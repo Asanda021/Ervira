@@ -14,17 +14,44 @@
     toggle?.setAttribute("aria-expanded", "false");
     toggle?.setAttribute("aria-label", "باز کردن فهرست");
   }));
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || toggle?.getAttribute("aria-expanded") !== "true") return;
+    nav?.classList.remove("open");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "باز کردن فهرست");
+    toggle?.focus();
+  });
   const filters = [...document.querySelectorAll("[data-filter]")];
   const cards = [...document.querySelectorAll("[data-category]")];
+  const search = byId("workSearch");
+  const count = byId("workCount");
+  const empty = byId("workEmpty");
+  let selectedCategory = "all";
+  const normalize = text => text.normalize("NFKC").replace(/[يى]/g, "ی").replace(/ك/g, "ک").trim().toLocaleLowerCase("fa-IR");
+  const updateCards = () => {
+    const query = normalize(search?.value || "");
+    let visible = 0;
+    cards.forEach(card => {
+      const categoryMatches = selectedCategory === "all" || card.dataset.category === selectedCategory;
+      const textMatches = !query || normalize(card.textContent || "").includes(query);
+      const show = categoryMatches && textMatches;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (count) count.textContent = `${visible.toLocaleString("fa-IR")} نمونه قابل نمایش`;
+    if (empty) empty.hidden = visible !== 0;
+  };
   filters.forEach(button => button.addEventListener("click", () => {
-    const category = button.dataset.filter;
+    selectedCategory = button.dataset.filter || "all";
     filters.forEach(item => {
       const selected = item === button;
       item.setAttribute("aria-pressed", String(selected));
       item.classList.toggle("active", selected);
     });
-    cards.forEach(card => { card.hidden = category !== "all" && card.dataset.category !== category; });
+    updateCards();
   }));
+  search?.addEventListener("input", updateCards);
+  updateCards();
   const form = byId("briefForm");
   const input = byId("briefNeed");
   const output = byId("briefPreview");

@@ -1,11 +1,6 @@
 name: Build Academy PDF catalogs
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "catalog/pdfs/**"
-      - ".github/workflows/build-catalog-pdfs.yml"
   workflow_dispatch:
 
 permissions:

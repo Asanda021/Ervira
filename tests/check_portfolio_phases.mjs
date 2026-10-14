@@ -44,5 +44,25 @@ assert.equal(prev.length,10);
 const svg=prev.map(p=>decodeURIComponent(p.split(",").slice(1).join(",")));
 assert.equal(new Set(svg).size,10,"Artwork should be distinct");
 for(const s of svg){assert.ok(s.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'));assert.ok(s.includes('xmlns="http://www.w3.org/2000/svg"'));assert.ok(s.endsWith("</svg>"));assert.ok(s.includes("نمونه‌کار برداری مستقل"));assert.ok(!/<script|onload\s*=|javascript:/i.test(s));}
+// Persian typography contract: every SVG has a language tag and the sample label is legible.
+const luminance=hex=>{
+ const normalized=hex.replace(/^#/,"");
+ const rgb=[0,2,4].map(i=>parseInt(normalized.slice(i,i+2),16)/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);
+ return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
+};
+const ratio=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+for(const [i,source] of svg.entries()){
+ assert.match(source,/xml:lang="fa"/,"SVG "+(i+1)+" must declare Persian");
+ const bg=source.match(/<rect x="0" y="0" width="1000" height="800"[^>]*fill="(#[0-9a-fA-F]{6})"/)?.[1];
+ const footer=[...source.matchAll(/<text ([^>]+)>نمونه‌کار برداری مستقل<\/text>/g)].at(-1)?.[1];
+ const fg=footer?.match(/fill="(#[0-9a-fA-F]{6})"/)?.[1];
+ assert.ok(bg&&fg,"SVG "+(i+1)+" missing background/footer colors");
+ assert.ok(ratio(bg,fg)>=4.5,"SVG "+(i+1)+" footer contrast below 4.5:1");
+ for(const match of source.matchAll(/<text x="([0-9.]+)" y="([0-9.]+)"[^>]*>/g)){
+   const x=Number(match[1]),y=Number(match[2]);
+   assert.ok(x>=0&&x<=1000&&y>=0&&y<=800,"SVG "+(i+1)+" text anchor outside canvas");
+ }
+}
+
 assert.ok(downloads.every(x=>typeof x.callback==="function"),"10 independent SVG download controls");
 console.log("PASS: 30 published HTML samples + 10 distinct SVGs + 10 Markdown sources + 6 fixture CSVs + strict syntax checks");

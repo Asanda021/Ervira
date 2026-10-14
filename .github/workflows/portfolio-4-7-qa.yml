@@ -10,6 +10,7 @@ on:
       - "scripts/export_ervira_graphics.mjs"
       - "tests/check_portfolio_phases.mjs"
       - "tests/test_ervira_automation.py"
+      - "tests/test_ervira_optional.py"
       - ".github/workflows/portfolio-4-7-qa.yml"
   push:
     branches: [main]
@@ -39,5 +40,7 @@ jobs:
         run: node scripts/export_ervira_graphics.mjs
       - name: Check 40 samples, SVG outputs, links and syntax
         run: node tests/check_portfolio_phases.mjs
-      - name: Run offline Python safety and calculation tests
-        run: python -m unittest discover -s tests -p "test_ervira_automation.py" -v
+      - name: Install image and PDF sample dependencies
+        run: python -m pip install --disable-pip-version-check pillow pypdf
+      - name: Run offline Python safety, calculation, image and PDF tests
+        run: python -m unittest discover -s tests -p "test_ervira_*.py" -v

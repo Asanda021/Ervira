@@ -27,3 +27,14 @@
 @media(max-width:1000px){.excel-hero-grid,.detail-hero{grid-template-columns:1fr}.mock-window{max-width:620px;margin:auto}.excel-cards{gap:13px}.excel-card .excel-media{height:240px}}
 @media(max-width:700px){.excel-hero{padding:55px 0}.excel-hero h1{font-size:41px}.excel-hero p{font-size:14px}.excel-stats .container{gap:9px}.excel-stats div{flex:1 1 120px}.excel-stats strong{font-size:20px}.excel-stats span{font-size:10px}.excel-gallery{padding:65px 0}.excel-head{display:block}.excel-head h2{font-size:32px}.excel-head p{margin-top:10px}.excel-cards,.detail-panels{grid-template-columns:1fr}.excel-card .excel-media{height:233px}.excel-card h3{font-size:21px}.detail-page{padding:37px 0 70px}.detail-visual{min-height:290px}.detail-download,.excel-callout{display:block;padding:25px}.detail-download .download-ready,.detail-download .download-pending,.excel-callout .btn{margin-top:16px}.detail-download.is-ready .download-ready{display:inline-flex}.excel-callout h2{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.excel-card,.filter-chip{transition:none!important}}
+
+/* Home feature for the Excel Lab */
+.excel-feature{padding:75px 0;border-bottom:1px solid #283e42;background:radial-gradient(circle at 88% 0%,#284d3f66,transparent 48%),#102227}
+.excel-feature-inside{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:center}
+.excel-feature h2{font-size:clamp(29px,3.6vw,47px);line-height:1.5;margin:17px 0}.excel-feature h2 strong{color:#d2fb8a}
+.excel-feature p{color:#b7c7ca;font-size:14px;line-height:2.2;max-width:670px}.excel-feature .btn{margin-top:15px}
+.excel-feature-card{border:1px solid #567267;border-radius:17px;padding:25px;background:#152d2f;box-shadow:0 28px 55px #0005;transform:rotate(-2deg)}
+.excel-feature-card>span{font:700 11px Arial,sans-serif;letter-spacing:.14em;color:#9fbcac}
+.excel-feature-metrics{display:flex;gap:15px;margin:20px 0}.excel-feature-metrics b{background:#264640;border:1px solid #426c5b;flex:1;border-radius:12px;padding:9px 16px;font-size:25px;color:#d2fb8a}.excel-feature-metrics small{display:block;font-size:10px;color:#b8c7c3}
+.excel-feature-graph{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;height:115px;border-bottom:1px solid #668475;padding:8px 10px;background:repeating-linear-gradient(to top,#ffffff0c 0,#ffffff0c 1px,transparent 1px,transparent 30px)}.excel-feature-graph i{height:var(--h);width:13%;border-radius:6px 6px 0 0;background:linear-gradient(to top,#558d76,#d2fb8a)}
+@media(max-width:700px){.excel-feature{padding:60px 0}.excel-feature-inside{grid-template-columns:1fr;gap:35px}.excel-feature-card{transform:none}.excel-feature h2{font-size:29px}}

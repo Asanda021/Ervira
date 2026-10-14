@@ -328,3 +328,5 @@ img{max-width:100%;display:block}
 .case-next{display:flex;justify-content:space-between;gap:18px;font-size:12px;font-weight:800;color:#235d41;padding:35px 0}
 @media(max-width:850px){.case-heading{grid-template-columns:1fr;gap:28px}.case-meta{max-width:650px}.case-sections{gap:35px}.case-download-panel{padding:25px}}
 @media(max-width:620px){.case-hero{padding:35px 0}.case-heading h1{font-size:35px}.case-heading p{font-size:12px}.case-meta{padding:18px}.case-body{padding:35px 0 60px}.case-proof-title{flex-wrap:wrap}.case-proof-title,.case-proof-bottom{padding:11px 15px;font-size:10px}.case-sections{grid-template-columns:1fr;margin:45px 0;gap:34px}.case-sections h2{font-size:22px}.case-download-panel{display:block;padding:23px}.case-download-panel h2{font-size:22px}.case-download-panel>div:last-child{align-items:stretch;margin-top:20px}.case-next{flex-wrap:wrap}}
+
+@media(max-width:430px){.head-action{display:none}}

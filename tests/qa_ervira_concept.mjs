@@ -64,6 +64,7 @@ try {
   const value=await page.locator("#briefPreview").inputValue();
   assert.match(value,/از سایت ارسال یا ثبت نشده است/);
   assert.equal(errs.length,0,"Browser JavaScript errors: "+errs.join("; "));
+  await page.screenshot({path:"concept-qa/first-fold-"+width+".png",fullPage:false,animations:"disabled"});
   await page.screenshot({path:"concept-qa/home-"+width+".png",fullPage:true,animations:"disabled"});
   await page.close();
   results.push({viewport:width,overflow:false,filters:true,form:true,images:true});
@@ -86,6 +87,7 @@ try {
   }
   const size=await page.evaluate(()=>({w:document.documentElement.clientWidth,sw:document.documentElement.scrollWidth}));
   assert.ok(size.sw<=size.w+1,"Service page overflow: "+width+" "+size.sw+"/"+size.w);
+  await page.screenshot({path:"concept-qa/services-first-fold-"+width+".png",fullPage:false,animations:"disabled"});
   await page.screenshot({path:"concept-qa/services-"+width+".png",fullPage:true,animations:"disabled"});
   await page.close();
  }

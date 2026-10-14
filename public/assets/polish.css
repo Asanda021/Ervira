@@ -101,3 +101,20 @@ body{font-feature-settings:"kern";text-rendering:optimizeLegibility}
 .site-header .nav{max-height:76vh;overflow-y:auto}
 .site-header .nav a{font-size:12px;padding:7px 10px}
 }
+
+
+/* Contact preview: clear local-only behavior and readable Persian fields. */
+.contact-draft-panel{align-items:start;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px}
+.contact-copy{min-width:0}
+.contact-compose{background:#f5faef;border:1px solid #a5c5b2;padding:22px;border-radius:17px;min-width:0;display:flex;flex-direction:column;gap:9px}
+.contact-compose label{font-size:12px;font-weight:800;color:#25483b}
+.contact-compose input,.contact-compose textarea,.contact-compose select{background:#fff;border:1px solid #98b1a2;padding:10px 12px;border-radius:9px;width:100%;font:500 13px Vazirmatn,Tahoma,Arial,sans-serif;color:#17362a;line-height:1.9;min-width:0}
+.contact-compose textarea{resize:vertical;min-height:90px}
+.contact-compose input:focus,.contact-compose select:focus,.contact-compose textarea:focus{outline:3px solid #477c613e;border-color:#32674a}
+.contact-compose textarea[readonly]{background:#eef4ed;font-size:12px}
+.contact-action{background:#153c2c;color:#f4fff5;border:0;padding:11px 15px;border-radius:9px;font-weight:800;font-size:12px}
+.contact-action-secondary{background:#d7e8da;color:#17402b}
+.contact-action:disabled{opacity:.45;cursor:not-allowed}
+.contact-status{font-size:11px!important;line-height:1.9;margin:0!important}
+@media(max-width:850px){.contact-draft-panel{grid-template-columns:1fr;padding:28px 20px;gap:22px}}
+@media(max-width:430px){.contact-compose{padding:14px}.contact-compose input,.contact-compose textarea,.contact-compose select{font-size:12px}}

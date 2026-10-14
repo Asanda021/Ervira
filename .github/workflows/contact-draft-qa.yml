@@ -1,0 +1,20 @@
+name: ERVIRA Contact Draft QA
+on:
+  pull_request:
+    paths:
+      - "public/index.html"
+      - "public/assets/contact-draft.js"
+      - "public/assets/polish.css"
+      - "tests/check_contact_draft.mjs"
+      - ".github/workflows/contact-draft-qa.yml"
+jobs:
+  contact-draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node tests/check_contact_draft.mjs

@@ -69,7 +69,7 @@ try {
   results.push({viewport:width,overflow:false,filters:true,form:true,images:true});
  }
  const page=await browser.newPage({viewport:{width:390,height:844}});
- await page.goto(url+"case-sales.html",{waitUntil:"domcontentloaded",timeout:25000});
+ await page.goto(url+"case-sales.html",{waitUntil:"load",timeout:25000});
  assert.ok(await page.locator(".case-proof img").evaluate(img=>img.naturalWidth>0));
  assert.equal(await page.locator('.case-meta a[download]').getAttribute("href"),"/excel/downloads/01_ERVIRA_Sales_Intelligence.xlsx");
  const layout=await page.evaluate(()=>({w:document.documentElement.clientWidth,sw:document.documentElement.scrollWidth}));

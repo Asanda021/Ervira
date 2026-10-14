@@ -1,0 +1,91 @@
+name: Import verified ERVIRA portfolio archives
+
+# One-time import of public portfolio samples; no StructuralPro build or release.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-ervira-portfolio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: ervira-portfolio-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.repository == 'Asanda021/Ervira' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Download the two exact archives from temporary asset staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --show-error --silent --retry 3 --max-time 90 \
+            'https://c8628f32-2e54-4646-a1a5-aa104d708472.sandbox.floot.app/_cdn/static/3910ed5e-e853-4a17-aa1f-9b3787c92d65-ERVIRA_10_Persian_Documents_Professional.zip' \
+            --output ERVIRA_10_Persian_Documents_Professional.zip
+          curl --fail --location --show-error --silent --retry 3 --max-time 90 \
+            'https://c8628f32-2e54-4646-a1a5-aa104d708472.sandbox.floot.app/_cdn/static/264ec416-a160-4077-a8f2-7ff374a982f9-ERVIRA_10_Professional_Persian_Presentations.zip' \
+            --output ERVIRA_10_Professional_Persian_Presentations.zip
+
+      - name: Validate trusted SHA-256 and ZIP integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' \
+            'acc81b9d5cbcda8a8c95cf5070bc5874c32c8f2dff2fb608cb44588c5a05f844' \
+            'ERVIRA_10_Persian_Documents_Professional.zip' \
+            | sha256sum --check --status
+          printf '%s  %s\n' \
+            'afca4e6142dd56391bacc1b13d7c3712264e21643ff2e056f2570209b48e82ab' \
+            'ERVIRA_10_Professional_Persian_Presentations.zip' \
+            | sha256sum --check --status
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          bundles = [
+              ("ERVIRA_10_Persian_Documents_Professional.zip", 32),
+              ("ERVIRA_10_Professional_Persian_Presentations.zip", 33),
+          ]
+          for name, count in bundles:
+              with ZipFile(name) as archive:
+                  assert len(archive.namelist()) == count, name
+                  assert archive.testzip() is None, name
+                  assert not any(
+                      x.filename.startswith("/") or ".." in Path(x.filename).parts
+                      for x in archive.infolist()
+                  ), name
+          print("Both original archives passed validation.")
+          PY
+
+      - name: Commit verified original archives to GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- \
+            ERVIRA_10_Persian_Documents_Professional.zip \
+            ERVIRA_10_Professional_Persian_Presentations.zip
+          if git diff --cached --quiet; then
+            echo "Archives already present."
+          else
+            git -c user.name='github-actions[bot]' \
+                -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                commit -m 'assets(portfolio): save verified DOCX PDF PPTX sample bundles [skip ci]'
+            git push origin HEAD:main
+          fi
+
+      - name: Deploy updated ERVIRA Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run pages.yml --repo Asanda021/Ervira --ref main

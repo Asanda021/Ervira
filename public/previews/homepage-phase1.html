@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f3f0e9">
+<meta name="description" content="پیش‌نمایش خصوصی فاز اول بازطراحی صفحه اصلی ERVIRA؛ نمایش پروژه‌های مستقل با تصاویر واقعی و ساختار تصویری.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>پیش‌نمایش فاز اول — بازطراحی صفحه اصلی ERVIRA</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#f3f0e9;--paper:#fbfaf5;--black:#151a17;--slate:#536057;--border:#d8d9d0;--acid:#d6fc88;--pine:#203d34;--font:Vazirmatn,Tahoma,Arial,sans-serif;scroll-padding-top:92px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 15px/2 var(--font);background:var(--canvas);color:var(--black);overflow-x:clip}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid #d96644;outline-offset:4px}
+.shell{max-width:1380px;margin:auto;padding:0 clamp(20px,5vw,70px)}
+.skip{position:fixed;z-index:99;top:-100px;right:12px;background:#fff;padding:8px 15px}.skip:focus{top:10px}
+.review-notice{background:#13221c;color:#dfeacf;font-size:11px;text-align:center;padding:4px 16px}
+.site-header{background:var(--canvas);border-bottom:1px solid #d9ddd4;position:sticky;top:0;z-index:30}
+.head{min-height:90px;display:flex;align-items:center;gap:30px}
+.wordmark{font:900 34px/1 Arial,sans-serif;letter-spacing:-.07em;direction:ltr;display:inline-flex;align-items:center}
+.wordmark span{color:#6f8f42;padding-left:3px}.wordmark small{display:block;font:500 10px/1.5 var(--font);letter-spacing:0;color:#748076;margin-right:0}
+.menu{display:flex;margin-inline-start:auto;gap:28px;align-items:center}
+.menu a{font-size:12px;font-weight:800;position:relative}
+.menu a:after{content:"";height:2px;width:0;background:var(--black);position:absolute;right:0;bottom:-6px;transition:width .2s}
+.menu a:hover:after{width:100%}
+.head-action,.pill-dark,.pill-light{min-height:44px;padding:10px 20px;border-radius:999px;font-weight:800;font-size:12px;display:inline-flex;align-items:center;justify-content:center;gap:12px;transition:background .18s,color .18s,transform .18s}
+.head-action,.pill-dark{background:var(--black);color:#fff}
+.head-action:hover,.pill-dark:hover{background:#435f39}
+.pill-light{border:1px solid #95a396;color:var(--black)}
+.pill-light:hover{background:#e0eada}
+.head-action:active,.pill-dark:active,.pill-light:active{transform:scale(.97);background:#a84c2e;color:white}
+.menu-toggle{display:none;border:1px solid var(--border);width:45px;height:45px;background:transparent;border-radius:50%;color:var(--black);font-size:21px}
+.hero{padding:95px 0 75px;border-bottom:1px solid #d4d6ce}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:5%;min-height:560px}
+.eyebrow{font-size:11px;letter-spacing:0;color:#687366;font-weight:900;display:flex;gap:10px;align-items:center}
+.eyebrow:before{content:"";width:27px;height:2px;background:var(--black)}
+.hero h1{font-size:clamp(49px,6.5vw,104px);line-height:1.26;letter-spacing:-.055em;font-weight:900;margin:22px 0}
+.hero h1 .accent{display:inline;box-shadow:inset 0 -.30em 0 var(--acid)}
+.hero .lead{font-size:16px;line-height:2.3;color:#525a53;max-width:540px}
+.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+.hero-disclaimer{font-size:11px;color:#72786e;margin:30px 0 0;max-width:500px}
+.hero-visual{min-width:0;position:relative;height:585px}
+.hero-picture{position:absolute;overflow:hidden;background:#e2e7e3;border:8px solid var(--paper);box-shadow:0 28px 55px #1e302b22}
+.hero-picture img{height:100%;width:100%;object-fit:contain;background:#f4f6f5}
+.hero-picture.main{right:6%;top:42px;width:88%;height:60%;transform:rotate(3deg);z-index:3;border-radius:9px}
+.hero-picture.secondary{left:0;bottom:20px;width:52%;height:36%;transform:rotate(-8deg);z-index:4;border-radius:8px;background:#f4eee0}
+.hero-picture.tertiary{right:8%;bottom:18px;width:52%;height:35%;transform:rotate(9deg);z-index:2;border-radius:8px;background:#deddd8}
+.hero-visual>span{position:absolute;top:10px;left:13px;font:800 11px var(--font);color:#69766b}
+.ticker{border-bottom:1px solid #cbd0c7;border-top:1px solid #cbd0c7;overflow:hidden;padding:21px 0;background:#ebece3}
+.ticker-inner{white-space:nowrap;display:flex;justify-content:space-between;gap:25px;align-items:center;font-size:13px;font-weight:900;color:#32473c}
+.ticker b{color:#a3b192;font-weight:500}
+.section-label{font-size:11px;font-weight:900;color:#637369;letter-spacing:.04em}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:50px}
+.section-heading h2{font-size:clamp(43px,5vw,76px);line-height:1.3;letter-spacing:-.045em;margin:13px 0 0}
+.section-heading p{font-size:13px;color:#667269;max-width:430px;line-height:2.2}
+.featured{padding:110px 0 100px}
+.case{margin-bottom:95px;display:grid;grid-template-columns:1.2fr .8fr;gap:6%;align-items:center}
+.case:nth-of-type(2){grid-template-columns:.8fr 1.2fr}
+.case:nth-of-type(2) .case-media{order:2}
+.case-media{height:460px;padding:42px;display:grid;place-items:center;position:relative;overflow:hidden}
+.case-media>img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 25px #090e1027);transition:transform .35s}
+.case-media:hover>img{transform:scale(1.035)}
+.case:nth-of-type(1) .case-media{background:#dce6dc}
+.case:nth-of-type(2) .case-media{background:#ebe0d4}
+.case:nth-of-type(3) .case-media{background:#cbdce2}
+.case-media-label{position:absolute;top:17px;right:18px;font-size:11px;font-weight:900;background:#fffef0d6;border-radius:30px;padding:5px 14px}
+.case-num{font:800 12px var(--font);color:#6a776b;letter-spacing:0}
+.case-content h3{font-size:clamp(34px,4vw,57px);line-height:1.4;letter-spacing:-.045em;margin:17px 0 12px}
+.case-content p{font-size:15px;color:#566459;line-height:2.25;max-width:465px}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0 28px;padding-top:18px;border-top:1px solid #cbd1c9}
+.case-meta dt{font-size:11px;color:#778279}.case-meta dd{font-size:12px;font-weight:900;margin:2px 0}
+.case-link{display:inline-flex;align-items:center;gap:25px;font-size:13px;font-weight:900;border-bottom:2px solid var(--black);padding-bottom:10px;transition:gap .2s}
+.case-link:hover{gap:35px}
+.archive-link{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #ccd1c9;padding-top:30px}
+.archive-link b{font-size:21px}.archive-link p{font-size:12px;color:#697469}
+.services{padding:105px 0 120px;background:var(--black);color:#fff}
+.services .section-label{color:#b6c9b1}
+.services-top{display:flex;gap:20px;justify-content:space-between;align-items:end;margin-bottom:50px}
+.services h2{font-size:clamp(42px,5.2vw,76px);line-height:1.33;margin:10px 0 0;letter-spacing:-.045em}
+.services .services-top p{max-width:410px;color:#b6c4b9;font-size:13px}
+.service-row{border-top:1px solid #5a6259;display:grid;grid-template-columns:75px 1fr 1fr 35px;align-items:center;gap:18px;padding:30px 0;transition:color .2s,padding .2s}
+.service-row:last-child{border-bottom:1px solid #5a6259}
+.service-row:hover{color:var(--acid);padding-right:12px}
+.service-row .serial{font:900 16px Arial;color:#a9b2a3}
+.service-row strong{font-size:clamp(20px,2.8vw,34px);line-height:1.6}
+.service-row .descriptor{font-size:12px;color:#b1bcb2;line-height:1.85}
+.service-row .arrow{font-size:27px}
+.transparency{padding:105px 0;background:#e0e8d9}
+.truth-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:start}
+.transparency h2{font-size:clamp(40px,5vw,68px);line-height:1.4;margin:14px 0}
+.transparency p{font-size:14px;color:#536153;line-height:2.35;margin:10px 0}
+.truth-points{border-top:1px solid #b3c0ae}
+.truth-points>div{border-bottom:1px solid #b3c0ae;padding:23px 0;display:flex;align-items:baseline;gap:18px}
+.truth-points b{font:900 19px Arial}.truth-points span{font-weight:800;font-size:14px}
+.contact{background:var(--acid);padding:100px 0}
+.contact-grid{display:flex;justify-content:space-between;gap:30px;align-items:end}
+.contact h2{font-size:clamp(42px,6vw,84px);letter-spacing:-.055em;line-height:1.35;margin:12px 0 0}
+.contact p{max-width:600px;font-size:13px;line-height:2.2;margin:20px 0 0}
+.contact .pill-dark{min-height:53px;white-space:nowrap}
+footer{background:#141916;color:#eaf1e8;padding:38px 0}
+footer .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:25px}
+footer .wordmark{font-size:28px}footer p,footer small{font-size:11px;color:#b2c1b5}
+@media(max-width:1080px){.hero h1{font-size:clamp(48px,6.2vw,80px)}.case{gap:4%}.case-media{height:390px;padding:30px}.service-row{grid-template-columns:50px 1fr 1fr 20px}}
+@media(max-width:780px){
+.head{min-height:72px}.wordmark{font-size:29px}.menu-toggle{display:block;margin-right:auto}.head-action{display:none}
+.menu{position:absolute;top:100%;right:15px;left:15px;background:#fdfcf7;border:1px solid var(--border);padding:15px;display:none;box-shadow:0 15px 28px #0002;flex-direction:column;align-items:stretch;gap:0}
+.menu.open{display:flex}.menu a{padding:12px;border-bottom:1px solid #e6e7de}
+.hero{padding:51px 0 65px}.hero-grid{grid-template-columns:1fr;gap:22px}.hero h1{font-size:clamp(44px,10vw,70px)}.hero .lead{font-size:13px}
+.hero-visual{height:350px;max-width:520px;width:100%;margin:auto}
+.hero-picture.main{top:24px;height:62%;right:7%}
+.hero-picture.secondary{bottom:12px}.hero-picture.tertiary{bottom:12px}
+.ticker-inner{justify-content:center;gap:9px 15px;font-size:11px;flex-wrap:wrap;white-space:normal}
+.featured{padding:60px 0}.section-heading{display:block;margin-bottom:35px}
+.case,.case:nth-of-type(2){grid-template-columns:1fr;gap:25px;margin-bottom:60px}
+.case:nth-of-type(2) .case-media{order:0}.case-media{height:300px;padding:19px}
+.case-content h3{font-size:34px;margin-top:10px}.case-content p{font-size:13px}.case-meta{margin:14px 0}
+.archive-link{display:block}.archive-link .pill-dark{margin-top:17px}
+.services{padding:70px 0}.services-top{display:block}.services-top h2{font-size:44px}
+.service-row{grid-template-columns:35px 1fr 20px;gap:10px;padding:23px 0}.service-row strong{font-size:19px}.service-row .descriptor{grid-column:2/-1;grid-row:2;font-size:11px}
+.truth-grid{grid-template-columns:1fr}.transparency{padding:70px 0}.contact{padding:70px 0}.contact-grid{display:block}.contact h2{font-size:47px}.contact .pill-dark{margin-top:22px}
+}
+@media(max-width:430px){.hero-actions .pill-dark,.hero-actions .pill-light{width:100%}.hero-visual{height:275px}.hero-picture{border-width:5px}.featured .section-heading h2{font-size:39px}.services h2{font-size:39px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#selected">رفتن به نمونه‌کارها</a>
+<div class="review-notice">پیش‌نمایش طراحی فاز اول ــ برای بررسی مالک؛ نسخه عمومی سایت تغییر نکرده است.</div>
+<header class="site-header"><div class="shell head">
+<a href="#top" class="wordmark" aria-label="ERVIRA صفحه اصلی">ERVIRA<span>.</span></a>
+<button class="menu-toggle" type="button" id="navToggle" aria-label="باز کردن فهرست" aria-controls="mainNav" aria-expanded="false">☰</button>
+<nav class="menu" id="mainNav" aria-label="ناوبری اصلی">
+<a href="#top">خانه</a><a href="#selected">نمونه‌کارها</a><a href="#services">خدمات</a><a href="#about">روش همکاری</a><a href="#contact">تماس و سفارش</a>
+</nav>
+<a href="#contact" class="head-action">شروع همکاری <span aria-hidden="true">↗</span></a>
+</div></header>
+<main id="top">
+<section class="hero"><div class="shell hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">استودیوی مستقل خدمات دیجیتال</div>
+<h1>ایده‌ات را<br>به یک کار<br><span class="accent">دیدنی</span> تبدیل کن.</h1>
+<p class="lead">طراحی وب‌سایت، گرافیک، ابزارهای کاربردی، پروژه‌های پژوهشی و خدمات مهندسی؛ با تمرکز بر خروجی دقیق، قابل مشاهده و قابل بررسی.</p>
+<div class="hero-actions"><a class="pill-dark" href="#selected">دیدن نمونه‌کارها ↙</a><a class="pill-light" href="#services">آشنایی با خدمات ↙</a></div>
+<p class="hero-disclaimer">نمونه‌های فعلی مستقل و آموزشی‌اند؛ هیچ مشتری یا سابقه اجرایی ساختگی معرفی نمی‌شود.</p>
+</div>
+<div class="hero-visual" aria-label="مجموعه تصاویر واقعی سه نمونه از فایل‌های ERVIRA">
+<span>منتخب نمونه‌های ERVIRA</span>
+<div class="hero-picture main"><img src="/excel/previews/01_Dashboard_Preview.png" alt="نمای واقعی یک داشبورد نمونه اکسل" width="960" height="600" fetchpriority="high"></div>
+<div class="hero-picture secondary"><img src="/documents/previews/01_Executive_Performance_Report.webp" alt="تصویر سند فارسی موجود در آرشیو" width="640" height="400"></div>
+<div class="hero-picture tertiary"><img src="/presentations/previews/01_Quarterly_Performance.webp" alt="تصویر ارائه مدیریتی موجود در سایت" width="640" height="400"></div>
+</div>
+</div></section>
+<div class="ticker"><div class="shell ticker-inner"><span>طراحی وب</span><b>✳</b><span>گرافیک و چاپ</span><b>✳</b><span>ابزار و اتوماسیون</span><b>✳</b><span>پژوهش و ارائه</span><b>✳</b><span>مهندسی عمران</span></div></div>
+<section class="featured" id="selected"><div class="shell">
+<div class="section-heading"><div><div class="section-label">۰۱ / نمونه‌های منتخب</div><h2>کارها بهتر از<br>کلمات حرف می‌زنند.</h2></div><p>اینجا به‌جای کارت‌های شلوغ، خروجی واقعی هر نمونه در ابعاد بزرگ نمایش داده می‌شود. جزئیات و فایل‌ها از صفحات اصلی نمونه قابل بررسی‌اند.</p></div>
+<article class="case">
+<a class="case-media" href="/cases/sales-dashboard.html" aria-label="مشاهده پرونده نمونه داشبورد فروش"><span class="case-media-label">اکسل / تحلیل داده</span><img src="/excel/previews/01_Dashboard_Preview.png" alt="تصویر بزرگ داشبورد تحلیل فروش ERVIRA" loading="lazy" width="1080" height="650"></a>
+<div class="case-content"><span class="case-num">نمونه ۰۱ / اکسل و داده</span><h3>داشبوردی که اعداد را قابل فهم می‌کند.</h3><p>برای بررسی روند فروش و شاخص‌های نمونه، چند جدول و نمودار در کنار هم قرار گرفته‌اند. داده‌ها آموزشی‌اند و فایل قابل ویرایش برای بازبینی در دسترس است.</p>
+<dl class="case-meta"><div><dt>زمینه</dt><dd>اکسل و گزارش‌سازی</dd></div><div><dt>نوع خروجی</dt><dd>فایل XLSX</dd></div></dl><a class="case-link" href="/cases/sales-dashboard.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
+</article>
+<article class="case">
+<a class="case-media" href="/documents/report.html" aria-label="مشاهده جزئیات گزارش مدیریتی فارسی"><span class="case-media-label">اسناد / گزارش فارسی</span><img src="/documents/previews/01_Executive_Performance_Report.webp" alt="پیش‌نمایش بزرگ گزارش مدیریتی فارسی" loading="lazy" width="1080" height="650"></a>
+<div class="case-content"><span class="case-num">نمونه ۰۲ / اسناد فارسی</span><h3>گزارشی برای خواندن، نه فقط بایگانی.</h3><p>نمونه‌ای از ساختاربندی متن مدیریتی، تنظیم جدول و خروجی قابل ویرایش. این پروژه آموزشی است و بدون انتساب به مشتری واقعی نمایش داده می‌شود.</p>
+<dl class="case-meta"><div><dt>زمینه</dt><dd>Word و صفحه‌آرایی</dd></div><div><dt>نوع خروجی</dt><dd>DOCX / PDF</dd></div></dl><a class="case-link" href="/documents/report.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
+</article>
+<article class="case">
+<a class="case-media" href="/presentations/01_Quarterly_Performance.html" aria-label="مشاهده نمونه پاورپوینت عملکرد"><span class="case-media-label">پاورپوینت / ارائه</span><img src="/presentations/previews/01_Quarterly_Performance.webp" alt="پیش‌نمایش بزرگ اسلاید نمونه ارائه مدیریتی" loading="lazy" width="1080" height="650"></a>
+<div class="case-content"><span class="case-num">نمونه ۰۳ / پاورپوینت</span><h3>روایت تصویری، به‌جای اسلایدهای پراکنده.</h3><p>یک ارائه شش‌اسلایدی با شاخص‌های فرضی، جدول و ساختار روایی. نسخه قابل ویرایش و PDF در صفحه پروژه معرفی شده است.</p>
+<dl class="case-meta"><div><dt>زمینه</dt><dd>طراحی ارائه</dd></div><div><dt>نوع خروجی</dt><dd>PPTX / PDF</dd></div></dl><a class="case-link" href="/presentations/01_Quarterly_Performance.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
+</article>
+<div class="archive-link"><div><b>آرشیو همه نمونه‌ها</b><p>۳۰ نمونه مستقل موجود در حوزه فایل‌های اداری و تحلیلی؛ کیفیت تخصصی هرکدام باید جداگانه بررسی شود.</p></div><a href="/portfolio/" class="pill-dark">مشاهده آرشیو ↖</a></div>
+</div></section>
+<section class="services" id="services"><div class="shell">
+<div class="services-top"><div><div class="section-label">۰۲ / حوزه‌های خدمات</div><h2>برای هر مسئله،<br>راه‌حل خودش.</h2></div><p>خدمات در پنج حوزه اصلی دسته‌بندی شده‌اند. در هر پروژه، ورودی، محدوده و خروجی توافق و مشخص می‌شود.</p></div>
+<a class="service-row" href="/services.html#website-ui"><span class="serial">01</span><strong>طراحی و توسعه وب</strong><span class="descriptor">وب‌سایت اختصاصی و وردپرسی، رابط کاربری، صفحات خدمات</span><span class="arrow" aria-hidden="true">↖</span></a>
+<a class="service-row" href="/services.html#graphic-design"><span class="serial">02</span><strong>طراحی گرافیک و چاپ</strong><span class="descriptor">پوستر، بنر، هویت بصری، کاتالوگ و طراحی برداری</span><span class="arrow" aria-hidden="true">↖</span></a>
+<a class="service-row" href="/services.html#automation"><span class="serial">03</span><strong>اتوماسیون و ابزار کاربردی</strong><span class="descriptor">برنامه‌نویسی، ربات تلگرام، تحلیل داده و ابزارهای سفارشی</span><span class="arrow" aria-hidden="true">↖</span></a>
+<a class="service-row" href="/services.html#writing"><span class="serial">04</span><strong>پروژه‌های دانشگاهی و پژوهشی</strong><span class="descriptor">پژوهش، تحلیل منابع، ویرایش و ارائه علمی</span><span class="arrow" aria-hidden="true">↖</span></a>
+<a class="service-row" href="/services.html#civil-office"><span class="serial">05</span><strong>خدمات مهندسی عمران</strong><span class="descriptor">دفتر فنی، متره و برآورد مبتنی بر مدارک معتبر؛ نمونه تخصصی در دست تکمیل</span><span class="arrow" aria-hidden="true">↖</span></a>
+</div></section>
+<section class="transparency" id="about"><div class="shell truth-grid">
+<div><div class="section-label">۰۳ / رویکرد همکاری</div><h2>ظاهر مهم است.<br>درستی مهم‌تر.</h2><p>در ERVIRA هدف این است که هر سفارش با مسئله مشخص آغاز شود و با خروجی قابل بررسی ادامه پیدا کند. نمونه‌های فعلی برای نشان‌دادن شیوه اجرا هستند، نه اثبات سابقه مشتریان.</p></div>
+<div class="truth-points"><div><b>01</b><span>تعریف دقیق مسئله و فایل‌های ورودی</span></div><div><b>02</b><span>تعیین خروجی، زمان و معیار پذیرش</span></div><div><b>03</b><span>ساخت نمونه و دریافت بازخورد</span></div><div><b>04</b><span>کنترل کیفیت و تحویل نسخه قابل بررسی</span></div></div>
+</div></section>
+<section class="contact" id="contact"><div class="shell contact-grid">
+<div><div class="section-label">۰۴ / شروع یک پروژه</div><h2>پروژه بعدی<br>از یک گفت‌وگو شروع می‌شود.</h2><p>فعلاً فرم سایت متن درخواست را روی دستگاه شما آماده می‌کند و پیام را ارسال نمی‌کند؛ تا تأیید مسیر ارتباطی، ادعای ثبت سفارش نداریم.</p></div>
+<a class="pill-dark" href="/#brief">آماده‌کردن شرح پروژه <span aria-hidden="true">↖</span></a>
+</div></section>
+</main>
+<footer><div class="shell footer-inner"><div><a class="wordmark" href="#top">ERVIRA<span>.</span></a><p>استودیوی مستقل خدمات دیجیتال ــ نمونه‌ها آموزشی‌اند.</p></div><div><small>پیش‌نمایش فاز اول / منتشرنشده در سایت اصلی</small><p>۱۴۰۵ · ERVIRA</p></div></div></footer>
+<script>
+(()=>{"use strict";const button=document.getElementById("navToggle"),nav=document.getElementById("mainNav");button.addEventListener("click",()=>{const open=button.getAttribute("aria-expanded")!=="true";button.setAttribute("aria-expanded",String(open));button.setAttribute("aria-label",open?"بستن فهرست":"باز کردن فهرست");nav.classList.toggle("open",open)});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");button.setAttribute("aria-expanded","false")}));document.addEventListener("keydown",e=>{if(e.key==="Escape"&&button.getAttribute("aria-expanded")==="true"){nav.classList.remove("open");button.setAttribute("aria-expanded","false");button.focus()}})})();
+</script>
+</body></html>

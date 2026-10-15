@@ -13,6 +13,7 @@ document.querySelectorAll('[data-prs-base]').forEach(async node=>{
    if(!result.ok||!mime.test(result.headers.get('content-type')||''))continue;
    const link=document.createElement('a');link.href=url;link.download=base+'.'+ext;link.textContent=label;
    node.querySelector('.prs-ready-links')?.append(link);node.classList.add('is-ready');
+   const description=node.querySelector('p');if(description)description.textContent='نسخه آموزشی این ارائه از لینک‌های زیر قابل دریافت است؛ پیش از استفاده، اسلایدها و داده‌های نمونه را بازبینی کنید.';
   }catch{ /* Never expose nonexistent links */ }
  }
 });

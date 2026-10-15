@@ -476,3 +476,26 @@ a.button.is-pressing,.head-action.is-pressing,.filter.is-pressing,.nav-toggle.is
  a.button,.head-action,.filter,.nav-toggle,.brief-form button,.service-toc a,
  .service-tabs a,.service-view,.stage-link,.text-link{transition:none!important}
 }
+
+
+/* Editorial 30-project showcase — live file imagery, not synthetic mockups */
+.gallery-invite{background:#dfeae1;position:relative;overflow:hidden}
+.gallery-invite:before{content:"";position:absolute;left:-90px;top:-130px;width:480px;height:480px;background:radial-gradient(circle,#f4d1ab80,transparent 70%);pointer-events:none}
+.invite-layout{display:grid;grid-template-columns:1.06fr .94fr;gap:70px;align-items:center}
+.invite-copy{position:relative;z-index:1}
+.invite-copy h2{font-size:clamp(35px,4.2vw,60px);line-height:1.47;margin:16px 0 14px}
+.invite-copy h2 span{color:#1d7456}
+.invite-copy p{max-width:610px;color:#546d5b;font-size:14px;line-height:2.3}
+.invite-copy small{color:#6e786f;font-size:11px;display:block;margin-top:24px;line-height:2}
+.invite-buttons{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}
+.invite-visual{height:395px;position:relative}
+.invite-shot{position:absolute;display:block;width:75%;aspect-ratio:1.58;padding:8px;background:#fffefa;border:1px solid #d6e3da;border-radius:14px;box-shadow:0 22px 45px #17402b34;overflow:hidden;transition:transform .3s}
+.invite-shot img{width:100%;height:100%;object-fit:contain;background:#f3f7f3;border-radius:9px}
+.shot-excel{top:4%;right:0;z-index:3;transform:rotate(3deg)}
+.shot-document{top:0;left:0;z-index:2;transform:rotate(-10deg) scale(.89)}
+.shot-presentation{bottom:1%;left:6%;z-index:1;transform:rotate(-5deg) scale(.9)}
+.invite-shot:hover{transform:rotate(0) translateY(-6px);z-index:4}
+.archive-link p a{color:#165b41;text-decoration:underline;text-underline-offset:3px;font-weight:900}
+@media(max-width:860px){.invite-layout{grid-template-columns:1fr;gap:20px}.invite-visual{max-width:540px;width:100%;height:330px;margin:auto}}
+@media(max-width:600px){.invite-visual{height:255px}.invite-copy p{font-size:12px}.invite-buttons .button{width:100%;justify-content:center}.invite-copy h2{font-size:35px}}
+@media(prefers-reduced-motion:reduce){.invite-shot{transition:none}}

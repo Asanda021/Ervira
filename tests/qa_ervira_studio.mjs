@@ -177,7 +177,7 @@ try {
     assert.match(animationNames.float, /ervira-float/, "Hero showcase must actually animate");
     await motionPage.locator(".solution-card").first().scrollIntoViewIfNeeded();
     await motionPage.waitForFunction(() => document.querySelector(".solution-card")?.classList.contains("is-visible"),
-      { timeout: 6000 });
+      undefined, { timeout: 6000 });
     assert.ok(await motionPage.locator(".solution-card").first().evaluate(element =>
       element.getAttribute("data-reveal") !== null), "Actual viewport reveal must be initialized");
   } finally {

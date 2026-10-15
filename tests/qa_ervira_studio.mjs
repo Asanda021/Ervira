@@ -85,7 +85,7 @@ const errors = [];
 try {
   for (const width of widths) {
     for (const route of pages) {
-      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
+      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: "reduce", acceptDownloads: true });
       page.on("pageerror", error => errors.push(`${route} ${width}: ${error}`));
       const response = await page.goto(`http://127.0.0.1:8765${route}`, { waitUntil: "domcontentloaded" });
       assert.equal(response?.status(), 200, `${route} did not load at ${width}px`);
@@ -139,6 +139,16 @@ try {
         await page.locator("#briefNeed").fill("فایل‌های هفتگی فروش باید در یک گزارش روشن کنار هم قرار بگیرند.");
         await page.locator("#briefForm button[type=submit]").click();
         assert.ok((await page.locator("#briefPreview").inputValue()).includes("از سایت ارسال یا ثبت نشده است"));
+        if (width === 375) {
+          await page.locator("#briefNeed").fill("گزارش فروش هر ماه باید با ورودی جدید ویرایش و دوباره آماده شود.");
+          assert.ok(await page.locator("#briefResult").isHidden(), "Stale draft must be invalidated after edits");
+          await page.locator("#briefForm button[type=submit]").click();
+          const requestDownload = page.waitForEvent("download");
+          await page.locator("#briefDownload").click();
+          const download = await requestDownload;
+          assert.equal(download.suggestedFilename(), "ERVIRA-project-request.txt");
+          assert.match(await page.locator("#briefStatus").textContent(), /به معنی ارسال سفارش نیست/);
+        }
       }
       if (route === "/services.html") assert.equal(await page.locator("[data-service]").count(), 8);
       if (width <= 768 && route !== "/") {

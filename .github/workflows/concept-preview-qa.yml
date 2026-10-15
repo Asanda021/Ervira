@@ -21,6 +21,8 @@ on:
       - "tests/check_portfolio_phases.mjs"
       - "tests/check_public_links.mjs"
       - "tests/check_sample_downloads.py"
+      - "scripts/resolve-structuralpro-contract.mjs"
+      - "tests/test-structuralpro-contract-source.mjs"
       - ".github/workflows/concept-preview-qa.yml"
 jobs:
   visual-and-function:
@@ -46,6 +48,8 @@ jobs:
           node scripts/validate-public-site-seo.mjs
           node tests/check_portfolio_phases.mjs
           node tests/check_public_links.mjs
+      - name: Prove fail-closed StructuralPro recovery rules
+        run: node --test tests/test-structuralpro-contract-source.mjs
       - name: Install sandbox browser
         run: |
           npm install --no-save playwright

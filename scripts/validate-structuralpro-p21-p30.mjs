@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import https from "node:https";
+import { resolveStructuralProContract } from "./resolve-structuralpro-contract.mjs";
 
 const root = process.cwd();
 const ids = Array.from({length: 10}, (_, i) => "p" + String(i + 21).padStart(2, "0"));
@@ -9,18 +9,8 @@ function read(p) {
   return JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
 }
 
-function fetchJson(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, response => {
-      let data = "";
-      response.on("data", chunk => data += chunk);
-      response.on("end", () => response.statusCode === 200 ? resolve(JSON.parse(data)) : reject(Error("HTTP " + response.statusCode)));
-    }).on("error", reject);
-  });
-}
-
 const main = async () => {
-  const contract = await fetchJson("https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json");
+  const contract = await resolveStructuralProContract();
   for (const id of ids) {
     const d = read("website/data/structuralpro-" + id + ".json");
     if (d.product_id !== contract.product_id || d.parent_platform !== "ERVIRA" || d.version !== contract.product.current_version || d.phase !== id.toUpperCase()) {

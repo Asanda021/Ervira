@@ -50,7 +50,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #d96644;outline-offset:4p
 .hero-picture.main{right:6%;top:42px;width:88%;height:60%;transform:rotate(3deg);z-index:3;border-radius:9px}
 .hero-picture.secondary{left:0;bottom:20px;width:52%;height:36%;transform:rotate(-8deg);z-index:4;border-radius:8px;background:#f4eee0}
 .hero-picture.tertiary{right:8%;bottom:18px;width:52%;height:35%;transform:rotate(9deg);z-index:2;border-radius:8px;background:#deddd8}
-.hero-visual>span{position:absolute;top:10px;left:13px;font:800 10px Arial,sans-serif;letter-spacing:.1em;color:#69766b}
+.hero-visual>span{position:absolute;top:10px;left:13px;font:800 11px var(--font);color:#69766b}
 .ticker{border-bottom:1px solid #cbd0c7;border-top:1px solid #cbd0c7;overflow:hidden;padding:21px 0;background:#ebece3}
 .ticker-inner{white-space:nowrap;display:flex;justify-content:space-between;gap:25px;align-items:center;font-size:13px;font-weight:900;color:#32473c}
 .ticker b{color:#a3b192;font-weight:500}
@@ -69,7 +69,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #d96644;outline-offset:4p
 .case:nth-of-type(2) .case-media{background:#ebe0d4}
 .case:nth-of-type(3) .case-media{background:#cbdce2}
 .case-media-label{position:absolute;top:17px;right:18px;font-size:11px;font-weight:900;background:#fffef0d6;border-radius:30px;padding:5px 14px}
-.case-num{font:900 13px Arial,sans-serif;color:#6a776b;letter-spacing:.14em}
+.case-num{font:800 12px var(--font);color:#6a776b;letter-spacing:0}
 .case-content h3{font-size:clamp(34px,4vw,57px);line-height:1.4;letter-spacing:-.045em;margin:17px 0 12px}
 .case-content p{font-size:15px;color:#566459;line-height:2.25;max-width:465px}
 .case-meta{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0 28px;padding-top:18px;border-top:1px solid #cbd1c9}
@@ -114,7 +114,7 @@ footer .wordmark{font-size:28px}footer p,footer small{font-size:11px;color:#b2c1
 .hero-visual{height:350px;max-width:520px;width:100%;margin:auto}
 .hero-picture.main{top:24px;height:62%;right:7%}
 .hero-picture.secondary{bottom:12px}.hero-picture.tertiary{bottom:12px}
-.ticker-inner{justify-content:flex-start;gap:19px;font-size:11px}
+.ticker-inner{justify-content:center;gap:9px 15px;font-size:11px;flex-wrap:wrap;white-space:normal}
 .featured{padding:60px 0}.section-heading{display:block;margin-bottom:35px}
 .case,.case:nth-of-type(2){grid-template-columns:1fr;gap:25px;margin-bottom:60px}
 .case:nth-of-type(2) .case-media{order:0}.case-media{height:300px;padding:19px}
@@ -149,7 +149,7 @@ footer .wordmark{font-size:28px}footer p,footer small{font-size:11px;color:#b2c1
 <p class="hero-disclaimer">نمونه‌های فعلی مستقل و آموزشی‌اند؛ هیچ مشتری یا سابقه اجرایی ساختگی معرفی نمی‌شود.</p>
 </div>
 <div class="hero-visual" aria-label="مجموعه تصاویر واقعی سه نمونه از فایل‌های ERVIRA">
-<span>SELECTED WORK / ERVIRA</span>
+<span>منتخب نمونه‌های ERVIRA</span>
 <div class="hero-picture main"><img src="/excel/previews/01_Dashboard_Preview.png" alt="نمای واقعی یک داشبورد نمونه اکسل" width="960" height="600" fetchpriority="high"></div>
 <div class="hero-picture secondary"><img src="/documents/previews/01_Executive_Performance_Report.webp" alt="تصویر سند فارسی موجود در آرشیو" width="640" height="400"></div>
 <div class="hero-picture tertiary"><img src="/presentations/previews/01_Quarterly_Performance.webp" alt="تصویر ارائه مدیریتی موجود در سایت" width="640" height="400"></div>
@@ -160,17 +160,17 @@ footer .wordmark{font-size:28px}footer p,footer small{font-size:11px;color:#b2c1
 <div class="section-heading"><div><div class="section-label">۰۱ / نمونه‌های منتخب</div><h2>کارها بهتر از<br>کلمات حرف می‌زنند.</h2></div><p>اینجا به‌جای کارت‌های شلوغ، خروجی واقعی هر نمونه در ابعاد بزرگ نمایش داده می‌شود. جزئیات و فایل‌ها از صفحات اصلی نمونه قابل بررسی‌اند.</p></div>
 <article class="case">
 <a class="case-media" href="/cases/sales-dashboard.html" aria-label="مشاهده پرونده نمونه داشبورد فروش"><span class="case-media-label">اکسل / تحلیل داده</span><img src="/excel/previews/01_Dashboard_Preview.png" alt="تصویر بزرگ داشبورد تحلیل فروش ERVIRA" loading="lazy" width="1080" height="650"></a>
-<div class="case-content"><span class="case-num">CASE 01 / DATA &amp; EXCEL</span><h3>داشبوردی که اعداد را قابل فهم می‌کند.</h3><p>برای بررسی روند فروش و شاخص‌های نمونه، چند جدول و نمودار در کنار هم قرار گرفته‌اند. داده‌ها آموزشی‌اند و فایل قابل ویرایش برای بازبینی در دسترس است.</p>
+<div class="case-content"><span class="case-num">نمونه ۰۱ / اکسل و داده</span><h3>داشبوردی که اعداد را قابل فهم می‌کند.</h3><p>برای بررسی روند فروش و شاخص‌های نمونه، چند جدول و نمودار در کنار هم قرار گرفته‌اند. داده‌ها آموزشی‌اند و فایل قابل ویرایش برای بازبینی در دسترس است.</p>
 <dl class="case-meta"><div><dt>زمینه</dt><dd>اکسل و گزارش‌سازی</dd></div><div><dt>نوع خروجی</dt><dd>فایل XLSX</dd></div></dl><a class="case-link" href="/cases/sales-dashboard.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
 </article>
 <article class="case">
 <a class="case-media" href="/documents/report.html" aria-label="مشاهده جزئیات گزارش مدیریتی فارسی"><span class="case-media-label">اسناد / گزارش فارسی</span><img src="/documents/previews/01_Executive_Performance_Report.webp" alt="پیش‌نمایش بزرگ گزارش مدیریتی فارسی" loading="lazy" width="1080" height="650"></a>
-<div class="case-content"><span class="case-num">CASE 02 / DOCUMENTS</span><h3>گزارشی برای خواندن، نه فقط بایگانی.</h3><p>نمونه‌ای از ساختاربندی متن مدیریتی، تنظیم جدول و خروجی قابل ویرایش. این پروژه آموزشی است و بدون انتساب به مشتری واقعی نمایش داده می‌شود.</p>
+<div class="case-content"><span class="case-num">نمونه ۰۲ / اسناد فارسی</span><h3>گزارشی برای خواندن، نه فقط بایگانی.</h3><p>نمونه‌ای از ساختاربندی متن مدیریتی، تنظیم جدول و خروجی قابل ویرایش. این پروژه آموزشی است و بدون انتساب به مشتری واقعی نمایش داده می‌شود.</p>
 <dl class="case-meta"><div><dt>زمینه</dt><dd>Word و صفحه‌آرایی</dd></div><div><dt>نوع خروجی</dt><dd>DOCX / PDF</dd></div></dl><a class="case-link" href="/documents/report.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
 </article>
 <article class="case">
 <a class="case-media" href="/presentations/01_Quarterly_Performance.html" aria-label="مشاهده نمونه پاورپوینت عملکرد"><span class="case-media-label">پاورپوینت / ارائه</span><img src="/presentations/previews/01_Quarterly_Performance.webp" alt="پیش‌نمایش بزرگ اسلاید نمونه ارائه مدیریتی" loading="lazy" width="1080" height="650"></a>
-<div class="case-content"><span class="case-num">CASE 03 / PRESENTATION</span><h3>روایت تصویری، به‌جای اسلایدهای پراکنده.</h3><p>یک ارائه شش‌اسلایدی با شاخص‌های فرضی، جدول و ساختار روایی. نسخه قابل ویرایش و PDF در صفحه پروژه معرفی شده است.</p>
+<div class="case-content"><span class="case-num">نمونه ۰۳ / پاورپوینت</span><h3>روایت تصویری، به‌جای اسلایدهای پراکنده.</h3><p>یک ارائه شش‌اسلایدی با شاخص‌های فرضی، جدول و ساختار روایی. نسخه قابل ویرایش و PDF در صفحه پروژه معرفی شده است.</p>
 <dl class="case-meta"><div><dt>زمینه</dt><dd>طراحی ارائه</dd></div><div><dt>نوع خروجی</dt><dd>PPTX / PDF</dd></div></dl><a class="case-link" href="/presentations/01_Quarterly_Performance.html">مشاهده پرونده پروژه <span aria-hidden="true">↖</span></a></div>
 </article>
 <div class="archive-link"><div><b>آرشیو همه نمونه‌ها</b><p>۳۰ نمونه مستقل موجود در حوزه فایل‌های اداری و تحلیلی؛ کیفیت تخصصی هرکدام باید جداگانه بررسی شود.</p></div><a href="/portfolio/" class="pill-dark">مشاهده آرشیو ↖</a></div>

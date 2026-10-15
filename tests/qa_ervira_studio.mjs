@@ -216,6 +216,7 @@ try {
         await page.keyboard.press("Escape");
         assert.equal(await page.locator("#navToggle").getAttribute("aria-expanded"), "false", `${route}: Escape did not close navigation`);
       }
+      if (route === "/previews/homepage-phase1.html") await page.locator("#navToggle").evaluate(el => el.blur());
       if (width === 375 || width === 1440) {
         const label = route === "/" ? "home" : route.replaceAll("/", "-").replaceAll(".", "-") || "home";
         await page.screenshot({ path: path.join(outputDir, `${label}-${width}.png`), fullPage: true, animations: "disabled" });

@@ -1,75 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://ervira.ir/</loc></url>
-<url><loc>https://ervira.ir/excel/</loc></url>
-<url><loc>https://ervira.ir/excel/sales.html</loc></url>
-<url><loc>https://ervira.ir/excel/inventory.html</loc></url>
-<url><loc>https://ervira.ir/excel/budget.html</loc></url>
-<url><loc>https://ervira.ir/excel/attendance.html</loc></url>
-<url><loc>https://ervira.ir/excel/costing.html</loc></url>
-<url><loc>https://ervira.ir/excel/receivables.html</loc></url>
-<url><loc>https://ervira.ir/excel/gantt.html</loc></url>
-<url><loc>https://ervira.ir/excel/cleaning.html</loc></url>
-<url><loc>https://ervira.ir/excel/survey.html</loc></url>
-<url><loc>https://ervira.ir/excel/branches.html</loc></url>
-<url><loc>https://ervira.ir/works/dashboard.html</loc></url>
-<url><loc>https://ervira.ir/works/invoice.html</loc></url>
-<url><loc>https://ervira.ir/works/text.html</loc></url>
-<url><loc>https://ervira.ir/works/presentation.html</loc></url>
-<url><loc>https://ervira.ir/documents/</loc></url>
-<url><loc>https://ervira.ir/documents/report.html</loc></url>
-<url><loc>https://ervira.ir/documents/proposal.html</loc></url>
-<url><loc>https://ervira.ir/documents/resume.html</loc></url>
-<url><loc>https://ervira.ir/documents/minutes.html</loc></url>
-<url><loc>https://ervira.ir/documents/agreement.html</loc></url>
-<url><loc>https://ervira.ir/documents/inspection.html</loc></url>
-<url><loc>https://ervira.ir/documents/catalog.html</loc></url>
-<url><loc>https://ervira.ir/documents/editing.html</loc></url>
-<url><loc>https://ervira.ir/documents/table.html</loc></url>
-<url><loc>https://ervira.ir/documents/letters.html</loc></url>
-<url><loc>https://ervira.ir/presentations/</loc></url>
-<url><loc>https://ervira.ir/presentations/01_Quarterly_Performance.html</loc></url>
-<url><loc>https://ervira.ir/presentations/02_Research_Defense.html</loc></url>
-<url><loc>https://ervira.ir/presentations/03_Company_Profile.html</loc></url>
-<url><loc>https://ervira.ir/presentations/04_Startup_Pitch.html</loc></url>
-<url><loc>https://ervira.ir/presentations/05_Digital_Product_Intro.html</loc></url>
-<url><loc>https://ervira.ir/presentations/06_Marketing_Plan.html</loc></url>
-<url><loc>https://ervira.ir/presentations/07_Excel_Training.html</loc></url>
-<url><loc>https://ervira.ir/presentations/08_Project_Progress.html</loc></url>
-<url><loc>https://ervira.ir/presentations/09_Product_Roadmap.html</loc></url>
-<url><loc>https://ervira.ir/presentations/10_Technical_Proposal.html</loc></url>
-<url><loc>https://ervira.ir/graphics/</loc></url>
-<url><loc>https://ervira.ir/websites/</loc></url>
-<url><loc>https://ervira.ir/automation/</loc></url>
-<url><loc>https://ervira.ir/content/</loc></url>
-<url><loc>https://ervira.ir/websites/01.html</loc></url>
-<url><loc>https://ervira.ir/websites/02.html</loc></url>
-<url><loc>https://ervira.ir/websites/03.html</loc></url>
-<url><loc>https://ervira.ir/websites/04.html</loc></url>
-<url><loc>https://ervira.ir/websites/05.html</loc></url>
-<url><loc>https://ervira.ir/websites/06.html</loc></url>
-<url><loc>https://ervira.ir/websites/07.html</loc></url>
-<url><loc>https://ervira.ir/websites/08.html</loc></url>
-<url><loc>https://ervira.ir/websites/09.html</loc></url>
-<url><loc>https://ervira.ir/websites/10.html</loc></url>
-<url><loc>https://ervira.ir/automation/01.html</loc></url>
-<url><loc>https://ervira.ir/automation/02.html</loc></url>
-<url><loc>https://ervira.ir/automation/03.html</loc></url>
-<url><loc>https://ervira.ir/automation/04.html</loc></url>
-<url><loc>https://ervira.ir/automation/05.html</loc></url>
-<url><loc>https://ervira.ir/automation/06.html</loc></url>
-<url><loc>https://ervira.ir/automation/07.html</loc></url>
-<url><loc>https://ervira.ir/automation/08.html</loc></url>
-<url><loc>https://ervira.ir/automation/09.html</loc></url>
-<url><loc>https://ervira.ir/automation/10.html</loc></url>
-<url><loc>https://ervira.ir/content/01.html</loc></url>
-<url><loc>https://ervira.ir/content/02.html</loc></url>
-<url><loc>https://ervira.ir/content/03.html</loc></url>
-<url><loc>https://ervira.ir/content/04.html</loc></url>
-<url><loc>https://ervira.ir/content/05.html</loc></url>
-<url><loc>https://ervira.ir/content/06.html</loc></url>
-<url><loc>https://ervira.ir/content/07.html</loc></url>
-<url><loc>https://ervira.ir/content/08.html</loc></url>
-<url><loc>https://ervira.ir/content/09.html</loc></url>
-<url><loc>https://ervira.ir/content/10.html</loc></url>
+  <url><loc>https://ervira.ir/automation/01.html</loc></url>
+  <url><loc>https://ervira.ir/automation/02.html</loc></url>
+  <url><loc>https://ervira.ir/automation/03.html</loc></url>
+  <url><loc>https://ervira.ir/automation/04.html</loc></url>
+  <url><loc>https://ervira.ir/automation/05.html</loc></url>
+  <url><loc>https://ervira.ir/automation/06.html</loc></url>
+  <url><loc>https://ervira.ir/automation/07.html</loc></url>
+  <url><loc>https://ervira.ir/automation/08.html</loc></url>
+  <url><loc>https://ervira.ir/automation/09.html</loc></url>
+  <url><loc>https://ervira.ir/automation/10.html</loc></url>
+  <url><loc>https://ervira.ir/automation/data/</loc></url>
+  <url><loc>https://ervira.ir/automation/</loc></url>
+  <url><loc>https://ervira.ir/cases/sales-dashboard.html</loc></url>
+  <url><loc>https://ervira.ir/content/01.html</loc></url>
+  <url><loc>https://ervira.ir/content/02.html</loc></url>
+  <url><loc>https://ervira.ir/content/03.html</loc></url>
+  <url><loc>https://ervira.ir/content/04.html</loc></url>
+  <url><loc>https://ervira.ir/content/05.html</loc></url>
+  <url><loc>https://ervira.ir/content/06.html</loc></url>
+  <url><loc>https://ervira.ir/content/07.html</loc></url>
+  <url><loc>https://ervira.ir/content/08.html</loc></url>
+  <url><loc>https://ervira.ir/content/09.html</loc></url>
+  <url><loc>https://ervira.ir/content/10.html</loc></url>
+  <url><loc>https://ervira.ir/content/</loc></url>
+  <url><loc>https://ervira.ir/documents/agreement.html</loc></url>
+  <url><loc>https://ervira.ir/documents/catalog.html</loc></url>
+  <url><loc>https://ervira.ir/documents/editing.html</loc></url>
+  <url><loc>https://ervira.ir/documents/</loc></url>
+  <url><loc>https://ervira.ir/documents/inspection.html</loc></url>
+  <url><loc>https://ervira.ir/documents/letters.html</loc></url>
+  <url><loc>https://ervira.ir/documents/minutes.html</loc></url>
+  <url><loc>https://ervira.ir/documents/proposal.html</loc></url>
+  <url><loc>https://ervira.ir/documents/report.html</loc></url>
+  <url><loc>https://ervira.ir/documents/resume.html</loc></url>
+  <url><loc>https://ervira.ir/documents/table.html</loc></url>
+  <url><loc>https://ervira.ir/excel/attendance.html</loc></url>
+  <url><loc>https://ervira.ir/excel/branches.html</loc></url>
+  <url><loc>https://ervira.ir/excel/budget.html</loc></url>
+  <url><loc>https://ervira.ir/excel/cleaning.html</loc></url>
+  <url><loc>https://ervira.ir/excel/costing.html</loc></url>
+  <url><loc>https://ervira.ir/excel/gantt.html</loc></url>
+  <url><loc>https://ervira.ir/excel/</loc></url>
+  <url><loc>https://ervira.ir/excel/inventory.html</loc></url>
+  <url><loc>https://ervira.ir/excel/receivables.html</loc></url>
+  <url><loc>https://ervira.ir/excel/sales.html</loc></url>
+  <url><loc>https://ervira.ir/excel/survey.html</loc></url>
+  <url><loc>https://ervira.ir/graphics/</loc></url>
+  <url><loc>https://ervira.ir/</loc></url>
+  <url><loc>https://ervira.ir/presentations/01_Quarterly_Performance.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/02_Research_Defense.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/03_Company_Profile.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/04_Startup_Pitch.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/05_Digital_Product_Intro.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/06_Marketing_Plan.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/07_Excel_Training.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/08_Project_Progress.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/09_Product_Roadmap.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/10_Technical_Proposal.html</loc></url>
+  <url><loc>https://ervira.ir/presentations/</loc></url>
+  <url><loc>https://ervira.ir/services.html</loc></url>
+  <url><loc>https://ervira.ir/websites/01.html</loc></url>
+  <url><loc>https://ervira.ir/websites/02.html</loc></url>
+  <url><loc>https://ervira.ir/websites/03.html</loc></url>
+  <url><loc>https://ervira.ir/websites/04.html</loc></url>
+  <url><loc>https://ervira.ir/websites/05.html</loc></url>
+  <url><loc>https://ervira.ir/websites/06.html</loc></url>
+  <url><loc>https://ervira.ir/websites/07.html</loc></url>
+  <url><loc>https://ervira.ir/websites/08.html</loc></url>
+  <url><loc>https://ervira.ir/websites/09.html</loc></url>
+  <url><loc>https://ervira.ir/websites/10.html</loc></url>
+  <url><loc>https://ervira.ir/websites/</loc></url>
+  <url><loc>https://ervira.ir/works/dashboard.html</loc></url>
+  <url><loc>https://ervira.ir/works/invoice.html</loc></url>
+  <url><loc>https://ervira.ir/works/presentation.html</loc></url>
+  <url><loc>https://ervira.ir/works/text.html</loc></url>
 </urlset>

@@ -1,0 +1,155 @@
+{
+  "bundle_sha256": "afca4e6142dd56391bacc1b13d7c3712264e21643ff2e056f2570209b48e82ab",
+  "files": [
+    {
+      "path": "presentations/downloads/01_Quarterly_Performance.pptx",
+      "sha256": "ac1356c7c1638c0a65c9d4c571ed02324a151aab607d4032e01b7d0f664dada2",
+      "bytes": 172789
+    },
+    {
+      "path": "presentations/downloads/01_Quarterly_Performance.pdf",
+      "sha256": "2c1aa9119df79fc7fb3b3d1a9b5158343357346f7cd2bdd640253437ad753e91",
+      "bytes": 110333
+    },
+    {
+      "path": "presentations/previews/01_Quarterly_Performance.webp",
+      "sha256": "b658825b1e57dba37b95995977981de78d364792ed2565e5439e1020d257511d",
+      "bytes": 8590
+    },
+    {
+      "path": "presentations/downloads/02_Research_Defense.pptx",
+      "sha256": "2e8211b3e0b9d523fda23535cf65019d16d911b249b641b3edb768cf9e32713d",
+      "bytes": 174069
+    },
+    {
+      "path": "presentations/downloads/02_Research_Defense.pdf",
+      "sha256": "6fa089376f5ad8ddfb54ddbb7fba76cec32f691f0ef6850c3cd28b101bfb39db",
+      "bytes": 111999
+    },
+    {
+      "path": "presentations/previews/02_Research_Defense.webp",
+      "sha256": "5fad30f5e4806cad6fe799418288bc5fff84d1a3481369b53a9313f11be2cd98",
+      "bytes": 9676
+    },
+    {
+      "path": "presentations/downloads/03_Company_Profile.pptx",
+      "sha256": "89fbb36519165d885126faa294b76f327d148e298e645c2bd01fd183c502c67f",
+      "bytes": 174829
+    },
+    {
+      "path": "presentations/downloads/03_Company_Profile.pdf",
+      "sha256": "7f03f3246ec2b80d472e457c066e0f74159b812f920c76a030e7d5460ae7f5df",
+      "bytes": 112024
+    },
+    {
+      "path": "presentations/previews/03_Company_Profile.webp",
+      "sha256": "4228a8c7351c46464e843319d7acadbb68d71ec5115a64627f9b16e45b8b69c8",
+      "bytes": 9052
+    },
+    {
+      "path": "presentations/downloads/04_Startup_Pitch.pptx",
+      "sha256": "5196be39a716b23a387f108d375a58a5ed6e72c6c8a1e821829fe8ae7cc214e6",
+      "bytes": 177438
+    },
+    {
+      "path": "presentations/downloads/04_Startup_Pitch.pdf",
+      "sha256": "1b2e22d51c1e5333cd846b32650054385c8d84ee8f8311b459cd46e2e2ea8543",
+      "bytes": 114059
+    },
+    {
+      "path": "presentations/previews/04_Startup_Pitch.webp",
+      "sha256": "79c1471ff1b4030081b91bf72190797dac52de58fead7ea7052e63a39dcb7503",
+      "bytes": 8578
+    },
+    {
+      "path": "presentations/downloads/05_Digital_Product_Intro.pptx",
+      "sha256": "9198c337de0c99221118826e2a95814b5eafbb3b12fdb8ea736b2dca4cf0d2ff",
+      "bytes": 171208
+    },
+    {
+      "path": "presentations/downloads/05_Digital_Product_Intro.pdf",
+      "sha256": "f5b082e1cf1c4b85d8cc381f665b28b43de693319f53e9ddbba4c2cc03119eeb",
+      "bytes": 111407
+    },
+    {
+      "path": "presentations/previews/05_Digital_Product_Intro.webp",
+      "sha256": "a6ee820d792af2df0f5307024c9fb55b462cd5bd0a96b2262596fc0da50d1b4c",
+      "bytes": 7970
+    },
+    {
+      "path": "presentations/downloads/06_Marketing_Plan.pptx",
+      "sha256": "b8b99b6dfb03766d659613ddda834d6fe968886ca755f14a6fe323c82324dbad",
+      "bytes": 168941
+    },
+    {
+      "path": "presentations/downloads/06_Marketing_Plan.pdf",
+      "sha256": "f6a4c0e863d96d13ca105505352830972120063b9eee0bad0ffd46072d95e87d",
+      "bytes": 109430
+    },
+    {
+      "path": "presentations/previews/06_Marketing_Plan.webp",
+      "sha256": "2c2299851683480720f3af5dd412ed86504a5475bbc606a68009cd298672bf76",
+      "bytes": 9256
+    },
+    {
+      "path": "presentations/downloads/07_Excel_Training.pptx",
+      "sha256": "8c04a1305a42ce5c6b3db65813ba59aed6cb90e7c08ac5b656aaaf4531679b68",
+      "bytes": 173958
+    },
+    {
+      "path": "presentations/downloads/07_Excel_Training.pdf",
+      "sha256": "18743a2fde4f9b72d3338f9ebdf18095e2f651c0b1e3ae41ca86ccff0ab3f38c",
+      "bytes": 112084
+    },
+    {
+      "path": "presentations/previews/07_Excel_Training.webp",
+      "sha256": "00f44dbf3ce784dd689fc7962cb538c4aacb7e7afc0ad1badfed09b113f0a2e7",
+      "bytes": 8156
+    },
+    {
+      "path": "presentations/downloads/08_Project_Progress.pptx",
+      "sha256": "6035de49daa67d0ec71a8f324058504f632ed8ef308d300d38d7daafe36987ac",
+      "bytes": 177270
+    },
+    {
+      "path": "presentations/downloads/08_Project_Progress.pdf",
+      "sha256": "db9c9add9d9ce5e8eea8c04c15cbb2d2b87fc089b96c2ca2ff7523dbd1d2279a",
+      "bytes": 114072
+    },
+    {
+      "path": "presentations/previews/08_Project_Progress.webp",
+      "sha256": "227ef15c1761ebec317f6dd8d536e841bdcbab4a6b065afcaba2c0f3aa4577c6",
+      "bytes": 8832
+    },
+    {
+      "path": "presentations/downloads/09_Product_Roadmap.pptx",
+      "sha256": "f2913756470c85e6750c10153a32bf1d139f4e913f67a2038444770144d834cc",
+      "bytes": 174634
+    },
+    {
+      "path": "presentations/downloads/09_Product_Roadmap.pdf",
+      "sha256": "22336b91e426ccb47f5894aafe1a3b94a521c0ddaa110adf6477152262298ab2",
+      "bytes": 111609
+    },
+    {
+      "path": "presentations/previews/09_Product_Roadmap.webp",
+      "sha256": "2b7bcdcad53e094a275d480d9fa036205c6cc5d9b8675f6ad42284655448a257",
+      "bytes": 7908
+    },
+    {
+      "path": "presentations/downloads/10_Technical_Proposal.pptx",
+      "sha256": "c79f243d1fbd5a39e3900598b584a637cfa7a3debef95a3ecc97e5d0d4d70033",
+      "bytes": 177350
+    },
+    {
+      "path": "presentations/downloads/10_Technical_Proposal.pdf",
+      "sha256": "7df7a812d05ee79681d48e2d06499d8878eb6ba66894ed72380c405b07286900",
+      "bytes": 114846
+    },
+    {
+      "path": "presentations/previews/10_Technical_Proposal.webp",
+      "sha256": "0ecfde89d177bdb72ba2a9ca5250325debf1c1569287ecaa456d6d191547aafc",
+      "bytes": 8860
+    }
+  ]
+}

@@ -1,21 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import https from "node:https";
+import { resolveStructuralProContract } from "./resolve-structuralpro-contract.mjs";
 
 const root = process.cwd();
 const files = Array.from({length: 10}, (_, i) => "p" + String(i + 2).padStart(2, "0"));
 function read(p) { return JSON.parse(fs.readFileSync(path.join(root, "website", "data", "structuralpro-" + p + ".json"), "utf8")); }
-function fetchJson(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      let data = "";
-      res.on("data", c => data += c);
-      res.on("end", () => res.statusCode === 200 ? resolve(JSON.parse(data)) : reject(new Error("HTTP " + res.statusCode)));
-    }).on("error", reject);
-  });
-}
 const main = async () => {
-  const canonical = await fetchJson("https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json");
+  const canonical = await resolveStructuralProContract();
   for (const id of files) {
     const local = read(id);
     if (local.product_id !== canonical.product_id || local.parent_platform !== "ERVIRA" || local.version !== canonical.product.current_version || local.phase !== "P" + Number(id.slice(1))) throw new Error("Parity mismatch: " + id);

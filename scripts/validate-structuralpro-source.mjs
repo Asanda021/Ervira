@@ -1,24 +1,9 @@
 import fs from "node:fs";
-import https from "node:https";
+import { resolveStructuralProContract } from "./resolve-structuralpro-contract.mjs";
 
-const canonicalUrl = "https://raw.githubusercontent.com/Asanda021/StructuralPro/main/contracts/product-contract.json";
 const mirrorPath = "website/data/structuralpro-product.json";
 
-function fetchText(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, { headers: { "User-Agent": "ERVIRA-product-source-gate" } }, res => {
-      let body = "";
-      res.setEncoding("utf8");
-      res.on("data", chunk => { body += chunk; });
-      res.on("end", () => {
-        if (res.statusCode !== 200) reject(new Error("Canonical contract HTTP " + res.statusCode));
-        else resolve(body);
-      });
-    }).on("error", reject);
-  });
-}
-
-const canonical = JSON.parse(await fetchText(canonicalUrl));
+const canonical = await resolveStructuralProContract();
 const mirror = JSON.parse(fs.readFileSync(mirrorPath, "utf8"));
 
 const pick = value => ({

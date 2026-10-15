@@ -1,0 +1,185 @@
+{
+  "bundle_sha256": "acc81b9d5cbcda8a8c95cf5070bc5874c32c8f2dff2fb608cb44588c5a05f844",
+  "files": [
+    {
+      "file": "documents/downloads/01_Executive_Performance_Report.docx",
+      "sha256": "d86ea1d3dfdbf5534908460dee8ee44a9f7fcd946b4329c301df0aca83fe5efc",
+      "bytes": 40427,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/01_Executive_Performance_Report.pdf",
+      "sha256": "ad54ba221038501d0020d9781972ad007e0716d7bdfd60f87a9ac92c4433caa3",
+      "bytes": 65759,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/01_Executive_Performance_Report.webp",
+      "sha256": "a2f09f9204d0c8353a02dec1c4a91ecefbf13b6ec6b316be735b055e570a61d8",
+      "bytes": 38294,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/02_Data_Analysis_Proposal.docx",
+      "sha256": "c618dccdf355a2ceda5db534510c63c667c69333e9c48fcfdbeec91a4b3a1991",
+      "bytes": 40525,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/02_Data_Analysis_Proposal.pdf",
+      "sha256": "6214c776e1d8913affbb93f57adcf63494ec2905aae90b7fbe6f8dc36925cbcd",
+      "bytes": 68038,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/02_Data_Analysis_Proposal.webp",
+      "sha256": "e84994b13a15388dccee8d9fd96a64b81a412fc8127201dbe8e1244319d76b4d",
+      "bytes": 32688,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/03_Professional_Resume_Template.docx",
+      "sha256": "b2376a052e2f4dd6e1c571330a39aef76d6518fccc40d72dc3455cd36bb2cae0",
+      "bytes": 40107,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/03_Professional_Resume_Template.pdf",
+      "sha256": "5277958a0712842395eeefed9c3a875bf15a954dc143087485de0e118e428f45",
+      "bytes": 56971,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/03_Professional_Resume_Template.webp",
+      "sha256": "a312a05a28fe7cdf6bba44d983510870723a3d83bc071e4d69aa3ce4a988711c",
+      "bytes": 29872,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/04_Meeting_Minutes_Action_Log.docx",
+      "sha256": "4005ce912dac0749510a51f52f408e66d38f633fc57e45b53617f65242644c5a",
+      "bytes": 40448,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/04_Meeting_Minutes_Action_Log.pdf",
+      "sha256": "d54f80b68dc5c87383c3e52ab895a3b9f368a2b8f5d1f81fb77999c6091ef05c",
+      "bytes": 65256,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/04_Meeting_Minutes_Action_Log.webp",
+      "sha256": "1dfcaa822637af00715f7ff533d1270b6a62c07ed53c1f50b7cf32e494b8f42d",
+      "bytes": 26724,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/05_Service_Agreement_Layout_Sample.docx",
+      "sha256": "b0330fd02a370c8094bb5d35f327dbc250365ae8b8b9b1039c4341aff2ee33bf",
+      "bytes": 40289,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/05_Service_Agreement_Layout_Sample.pdf",
+      "sha256": "63c058ded1c854fbfb718bc2e279ffe30aea0030336c357ea81f1fe681ab0f96",
+      "bytes": 53071,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/05_Service_Agreement_Layout_Sample.webp",
+      "sha256": "6c63c0d63160e922ed5ae044a93ed996baef04ea84839d70679bc7136a9255ce",
+      "bytes": 39636,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/06_Field_Inspection_Report.docx",
+      "sha256": "d08c62aa4b2632bf3372431e375907e1e996235b26111667000f1e5853804568",
+      "bytes": 40453,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/06_Field_Inspection_Report.pdf",
+      "sha256": "4c199828a0ab2388ccf0c7c6de4a0150fcf7b0a8610ba851a71d9834603b6586",
+      "bytes": 65540,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/06_Field_Inspection_Report.webp",
+      "sha256": "bd1e1ff042be3e47e3985e39d4b516addab84b63cc490d78719e531f2d0cd120",
+      "bytes": 26970,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/07_Digital_Services_Catalog.docx",
+      "sha256": "f12f041b85f24ff7636b5fa330bef61d7a3dda65ed506deace3ddee978c2dc39",
+      "bytes": 40377,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/07_Digital_Services_Catalog.pdf",
+      "sha256": "8a78c0d5e75ea6075140291aa0ace20618803d79382b33209c7d013d439d5c5e",
+      "bytes": 65224,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/07_Digital_Services_Catalog.webp",
+      "sha256": "d7a7ba0debe191b3bd92be2ff431206ee93f984c03183e7d476803247a202b89",
+      "bytes": 32800,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/08_Persian_Editing_Before_After.docx",
+      "sha256": "2f3c95c1994d7952212daf13e2201eae2284df7e7ce06e7c48938deacc583087",
+      "bytes": 40396,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/08_Persian_Editing_Before_After.pdf",
+      "sha256": "64690d15302a73e7821b022379297252c62fa9682f45b98bc4469541d9ae5a2e",
+      "bytes": 55764,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/08_Persian_Editing_Before_After.webp",
+      "sha256": "113b9b9b9b368b3f10af9b2a042eec60554283323087ef372b1113264d2782bc",
+      "bytes": 37754,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/09_Editable_Table_Reconstruction.docx",
+      "sha256": "695fc743e5392c8fb23f7a9850cdd8c8ea2293ffc615e3f75f8473c0d9aadf1e",
+      "bytes": 40168,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/09_Editable_Table_Reconstruction.pdf",
+      "sha256": "79b7ea4eb6b99ad9baf0378614802d0064e070a840f9db2e4091dc4a6e6b2c32",
+      "bytes": 69420,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/09_Editable_Table_Reconstruction.webp",
+      "sha256": "9f67f5099364b5f8c04f876623ca631d922ae06d8182d85fb00d5f330a17e7b2",
+      "bytes": 27014,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/10_Persian_Business_Correspondence.docx",
+      "sha256": "e04f7b309103038ea365e96066eb917c2f6f67b37d259ff97671e27f27a5e757",
+      "bytes": 40179,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/downloads/10_Persian_Business_Correspondence.pdf",
+      "sha256": "df5f3b60f9fa7128b0a7f1d282f579f866e8aba956a88867d69c6ee033c70169",
+      "bytes": 50684,
+      "sample_kind": "independent_educational"
+    },
+    {
+      "file": "documents/previews/10_Persian_Business_Correspondence.webp",
+      "sha256": "019cce5a1b7dc9d4e587e872c572605a18dfca72c7bb28941f47fbf897b6f9d2",
+      "bytes": 34384,
+      "sample_kind": "independent_educational"
+    }
+  ]
+}

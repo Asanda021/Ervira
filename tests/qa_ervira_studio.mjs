@@ -165,6 +165,24 @@ try {
       await page.close();
     }
   }
+  // Separate motion-enabled browser run: reduced-motion QA alone cannot prove animation works.
+  const motionPage = await browser.newPage({ viewport: { width: 1280, height: 820 }, reducedMotion: "no-preference" });
+  try {
+    await motionPage.goto("http://127.0.0.1:8765/", { waitUntil: "domcontentloaded" });
+    const animationNames = await motionPage.evaluate(() => ({
+      glow: getComputedStyle(document.querySelector(".hero-sheen")).animationName,
+      float: getComputedStyle(document.querySelector(".hero-stage .stage-window")).animationName
+    }));
+    assert.match(animationNames.glow, /ervira-glow/, "Hero glow must actually animate");
+    assert.match(animationNames.float, /ervira-float/, "Hero showcase must actually animate");
+    await motionPage.locator(".solution-card").first().scrollIntoViewIfNeeded();
+    await motionPage.waitForFunction(() => document.querySelector(".solution-card")?.classList.contains("is-visible"),
+      { timeout: 6000 });
+    assert.ok(await motionPage.locator(".solution-card").first().evaluate(element =>
+      element.getAttribute("data-reveal") !== null), "Actual viewport reveal must be initialized");
+  } finally {
+    await motionPage.close();
+  }
   assert.equal(errors.length, 0, `JavaScript errors: ${errors.join("; ")}`);
   for (const [file, expected] of [["excel/downloads/01_ERVIRA_Sales_Intelligence.xlsx", "PK\u0003\u0004"], ["documents/downloads/01_Executive_Performance_Report.pdf", "%PDF-"], ["presentations/downloads/01_Quarterly_Performance.pptx", "PK\u0003\u0004"]]) {
     const data = fs.readFileSync(path.join(root, file));

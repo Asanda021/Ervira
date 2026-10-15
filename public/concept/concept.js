@@ -91,6 +91,34 @@
     }
   });
 
+
+  // A locally generated draft can be saved without contacting a server.
+  // Editing the form invalidates a previously prepared draft.
+  form?.addEventListener("input", () => {
+    if (result && !result.hidden) {
+      result.hidden = true;
+      if (output) output.value = "";
+      if (status) status.textContent = "اطلاعات تغییر کرده است؛ برای ساخت پیش‌نویس تازه دکمه آماده‌سازی را بزنید. هیچ پیامی ارسال نشده است.";
+    }
+  });
+  byId("briefDownload")?.addEventListener("click", () => {
+    if (!output?.value || result?.hidden) return;
+    const payload = new Blob(["\uFEFF", output.value, "\n"], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(payload);
+    try {
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "ERVIRA-project-request.txt";
+      anchor.style.display = "none";
+      document.body.append(anchor);
+      anchor.click();
+      anchor.remove();
+      status.textContent = "فایل متن درخواست روی دستگاه شما آماده شد. این کار به معنی ارسال سفارش نیست.";
+    } finally {
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+  });
+
   // Accessible motion: decorate elements only when IntersectionObserver is available.
   const motionIsReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
   if (!motionIsReduced && "IntersectionObserver" in window) {

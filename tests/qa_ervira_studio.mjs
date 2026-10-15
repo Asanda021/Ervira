@@ -110,6 +110,21 @@ try {
           await page.locator("#siteNav a[href='#selected']").click();
           assert.equal(await page.locator("#navToggle").getAttribute("aria-expanded"), "false");
         }
+        // Verify visible color feedback, not just click handlers or CSS strings.
+        if (width === 375) {
+          const heroButton = page.locator(".hero-buttons .button").first();
+          await heroButton.scrollIntoViewIfNeeded();
+          await heroButton.hover();
+          await page.mouse.down();
+          assert.equal(await heroButton.evaluate(element =>
+            getComputedStyle(element).backgroundColor), "rgb(166, 75, 32)",
+            "Pressed button must visibly change to copper, including on touch-sized screens");
+          await page.mouse.up();
+          await page.waitForTimeout(240);
+          assert.ok(!(await heroButton.evaluate(element =>
+            element.classList.contains("is-pressing"))), "Click feedback must be temporary");
+          assert.equal(await page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches), true);
+        }
         await page.locator('[data-filter="digital"]').click();
         assert.equal(await page.locator(".work-card:visible").count(), 2);
         await page.locator('[data-filter="all"]').click();

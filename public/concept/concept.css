@@ -422,3 +422,57 @@ button:disabled,.button[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
 @media(max-width:760px){.work-controls{grid-template-columns:1fr}.work-count{grid-column:auto}.about-teaser-inner{grid-template-columns:1fr;gap:8px}.service-offers{grid-template-columns:1fr}.draft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-lead-copy h1,.about-intro h1{font-size:clamp(34px,9vw,52px)}}
 @media(max-width:430px){.service-offer{padding:19px 17px}.draft-grid{grid-template-columns:1fr}.draft-grid p{min-height:0}.service-toc{gap:6px}.service-toc a{font-size:10px;padding:5px 9px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ERVIRA motion system v2: accessible, restrained and responsive. */
+:root{--motion-fast:160ms;--motion-normal:280ms;--motion-slow:720ms;--motion-ease:cubic-bezier(.22,.78,.18,1);--press-color:#a64b20}
+@keyframes ervira-glow{0%,100%{opacity:.48;transform:translate3d(0,0,0) scale(1)}50%{opacity:.8;transform:translate3d(16px,-9px,0) scale(1.07)}}
+@keyframes ervira-float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-9px,0)}}
+@keyframes ervira-enter{from{opacity:0;transform:translate3d(0,17px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.hero-sheen{animation:ervira-glow 13s ease-in-out infinite}
+.hero-stage .stage-window{animation:ervira-float 9s ease-in-out infinite;will-change:transform}
+.hero-copy .eyebrow{animation:ervira-enter 650ms var(--motion-ease) both}
+.hero-copy h1{animation:ervira-enter 750ms var(--motion-ease) 85ms both}
+.hero-copy .hero-description{animation:ervira-enter 750ms var(--motion-ease) 155ms both}
+.hero-copy .hero-buttons{animation:ervira-enter 750ms var(--motion-ease) 225ms both}
+/* Reveal is opt-in by JS: non-JS visitors always see all content. */
+.motion-ready [data-reveal]:not(.is-visible){opacity:0;transform:translate3d(0,18px,0)}
+.motion-ready [data-reveal].is-visible{opacity:1;transform:translate3d(0,0,0)}
+.motion-ready [data-reveal]{transition:opacity var(--motion-slow) var(--motion-ease),transform var(--motion-slow) var(--motion-ease)}
+/* Pressed visual response changes color as well as position; no false "completed" state. */
+a.button,.head-action,.filter,.nav-toggle,.brief-form button,.service-toc a,.service-tabs a,.service-view,.stage-link,.text-link{
+ transition:background-color var(--motion-normal) ease,color var(--motion-normal) ease,
+ border-color var(--motion-normal) ease,transform var(--motion-fast) ease,
+ box-shadow var(--motion-normal) ease;
+ touch-action:manipulation;
+}
+a.button:active,.head-action:active,.filter:active,.nav-toggle:active,
+.brief-form button:active,.service-toc a:active,.service-tabs a:active,
+.service-view:active,.stage-link:active,.text-link:active,
+a.button.is-pressing,.head-action.is-pressing,.filter.is-pressing,.nav-toggle.is-pressing,
+.brief-form button.is-pressing,.service-toc a.is-pressing,.service-tabs a.is-pressing,
+.service-view.is-pressing,.stage-link.is-pressing,.text-link.is-pressing{
+ background:#a64b20!important;color:#fffefa!important;
+ border-color:#a64b20!important;box-shadow:0 0 0 4px rgba(166,75,32,.17);
+ transform:translateY(1px) scale(.975);
+}
+.nav-toggle[aria-expanded="true"]{background:#d7e9dd;border-radius:10px}
+.nav-toggle[aria-expanded="true"] span{background:#144b3d}
+.filter[aria-pressed="true"]{background:#144b3d;color:#fffefa;border-color:#144b3d}
+.site-nav>a[aria-current="page"]{color:#144b3d}
+.site-nav>a[aria-current="page"]:after{width:100%}
+.work-card,.solution-card,.service-offer{transition:transform .3s var(--motion-ease),box-shadow .3s ease,border-color .3s ease,background-color .3s ease}
+@media(hover:hover) and (pointer:fine){
+ .work-card:hover,.solution-card:hover,.service-offer:hover{transform:translateY(-5px);box-shadow:0 17px 44px rgba(27,73,46,.13)}
+ .stage-link:hover,.text-link:hover{color:#a64b20}
+}
+@media(max-width:650px){
+ .hero-stage .stage-window{animation-duration:12s}
+ .hero-sheen{animation-duration:17s}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-sheen,.hero-stage .stage-window,.hero-copy .eyebrow,.hero-copy h1,
+ .hero-copy .hero-description,.hero-copy .hero-buttons{animation:none!important}
+ .motion-ready [data-reveal],.motion-ready [data-reveal]:not(.is-visible){opacity:1!important;transform:none!important}
+ a.button,.head-action,.filter,.nav-toggle,.brief-form button,.service-toc a,
+ .service-tabs a,.service-view,.stage-link,.text-link{transition:none!important}
+}

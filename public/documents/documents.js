@@ -24,6 +24,7 @@ document.querySelectorAll("[data-doc-base]").forEach(async item=>{
    link.href=url;link.download=basename+"."+file.ext;link.className="btn btn-primary";
    link.textContent=file.label;actions.append(link);
    item.classList.add("document-ready");
+   const description=item.querySelector("p");if(description)description.textContent="فایل‌های آموزشی این نمونه در صورت تأیید پاسخ سرور، از لینک‌های زیر قابل دریافت‌اند. پیش از استفاده، محتوای آن‌ها را مستقل بازبینی کنید.";
   }catch{ /* No preview of broken URLs */ }
  }
 });

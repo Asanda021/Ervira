@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve("public");
-const requiredPages = ["index.html", "services.html", "about.html", "cases/sales-dashboard.html"];
+const requiredPages = ["index.html", "services.html", "about.html", "cases/sales-dashboard.html", "portfolio/index.html"];
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
 for (const file of requiredPages) assert.ok(fs.existsSync(path.join(root, file)), `Missing public page: ${file}`);
 
@@ -17,6 +17,18 @@ assert.doesNotMatch(homepage, /StructuralPro|فروشگاه محصولات نر�
 assert.match(homepage, /href="about\.html"/);
 assert.match(homepage, /id="workSearch"/, "Portfolio must offer a working search field");
 assert.match(homepage, /id="workCount"/, "Portfolio must show its real visible result count");
+
+
+const gallery = read("portfolio/index.html");
+assert.match(gallery, /<html lang="fa" dir="rtl">/, "Gallery must be Persian RTL");
+assert.equal((gallery.match(/class="folio-card(?: folio-feature)?"/g)||[]).length,30,"Gallery must include 30 actual sample cards");
+assert.match(read("sitemap.xml"), /https:\/\/ervira\.ir\/portfolio\//, "Gallery must be indexed");
+for(const [,href] of gallery.matchAll(/(?:href|src)="(\/(?!\/)[^"]+)"/g)){
+ const local=href.split(/[?#]/,1)[0].replace(/^\//,"");
+ if(!local)continue;
+ const dest=path.join(root,local);
+ assert.ok(fs.existsSync(dest)||fs.existsSync(path.join(dest,"index.html")), "Gallery asset missing: "+href);
+}
 
 const services = read("services.html");
 assert.match(services, /name="robots" content="index,follow"/i);
@@ -79,7 +91,7 @@ const { chromium } = await import("playwright");
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 const outputDir = path.resolve("site-qa");
 fs.mkdirSync(outputDir, { recursive: true });
-const pages = ["/", "/services.html", "/about.html", "/cases/sales-dashboard.html"];
+const pages = ["/", "/services.html", "/portfolio/", "/about.html", "/cases/sales-dashboard.html"];
 const widths = [320, 375, 430, 768, 1024, 1440];
 const errors = [];
 try {
@@ -149,6 +161,24 @@ try {
           assert.equal(download.suggestedFilename(), "ERVIRA-project-request.txt");
           assert.match(await page.locator("#briefStatus").textContent(), /به معنی ارسال سفارش نیست/);
         }
+      }
+      if (route === "/portfolio/") {
+        assert.equal(await page.locator(".folio-card").count(), 30, "Expected thirty rendered project tiles");
+        assert.equal(await page.locator(".folio-card:visible").count(), 30);
+        assert.ok(await page.locator(".folio-card img").first().evaluate(img => img.complete && img.naturalWidth>0), "Real portfolio preview failed to load");
+        await page.locator('[data-kind-filter="document"]').click();
+        assert.equal(await page.locator(".folio-card:visible").count(),10,"Documents filter");
+        await page.locator('[data-kind-filter="all"]').click();
+        await page.locator("#folioSearch").fill("گانت");
+        assert.equal(await page.locator(".folio-card:visible").count(),1,"Search must match project title");
+        await page.locator("#folioSearch").fill("نمونه‌ای وجود ندارد");
+        assert.ok(await page.locator("#folioEmpty").isVisible(),"Empty result message required");
+        await page.locator("#folioSearch").fill("");
+        assert.equal(await page.locator(".folio-card:visible").count(),30);
+        await page.locator(".folio-zoom").first().click();
+        assert.equal(await page.locator("#folioModal").evaluate(el=>el.open),true,"Preview dialog should open");
+        await page.locator("#folioClose").click();
+        assert.equal(await page.locator("#folioModal").evaluate(el=>el.open),false,"Preview dialog should close");
       }
       if (route === "/services.html") assert.equal(await page.locator("[data-service]").count(), 8);
       if (width <= 768 && route !== "/") {

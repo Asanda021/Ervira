@@ -19,6 +19,24 @@ assert.match(homepage, /id="workSearch"/, "Portfolio must offer a working search
 assert.match(homepage, /id="workCount"/, "Portfolio must show its real visible result count");
 
 
+
+// Standalone reference-first preview: no change to public homepage until owner approval.
+const phase1Preview = read("previews/homepage-phase1.html");
+assert.match(phase1Preview, /name="robots" content="noindex,nofollow"/, "Phase 1 must not be indexed before approval");
+assert.match(phase1Preview, /id="selected"/);
+assert.match(phase1Preview, /id="services"/);
+assert.match(phase1Preview, /id="navToggle"/);
+assert.equal((phase1Preview.match(/class="case-media"/g) || []).length, 3, "Exactly three large case studies are required");
+assert.equal((phase1Preview.match(/class="service-row"/g) || []).length, 5, "Exactly five service lines are required");
+assert.match(phase1Preview, /نمونه‌های فعلی مستقل و آموزشی‌اند/);
+assert.doesNotMatch(phase1Preview, /StructuralPro|مشتریان ما|رضایت مشتریان/i);
+for (const [, href] of phase1Preview.matchAll(/\b(?:href|src)="(\/[^"]+)"/g)) {
+  const local = href.split(/[?#]/)[0].replace(/^\//, "");
+  if (!local) continue;
+  const target = path.join(root, local);
+  assert.ok(fs.existsSync(target) || fs.existsSync(path.join(target, "index.html")), "Preview link missing: " + href);
+}
+
 const gallery = read("portfolio/index.html");
 assert.match(gallery, /<html lang="fa" dir="rtl">/, "Gallery must be Persian RTL");
 assert.equal((gallery.match(/class="folio-card(?: folio-feature)?"/g)||[]).length,30,"Gallery must include 30 actual sample cards");
@@ -91,7 +109,7 @@ const { chromium } = await import("playwright");
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 const outputDir = path.resolve("site-qa");
 fs.mkdirSync(outputDir, { recursive: true });
-const pages = ["/", "/services.html", "/portfolio/", "/about.html", "/cases/sales-dashboard.html"];
+const pages = ["/", "/services.html", "/portfolio/", "/previews/homepage-phase1.html", "/about.html", "/cases/sales-dashboard.html"];
 const widths = [320, 375, 430, 768, 1024, 1440];
 const errors = [];
 try {
@@ -162,6 +180,15 @@ try {
           assert.match(await page.locator("#briefStatus").textContent(), /به معنی ارسال سفارش نیست/);
         }
       }
+      if (route === "/previews/homepage-phase1.html") {
+        assert.equal(await page.locator(".case-media").count(), 3, "Preview needs three real project images");
+        assert.equal(await page.locator(".service-row").count(), 5, "Preview needs five services");
+        const images = await page.locator(".case-media img").evaluateAll(list => list.map(img => img.complete && img.naturalWidth > 0));
+        assert.ok(images.every(Boolean), "All featured case thumbnails must be real, loadable assets");
+        assert.equal(await page.locator('meta[name="robots"]').getAttribute("content"), "noindex,nofollow");
+        const hero = page.locator(".hero h1");
+        assert.ok(await hero.isVisible(), "Hero headline is visible");
+      }
       if (route === "/portfolio/") {
         assert.equal(await page.locator(".folio-card").count(), 30, "Expected thirty rendered project tiles");
         assert.equal(await page.locator(".folio-card:visible").count(), 30);
@@ -184,7 +211,8 @@ try {
       if (width <= 768 && route !== "/") {
         await page.locator("#navToggle").click();
         assert.equal(await page.locator("#navToggle").getAttribute("aria-expanded"), "true", `${route}: mobile navigation did not open`);
-        assert.ok(await page.locator("#siteNav").isVisible(), `${route}: open mobile navigation is hidden`);
+        const navId = route === "/previews/homepage-phase1.html" ? "#mainNav" : "#siteNav";
+        assert.ok(await page.locator(navId).isVisible(), `${route}: open mobile navigation is hidden`);
         await page.keyboard.press("Escape");
         assert.equal(await page.locator("#navToggle").getAttribute("aria-expanded"), "false", `${route}: Escape did not close navigation`);
       }

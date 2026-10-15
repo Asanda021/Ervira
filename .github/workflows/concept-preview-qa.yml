@@ -62,6 +62,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ervira-concept-visual-qa
-          path: concept-qa/
+          path: |
+            concept-qa/
+            site-qa/
           if-no-files-found: ignore
           retention-days: 7
